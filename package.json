@@ -18,6 +18,7 @@
     "jquery": "2.2.4",
     "jquery-validation": "1.15.1",
     "meteor-node-stubs": "0.2.6",
+    "notie": "4.3.1",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-addons-pure-render-mixin": "15.5.2",
