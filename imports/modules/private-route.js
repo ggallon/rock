@@ -30,7 +30,7 @@ PrivateRoute.propTypes = {
     PropTypes.element,
     PropTypes.func,
   ]).isRequired,
-  location: PropTypes.object,
+  location: PropTypes.string,
 };
 
 export default PrivateRoute;
