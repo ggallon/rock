@@ -1,4 +1,5 @@
 import { Accounts } from 'meteor/accounts-base';
+import { Roles } from 'meteor/alanning:roles';
 
 Accounts.onCreateUser((options, user) => {
   const profile = options.profile;
@@ -9,7 +10,7 @@ Accounts.onCreateUser((options, user) => {
   }
 
   if (options.email !== 'admin@admin.com') {
-    newUser.roles = ['registered'];
+    newUser.roles = ['registered', Roles.GLOBAL_GROUP];
   }
 
   return newUser;

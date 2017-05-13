@@ -7,9 +7,9 @@ if (!Meteor.isProduction) {
     email: 'admin@admin.com',
     password: 'password',
     profile: {
-      name: { first: 'Carl', last: 'Winslow' },
+      name: { first: 'Gwenaël', last: 'Gallon' },
     },
-    roles: ['admin'],
+    roles: ['super-admin'],
   }];
 
   users.forEach(({ email, password, profile, roles }) => {
@@ -17,7 +17,8 @@ if (!Meteor.isProduction) {
 
     if (!userExists) {
       const userId = Accounts.createUser({ email, password, profile });
-      Roles.addUsersToRoles(userId, roles);
+      Meteor.users.update(userId, { $set: { 'emails.0.verified': true } });
+      Roles.addUsersToRoles(userId, roles, Roles.GLOBAL_GROUP);
     }
   });
 }
