@@ -9,13 +9,15 @@
     "allowImportExportEverywhere": true
   },
   "plugins": [
-    "meteor"
+    "meteor",
+    "import"
   ],
   "extends": [
     "airbnb",
     "plugin:meteor/recommended"
   ],
   "rules": {
+    "import/no-absolute-path": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
