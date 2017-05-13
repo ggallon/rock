@@ -22,7 +22,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 PrivateRoute.defaultProps = {
-  location: null,
+  location: '/',
 };
 
 PrivateRoute.propTypes = {
