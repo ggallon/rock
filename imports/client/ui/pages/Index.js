@@ -4,10 +4,10 @@ import { Jumbotron } from 'react-bootstrap';
 const Index = () => (
   <div className="Index">
     <Jumbotron className="text-center">
-      <h2>Base</h2>
+      <h2>Rock</h2>
       <p>A starting point for Meteor applications.</p>
       <p><a className="btn btn-success" href="https://themeteorchef.com/base" role="button">Read the Documentation</a></p>
-      <p style={ { fontSize: '16px', color: '#aaa' } }>Currently at v4.15.0</p>
+      <p style={{ fontSize: '16px', color: '#aaa' }}>Currently at v1.0.0</p>
     </Jumbotron>
   </div>
 );
