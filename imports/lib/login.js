@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import './validation';
 
 let component;
 

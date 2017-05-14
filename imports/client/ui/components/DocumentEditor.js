@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-import documentEditor from '/imports/lib/document-editor.js';
+import documentEditor from '/imports/lib/document-editor';
 
 class DocumentEditor extends Component {
   componentDidMount() {
