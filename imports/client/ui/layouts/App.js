@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
-import PrivateRoute from '/imports/modules/private-route';
+import PrivateRoute from '/imports/lib/private-route';
 import AppNavigation from '/imports/client/ui/components/AppNavigation';
 import EditDocument from '/imports/client/ui/pages/EditDocument';
 import ViewDocument from '/imports/client/ui/pages/ViewDocument';

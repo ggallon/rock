@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 
 import Documents from '/imports/api/documents/documents';
-import container from '/imports/modules/container';
-import Loading from '../components/Loading';
+import container from '/imports/lib/container';
+import Loading from '/imports/client/ui/components/Loading';
 
 const DocumentsList = ({ documents, history }) => (
   documents.length > 0 ? <ListGroup className="DocumentsList">

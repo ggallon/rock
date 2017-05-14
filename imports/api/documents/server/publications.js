@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Documents from '../documents';
+import Documents from '/imports/api/documents/documents';
 
 Meteor.publish('documents.list', () => Documents.find());
 

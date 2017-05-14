@@ -1,14 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
-import Documents from '../../../api/documents/documents';
-import { removeDocument } from '../../../api/documents/methods';
+import container from '/imports/lib/container';
+import Documents from '/imports/api/documents/documents';
+import { removeDocument } from '/imports/api/documents/methods';
+import Loading from '/imports/client/ui/components/Loading';
 import NotFound from './NotFound';
-import container from '../../../modules/container';
-import Loading from '../components/Loading';
 
 const handleRemove = (history, _id) => {
   if (confirm('Are you sure? This is permanent!')) {
@@ -48,7 +48,7 @@ ViewDocument.defaultProps = {
 };
 
 ViewDocument.propTypes = {
-  doc: React.PropTypes.object,
+  doc: PropTypes.object,
   history: PropTypes.object,
 };
 
