@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
-import DocumentsList from '../components/DocumentsList';
+import DocumentsList from '/imports/client/ui/components/DocumentsList';
 
 const Documents = () => (
   <div className="Documents">

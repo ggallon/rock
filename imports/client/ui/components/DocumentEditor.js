@@ -1,9 +1,9 @@
 /* eslint-disable max-len, no-return-assign */
-
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+
 import documentEditor from '../../../modules/document-editor.js';
 
 class DocumentEditor extends Component {

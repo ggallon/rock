@@ -1,9 +1,10 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { Meteor } from 'meteor/meteor';
+
 
 const userName = () => {
   const user = Meteor.user();
