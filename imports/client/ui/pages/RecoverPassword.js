@@ -15,10 +15,11 @@ class RecoverPassword extends Component {
     return (
       <div className="RecoverPassword">
         <Row>
-          <Col xs={12} sm={6} md={4}>
-            <h4 className="page-header">Recover Password</h4>
+          <Col xs={12} sm={6} md={5} lg={4} className="center-block">
+            <h4 className="page-header">Vous rencontrez des difficultés à vous connecter ?</h4>
             <Alert bsStyle="info">
-              Enter your email address below to receive a link to reset your password.
+              <h5>Saisissez votre identifiant pour commencer</h5>
+              Si vous voulez réinitialiser un mot de passe, déverrouiller un compte, vous êtes au bon endroit...
             </Alert>
             <form
               ref={form => (this.recoverPasswordForm = form)}
@@ -30,10 +31,10 @@ class RecoverPassword extends Component {
                   type="email"
                   ref="emailAddress"
                   name="emailAddress"
-                  placeholder="Email Address"
+                  placeholder="Veuillez saisir votre identifiant (e-mail)"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Recover Password</Button>
+              <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
             </form>
           </Col>
         </Row>

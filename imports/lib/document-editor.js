@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertDocument } from '../api/documents/methods.js';
+import { upsertDocument } from '/imports/api/documents/methods';
 import './validation.js';
 
 let component;

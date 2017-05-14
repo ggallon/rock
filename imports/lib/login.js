@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import './validation';
 
 let component;
 
@@ -17,8 +17,8 @@ const login = () => {
       Bert.alert('Logged in!', 'success');
 
       const { location, history } = component.props;
-      if (location.state && location.state.nextPathname) {
-        history.push(location.state.nextPathname);
+      if (location.state && location.state.from.pathname) {
+        history.push(location.state.from.pathname);
       } else {
         history.push('/');
       }
@@ -39,11 +39,11 @@ const validate = () => {
     },
     messages: {
       emailAddress: {
-        required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        required: 'Votre identifiant (e-mail) est requis',
+        email: 'Vous devez saisir une adresse e-mail valide',
       },
       password: {
-        required: 'Need a password here.',
+        required: 'Votre mot de passe est requis',
       },
     },
     submitHandler() { login(); },

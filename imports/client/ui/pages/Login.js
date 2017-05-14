@@ -16,36 +16,40 @@ class Login extends Component {
     return (
       <div className="Login">
         <Row>
-          <Col xs={12} sm={6} md={4}>
-            <h4 className="page-header">Login</h4>
+          <Col xs={12} sm={5} md={4} lg={4} className="center-block">
+            <h4 className="page-header">Connexion à Rock</h4>
             <form
               ref={form => (this.loginForm = form)}
-              className="login"
+              className="form-login"
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
-                <ControlLabel>Email Address</ControlLabel>
+                <ControlLabel className="sr-only">Identifiant</ControlLabel>
                 <FormControl
                   type="email"
                   ref="emailAddress"
                   name="emailAddress"
-                  placeholder="Email Address"
+                  placeholder="Identifiant"
+                  bsSize="large"
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel>
-                  <span className="pull-left">Password</span>
-                  <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
-                </ControlLabel>
+                <ControlLabel className="sr-only">Mot de passe</ControlLabel>
                 <FormControl
                   type="password"
                   ref="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
+                  bsSize="large"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Login</Button>
+              <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
             </form>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={5} md={4} lg={4} className="center-block">
+            <Link className="pull-right" to="/recover-password" className="pull-left">Mot de passe oublié ?</Link>
           </Col>
         </Row>
       </div>
