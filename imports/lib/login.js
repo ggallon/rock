@@ -39,11 +39,11 @@ const validate = () => {
     },
     messages: {
       emailAddress: {
-        required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        required: 'Votre identifiant (e-mail) est requis',
+        email: 'Vous devez saisir une adresse e-mail valide',
       },
       password: {
-        required: 'Need a password here.',
+        required: 'Votre mot de passe est requis',
       },
     },
     submitHandler() { login(); },
