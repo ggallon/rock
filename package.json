@@ -1,8 +1,9 @@
 {
-  "name": "Rock",
+  "name": "rock",
   "version": "1.0.0",
-  "description": "Rock | Developpement testing",
-  "private": true,
+  "description": "Rock | Development testing",
+  "repository": "https://github.com/ggallon/rock.git",
+  "author": "Gwenaël Gallon",
   "license": "MIT",
   "scripts": {
     "start": "meteor --settings settings-development.json",

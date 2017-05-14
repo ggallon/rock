@@ -1,17 +1,15 @@
-# The Meteor Chef - Base
-A starting point for Meteor apps.
+# Rock
+A starting point for Meteor apps and development testing.
 
 <table>
   <tbody>
     <tr>
-      <th>Base Version</th>
-      <td>v4.15.0</td>
+      <th>Rock Version</th>
+      <td>v1.0.0</td>
     </tr>
     <tr>
       <th>Meteor Version</th>
-      <td>v1.4.4.1</td>
+      <td>v1.4.4.2</td>
     </tr>
   </tbody>
 </table>
-
-[Read the Documentation](http://themeteorchef.com/base)
