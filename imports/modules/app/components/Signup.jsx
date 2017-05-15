@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Row, Col, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
-import handleSignup from '/imports/lib/signup';
+import handleSignup from '../lib/signup';
 
 class Signup extends Component {
   componentDidMount() {
