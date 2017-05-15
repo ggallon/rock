@@ -66,7 +66,16 @@ class Signup extends Component {
                   placeholder="Mot de passe"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
+              <FormGroup>
+                <ControlLabel>Confirmation mot de passe</ControlLabel>
+                <FormControl
+                  type="password"
+                  ref="repeatPassword"
+                  name="repeatPassword"
+                  placeholder="Mot de passe"
+                />
+              </FormGroup>
+              <Button type="submit" bsStyle="success" className="pull-right">Confirmer</Button>
             </form>
           </Col>
         </Row>

@@ -45,7 +45,11 @@ const validate = () => {
       },
       password: {
         required: true,
-        minlength: 6,
+        minlength: 8,
+      },
+      repeatNewPassword: {
+        required: true,
+        equalTo: '[name="password"]',
       },
     },
     messages: {
@@ -61,7 +65,11 @@ const validate = () => {
       },
       password: {
         required: 'Votre mot de passe est requis',
-        minlength: 'Il doit contenir au minimun 6 caractères',
+        minlength: 'Votre mot de passe doit comporter 8 caractères minimun.',
+      },
+      repeatPassword: {
+        required: 'Vous devez confimer votre mot de passe',
+        equalTo: 'Le mot de passe et sa confirmation sont différents',
       },
     },
     submitHandler() { signup(); },
