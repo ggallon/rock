@@ -7,8 +7,8 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
 import { removeDocument } from '/imports/api/documents/methods';
-import Loading from '/imports/client/ui/components/Loading';
-import NotFound from './NotFound';
+import NotFound from '/imports/ui/components/NotFound';
+import Loading from '/imports/ui/components/Loading';
 
 const handleRemove = (history, _id) => {
   if (confirm('Are you sure? This is permanent!')) {

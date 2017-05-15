@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import './validation';
+import '/imports/lib/validation';
 
 let component;
 

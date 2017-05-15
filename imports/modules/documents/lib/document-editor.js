@@ -2,7 +2,7 @@
 
 import { Bert } from 'meteor/themeteorchef:bert';
 import { upsertDocument } from '/imports/api/documents/methods';
-import './validation.js';
+import '/imports/lib/validation';
 
 let component;
 

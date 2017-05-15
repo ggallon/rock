@@ -6,7 +6,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 // Imports Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from '/imports/client/ui/layouts/App';
+import App from '/imports/ui/layouts/App';
 
 Bert.defaults.style = 'growl-top-right';
 

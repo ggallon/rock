@@ -6,7 +6,7 @@ import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 
 import Documents from '/imports/api/documents/documents';
 import container from '/imports/lib/container';
-import Loading from '/imports/client/ui/components/Loading';
+import Loading from '/imports/ui/components/Loading';
 
 const DocumentsList = ({ documents, history }) => (
   documents.length > 0 ? <ListGroup className="DocumentsList">

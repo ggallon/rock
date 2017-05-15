@@ -3,11 +3,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import container from '/imports/lib/container';
-import Loading from '/imports/client/ui/components/Loading';
 import Documents from '/imports/api/documents/documents';
-import DocumentEditor from '/imports/client/ui/components/DocumentEditor';
-import NotFound from '/imports/client/ui/pages/NotFound';
-
+import NotFound from '/imports/ui/components/NotFound';
+import Loading from '/imports/ui/components/Loading';
+import DocumentEditor from './DocumentEditor';
 
 const EditDocument = ({ doc }) => (doc ? (
   <div className="EditDocument">
