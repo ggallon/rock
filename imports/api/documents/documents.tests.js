@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* eslint-disable func-names, prefer-arrow-callback */
 
-import { assert } from 'meteor/practicalmeteor:chai';
+import { assert } from 'chai';
 import Documents from './documents.js';
 
 describe('Documents collection', function () {
