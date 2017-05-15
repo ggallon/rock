@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
@@ -22,8 +20,8 @@ class ResetPassword extends Component {
           <Col xs={12} sm={6} md={5} lg={4} className="center-block">
             <h4 className="page-header">Renseigner votre nouveau nouveau mot de passe</h4>
             <Alert bsStyle="info">
-              Votre mot de passe doit comporter un minimum de 8 caractères, il peut contenir des chiffres,
-              des majuscules et des caractères spéciaux.
+              Votre mot de passe doit comporter un minimum de 8 caractères,
+              il peut contenir des chiffres, des majuscules et des caractères spéciaux.
             </Alert>
             <form
               ref={form => (this.resetPasswordForm = form)}
