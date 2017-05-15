@@ -21,7 +21,7 @@ const AuthenticatedNavigation = ({ history }) => (
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={3} title={userName()} id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1} onClick={() => Meteor.logout(() => history.push('/login'))}>Logout</MenuItem>
+        <MenuItem eventKey={3.1} onClick={() => Meteor.logout(() => history.push('/login'))}>Se déconnecter</MenuItem>
       </NavDropdown>
     </Nav>
   </div>

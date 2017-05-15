@@ -1,14 +1,13 @@
 /* eslint-disable no-undef */
-
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertDocument } from '../api/documents/methods.js';
-import './validation.js';
+import { upsertDocument } from '/imports/api/documents/methods';
+import '/imports/lib/validation';
 
 let component;
 
 const handleUpsert = () => {
   const { doc, history } = component.props;
-  const confirmation = doc && doc._id ? 'Document updated!' : 'Document added!';
+  const confirmation = doc && doc._id ? 'Document mise à jour !' : 'Document ajouté !';
   const upsert = {
     title: document.querySelector('[name="title"]').value.trim(),
     body: document.querySelector('[name="body"]').value.trim(),
@@ -39,10 +38,10 @@ const validate = () => {
     },
     messages: {
       title: {
-        required: 'Need a title in here, thanks!.',
+        required: 'Le titre est requis',
       },
       body: {
-        required: 'This needs a body, please.',
+        required: 'Le corp est requis',
       },
     },
     submitHandler() { handleUpsert(); },

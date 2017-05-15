@@ -4,8 +4,8 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import container from '/imports/lib/container';
-import PublicNavigation from './PublicNavigation.js';
-import AuthenticatedNavigation from './AuthenticatedNavigation.js';
+import PublicNavigation from './PublicNavigation';
+import AuthenticatedNavigation from './AuthenticatedNavigation';
 
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 

@@ -1,10 +1,8 @@
-/* eslint-disable max-len */
-
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import handleResetPassword from '/imports/lib/reset-password';
+import handleResetPassword from '../lib/reset-password';
 
 class ResetPassword extends Component {
   componentDidMount() {
@@ -19,10 +17,11 @@ class ResetPassword extends Component {
     return (
       <div className="ResetPassword">
         <Row>
-          <Col xs={12} sm={6} md={4}>
-            <h4 className="page-header">Reset Password</h4>
+          <Col xs={12} sm={6} md={5} lg={4} className="center-block">
+            <h4 className="page-header">Renseigner votre nouveau nouveau mot de passe</h4>
             <Alert bsStyle="info">
-              To reset your password, enter a new one below. You will be logged in with your new password.
+              Votre mot de passe doit comporter un minimum de 8 caractères,
+              il peut contenir des chiffres, des majuscules et des caractères spéciaux.
             </Alert>
             <form
               ref={form => (this.resetPasswordForm = form)}
@@ -30,24 +29,24 @@ class ResetPassword extends Component {
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
-                <ControlLabel>New Password</ControlLabel>
+                <ControlLabel>Nouveau mot de passe</ControlLabel>
                 <FormControl
                   type="password"
                   ref="newPassword"
                   name="newPassword"
-                  placeholder="New Password"
+                  placeholder="Mot de passe"
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel>Repeat New Password</ControlLabel>
+                <ControlLabel>Confirmation mot de passe</ControlLabel>
                 <FormControl
                   type="password"
                   ref="repeatNewPassword"
                   name="repeatNewPassword"
-                  placeholder="Repeat New Password"
+                  placeholder="Mot de passe"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Reset Password &amp; Login</Button>
+              <Button type="submit" bsStyle="success" className="pull-right">Confirmer</Button>
             </form>
           </Col>
         </Row>

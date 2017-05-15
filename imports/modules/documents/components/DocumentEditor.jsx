@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-import documentEditor from '/imports/lib/document-editor.js';
+import documentEditor from '../lib/document-editor';
 
 class DocumentEditor extends Component {
   componentDidMount() {
@@ -21,16 +21,16 @@ class DocumentEditor extends Component {
         onSubmit={event => event.preventDefault()}
       >
         <FormGroup>
-          <ControlLabel>Title</ControlLabel>
+          <ControlLabel>Titre</ControlLabel>
           <FormControl
             type="text"
             name="title"
             defaultValue={doc && doc.title}
-            placeholder="Oh, The Places You'll Go!"
+            placeholder="Oh, les lieu où vous irez!"
           />
         </FormGroup>
         <FormGroup>
-          <ControlLabel>Body</ControlLabel>
+          <ControlLabel>Corp</ControlLabel>
           <FormControl
             componentClass="textarea"
             name="body"
@@ -39,7 +39,7 @@ class DocumentEditor extends Component {
           />
         </FormGroup>
         <Button type="submit" bsStyle="success">
-          {doc && doc._id ? 'Save Changes' : 'Add Document'}
+          {doc && doc._id ? 'Enregistrer' : 'Nouveau'}
         </Button>
       </form>
     );

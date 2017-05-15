@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import '/imports/lib/validation';
 
 let component;
 
@@ -45,23 +45,31 @@ const validate = () => {
       },
       password: {
         required: true,
-        minlength: 6,
+        minlength: 8,
+      },
+      repeatNewPassword: {
+        required: true,
+        equalTo: '[name="password"]',
       },
     },
     messages: {
       firstName: {
-        required: 'First name?',
+        required: 'Votre prénom est requis',
       },
       lastName: {
-        required: 'Last name?',
+        required: 'Votre nom est requis',
       },
       emailAddress: {
-        required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        required: 'Votre identifiant (e-mail) est requis',
+        email: 'Vous devez saisir une adresse e-mail valide',
       },
       password: {
-        required: 'Need a password here.',
-        minlength: 'Use at least six characters, please.',
+        required: 'Votre mot de passe est requis',
+        minlength: 'Votre mot de passe doit comporter 8 caractères minimun.',
+      },
+      repeatPassword: {
+        required: 'Vous devez confimer votre mot de passe',
+        equalTo: 'Le mot de passe et sa confirmation sont différents',
       },
     },
     submitHandler() { signup(); },

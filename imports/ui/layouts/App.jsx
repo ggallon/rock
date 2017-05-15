@@ -3,17 +3,21 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
 import PrivateRoute from '/imports/lib/private-route';
-import AppNavigation from '/imports/client/ui/components/AppNavigation';
-import EditDocument from '/imports/client/ui/pages/EditDocument';
-import ViewDocument from '/imports/client/ui/pages/ViewDocument';
-import Documents from '/imports/client/ui/pages/Documents';
-import NewDocument from '/imports/client/ui/pages/NewDocument';
-import Index from '/imports/client/ui/pages/Index';
-import Login from '/imports/client/ui/pages/Login';
-import NotFound from '/imports/client/ui/pages/NotFound';
-import RecoverPassword from '/imports/client/ui/pages/RecoverPassword';
-import ResetPassword from '/imports/client/ui/pages/ResetPassword';
-import Signup from '/imports/client/ui/pages/Signup';
+import AppNavigation from '/imports/ui/components/AppNavigation';
+
+import Index from '/imports/modules/app/components/Index';
+
+import Documents from '/imports/modules/documents/components/Documents';
+import NewDocument from '/imports/modules/documents/components/NewDocument';
+import ViewDocument from '/imports/modules/documents/components/ViewDocument';
+import EditDocument from '/imports/modules/documents/components/EditDocument';
+
+import Login from '/imports/modules/app/components/Login';
+import RecoverPassword from '/imports/modules/app/components/RecoverPassword';
+import ResetPassword from '/imports/modules/app/components/ResetPassword';
+import Signup from '/imports/modules/app/components/Signup';
+
+import NotFound from '/imports/ui/components/NotFound';
 
 const App = () => (
   <BrowserRouter>

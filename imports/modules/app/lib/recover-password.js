@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import '/imports/lib/validation';
 
 let component;
 
@@ -10,9 +10,20 @@ const handleRecovery = () => {
     email: document.querySelector('[name="emailAddress"]').value,
   }, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      Bert.alert({
+        title: 'L\'adresse e-mail saisie est inconnue',
+        message: 'Nous vous invitons à vous connecter avec un autre identifiant',
+        type: 'warning',
+        style: 'fixed-top',
+      });
     } else {
-      Bert.alert('Check your inbox for a reset link!', 'success');
+      Bert.alert({
+        title: 'Un e-mail vient de vous être envoyé.',
+        message: 'Vérifiez votre boîte de réception et cliquez sur le lien du mail pour réinitialiser votre mot de passe.',
+        type: 'success',
+        style: 'fixed-top',
+        icon: 'fa-envelope',
+      });
     }
   });
 };
@@ -27,8 +38,8 @@ const validate = () => {
     },
     messages: {
       emailAddress: {
-        required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        required: 'Votre identifiant (e-mail) est requis',
+        email: 'Vous devez saisir une adresse e-mail valide',
       },
     },
     submitHandler() { handleRecovery(); },
