@@ -10,10 +10,7 @@ const Documents = () => (
         <div className="page-header clearfix">
           <h4 className="pull-left">Documents</h4>
           <Link to="/documents/new">
-            <Button
-              bsStyle="success"
-              className="pull-right"
-            >New Document</Button>
+            <Button bsStyle="success" className="pull-right">Nouveau document</Button>
           </Link>
         </div>
         <DocumentsList />

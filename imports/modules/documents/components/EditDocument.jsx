@@ -8,12 +8,14 @@ import NotFound from '/imports/ui/components/NotFound';
 import Loading from '/imports/ui/components/Loading';
 import DocumentEditor from './DocumentEditor';
 
-const EditDocument = ({ doc }) => (doc ? (
-  <div className="EditDocument">
-    <h4 className="page-header">Editing &quot;{doc.title}&quot;</h4>
-    <DocumentEditor doc={doc} />
-  </div>
-) : <NotFound />);
+const EditDocument = ({ doc }) => (
+  doc ? (
+    <div className="EditDocument">
+      <h4 className="page-header">Modifier &quot;{doc.title}&quot;</h4>
+      <DocumentEditor doc={doc} />
+    </div>
+  ) : <NotFound />
+);
 
 EditDocument.propTypes = {
   doc: PropTypes.object.isRequired,
@@ -28,4 +30,3 @@ export default withRouter(container((props, onData) => {
     onData(null, { doc });
   }
 }, EditDocument, { loadingHandler: () => <Loading /> }));
-

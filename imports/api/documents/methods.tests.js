@@ -2,7 +2,7 @@
 /* eslint-disable func-names, prefer-arrow-callback */
 
 import { Meteor } from 'meteor/meteor';
-import { assert } from 'meteor/practicalmeteor:chai';
+import { assert } from 'chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Factory } from 'meteor/dburles:factory';
 import Documents from './documents.js';

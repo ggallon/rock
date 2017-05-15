@@ -3,7 +3,7 @@ import DocumentEditor from './DocumentEditor';
 
 const NewDocument = () => (
   <div className="NewDocument">
-    <h4 className="page-header">New Document</h4>
+    <h4 className="page-header">Nouveau document</h4>
     <DocumentEditor />
   </div>
 );
