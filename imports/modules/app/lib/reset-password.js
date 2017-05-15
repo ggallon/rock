@@ -14,7 +14,7 @@ const handleReset = () => {
       Bert.alert(error.reason, 'danger');
     } else {
       history.push('/');
-      Bert.alert('Password reset!', 'success');
+      Bert.alert('Mot de passe réinitialisé !', 'success');
     }
   });
 };
