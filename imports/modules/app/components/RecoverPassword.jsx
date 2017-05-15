@@ -19,7 +19,7 @@ class RecoverPassword extends Component {
             <h4 className="page-header">Vous rencontrez des difficultés à vous connecter ?</h4>
             <Alert bsStyle="info">
               <h5>Saisissez votre identifiant pour commencer</h5>
-              Si vous voulez réinitialiser un mot de passe, déverrouiller un compte, vous êtes au bon endroit...
+              Si vous voulez réinitialiser un mot de passe, vous êtes au bon endroit...
             </Alert>
             <form
               ref={form => (this.recoverPasswordForm = form)}

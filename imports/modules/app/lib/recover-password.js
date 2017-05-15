@@ -10,9 +10,20 @@ const handleRecovery = () => {
     email: document.querySelector('[name="emailAddress"]').value,
   }, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      Bert.alert({
+        title: 'L\'adresse e-mail saisie est inconnue',
+        message: 'Nous vous invitons à vous connecter avec un autre identifiant',
+        type: 'warning',
+        style: 'fixed-top',
+      });
     } else {
-      Bert.alert('Check your inbox for a reset link!', 'success');
+      Bert.alert({
+        title: 'Un e-mail vient de vous être envoyé.',
+        message: 'Vérifiez votre boîte de réception et cliquez sur le lien du mail pour réinitialiser votre mot de passe.',
+        type: 'success',
+        style: 'fixed-top',
+        icon: 'fa-envelope',
+      });
     }
   });
 };

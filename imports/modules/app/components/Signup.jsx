@@ -20,8 +20,8 @@ class Signup extends Component {
             <h4 className="page-header">Créer votre identifiant</h4>
             <p>Vous avez déjà un identifiant ? <Link to="/recover-password">Retrouvez-le ici</Link></p>
             <form
-              ref={ form => (this.signupForm = form) }
-              onSubmit={ this.handleSubmit }
+              ref={form => (this.signupForm = form)}
+              onSubmit={this.handleSubmit}
             >
               <Row>
                 <Col xs={6} sm={6}>
@@ -66,7 +66,16 @@ class Signup extends Component {
                   placeholder="Mot de passe"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
+              <FormGroup>
+                <ControlLabel>Confirmation mot de passe</ControlLabel>
+                <FormControl
+                  type="password"
+                  ref="repeatPassword"
+                  name="repeatPassword"
+                  placeholder="Mot de passe"
+                />
+              </FormGroup>
+              <Button type="submit" bsStyle="success" className="pull-right">Confirmer</Button>
             </form>
           </Col>
         </Row>

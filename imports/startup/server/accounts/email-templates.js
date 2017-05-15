@@ -1,25 +1,40 @@
+/**
+ *  Customize Accounts Email Template
+ *
+ * @summary Options to customize emails sent from the Accounts system
+ * @locus Server
+ * @importFromPackage accounts-base
+ */
 import { Accounts } from 'meteor/accounts-base';
 
-const name = 'Application Name';
-const email = '<support@application.com>';
-const from = `${name} ${email}`;
+const siteName = 'Rock';
+const email = '<support@rock.com>';
+const from = `${siteName} ${email}`;
 const emailTemplates = Accounts.emailTemplates;
 
-emailTemplates.siteName = name;
+emailTemplates.siteName = siteName;
 emailTemplates.from = from;
 
+/**
+ *  Template Reset Password
+ */
 emailTemplates.resetPassword = {
   subject() {
-    return `[${name}] Reset Your Password`;
+    return `[${siteName}] Réinitialisation de votre mot de passe`;
   },
   text(user, url) {
+    const userName = user.name ? `${user.name.first} ${user.name.last}` : '';
     const userEmail = user.emails[0].address;
     const urlWithoutHash = url.replace('#/', '');
 
-    return `A password reset has been requested for the account related to this
-    address (${userEmail}). To reset the password, visit the following link:
-    \n\n${urlWithoutHash}\n\n If you did not request this reset, please ignore
-    this email. If you feel something is wrong, please contact our support team:
-    ${email}.`;
+    return `Bonjour ${userName},
+    \n\nVous avez demandé la réinitialisation du mot de passe associé
+    à l'identifiant ${userEmail}.
+    \n\nCliquez ici pour réinitialiser votre mot de passe : ${urlWithoutHash}
+    \n\nVous allez être redirigé vers une page où vous pourrez renseigner un
+    nouveau mot de passe qui servira pour vos prochaines connexions.
+    \n\nSi vous n'avez pas demander la réinitialisation de votre mot de passe,
+    contacter notre équipe support : ${email}.
+    \n\nL'équipe ${siteName}`;
   },
 };

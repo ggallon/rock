@@ -6,9 +6,14 @@ import { Bert } from 'meteor/themeteorchef:bert';
 // Imports Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from '/imports/ui/layouts/App';
+// Bert settings
+Bert.defaults = {
+  hideDelay: 7000,
+  style: 'growl-top-right',
+  type: 'default',
+};
 
-Bert.defaults.style = 'growl-top-right';
+import App from '/imports/ui/layouts/App';
 
 Meteor.startup(() => {
   render(
