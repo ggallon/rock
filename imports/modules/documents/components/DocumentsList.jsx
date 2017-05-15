@@ -9,14 +9,15 @@ import container from '/imports/lib/container';
 import Loading from '/imports/ui/components/Loading';
 
 const DocumentsList = ({ documents, history }) => (
-  documents.length > 0 ? <ListGroup className="DocumentsList">
-    {documents.map(({ _id, title }) => (
-      <ListGroupItem key={_id} onClick={() => history.push(`/documents/${_id}`)}>
-        { title }
-      </ListGroupItem>
-    ))}
-  </ListGroup> :
-  <Alert bsStyle="warning">No documents yet.</Alert>
+  documents.length > 0 ? (
+    <ListGroup className="DocumentsList">
+      {documents.map(({ _id, title }) => (
+        <ListGroupItem key={_id} onClick={() => history.push(`/documents/${_id}`)}>
+          { title }
+        </ListGroupItem>
+      ))}
+    </ListGroup>
+  ) : <Alert bsStyle="warning">Aucun document</Alert>
 );
 
 DocumentsList.defaultProps = {
@@ -36,4 +37,3 @@ export default withRouter(container((props, onData) => {
     onData(null, { documents });
   }
 }, DocumentsList, { loadingHandler: () => <Loading /> }));
-
