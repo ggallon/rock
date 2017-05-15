@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import '/imports/lib/validation';
@@ -12,10 +11,8 @@ const login = () => {
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      Bert.alert('Identification incorrecte', 'danger', 'fixed-top');
     } else {
-      Bert.alert('Logged in!', 'success');
-
       const { location, history } = component.props;
       if (location.state && location.state.from.pathname) {
         history.push(location.state.from.pathname);
