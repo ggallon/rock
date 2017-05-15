@@ -11,12 +11,12 @@ import NotFound from '/imports/ui/components/NotFound';
 import Loading from '/imports/ui/components/Loading';
 
 const handleRemove = (history, _id) => {
-  if (confirm('Are you sure? This is permanent!')) {
+  if (confirm('Êtes-vous sûr ? Ceci est définitif !')) {
     removeDocument.call({ _id }, (error) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert('Document deleted!', 'success');
+        Bert.alert('Document supprimé !', 'success');
         history.push('/documents');
       }
     });
@@ -30,16 +30,14 @@ const ViewDocument = ({ doc, history }) => (
         <h4 className="pull-left">{ doc && doc.title }</h4>
         <ButtonToolbar className="pull-right">
           <ButtonGroup bsSize="small">
-            <Button onClick={() => history.push(`/documents/${doc._id}/edit`)}>Edit</Button>
-            <Button onClick={() => handleRemove(history, doc._id)} className="text-danger">Delete</Button>
+            <Button onClick={() => history.push(`/documents/${doc._id}/edit`)}>Modifier</Button>
+            <Button onClick={() => handleRemove(history, doc._id)} className="text-danger">Supprimer</Button>
           </ButtonGroup>
         </ButtonToolbar>
       </div>
       { doc && doc.body }
     </div>
-  ) : (
-    <NotFound />
-  )
+  ) : <NotFound />
 );
 
 ViewDocument.defaultProps = {
