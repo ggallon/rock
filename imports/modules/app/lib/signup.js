@@ -47,7 +47,7 @@ const validate = () => {
         required: true,
         minlength: 8,
       },
-      repeatNewPassword: {
+      repeatPassword: {
         required: true,
         equalTo: '[name="password"]',
       },
