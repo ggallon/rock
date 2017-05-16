@@ -22,7 +22,7 @@ Meteor.publish('documents.view', function documentsViewPublish(id) {
 
   check(id, String);
 
-  return Documents.findOne({ _id: id }, {
+  return Documents.find({ _id: id }, {
     fields: {
       title: 1,
       body: 1,
