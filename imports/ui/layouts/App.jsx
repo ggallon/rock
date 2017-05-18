@@ -17,7 +17,7 @@ import RecoverPassword from '/imports/modules/app/components/RecoverPassword';
 import ResetPassword from '/imports/modules/app/components/ResetPassword';
 import Signup from '/imports/modules/app/components/Signup';
 
-import NotFound from '/imports/ui/components/NotFound';
+import NotFound from '/imports/ui/components/notFound';
 
 const App = () => (
   <BrowserRouter>

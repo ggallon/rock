@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
-import NotFound from '/imports/ui/components/NotFound';
-import Loading from '/imports/ui/components/Loading';
+import NotFound from '/imports/ui/components/notFound';
+import Loading from '/imports/ui/components/loading';
 import DocumentEditor from './DocumentEditor';
 
 const EditDocument = ({ doc }) => (
