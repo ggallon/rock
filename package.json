@@ -18,7 +18,7 @@
     "bcrypt": "1.0.2",
     "bootstrap": "3.3.7",
     "jquery": "2.2.4",
-    "jquery-validation": "1.15.1",
+    "jquery-validation": "1.16.0",
     "meteor-node-stubs": "0.2.6",
     "notie": "4.3.1",
     "prop-types": "15.5.10",
