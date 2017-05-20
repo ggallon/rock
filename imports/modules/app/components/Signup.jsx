@@ -55,7 +55,7 @@ class Signup extends Component {
                   name="emailAddress"
                   placeholder="nom@exemple.com"
                 />
-                <HelpBlock>Cette adresse e-mail sera votre nouvel identifiant.</HelpBlock>
+                <HelpBlock>Cette adresse e-mail sera votre identifiant.</HelpBlock>
               </FormGroup>
               <FormGroup>
                 <ControlLabel>Mot de passe</ControlLabel>
