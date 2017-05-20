@@ -45,7 +45,7 @@ class Login extends Component {
               </FormGroup>
               <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
             </form>
-            <p><Link className="pull-right" to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
+            <p><Link to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
           </Col>
         </Row>
       </div>
