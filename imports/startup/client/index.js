@@ -3,8 +3,18 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-// Imports Bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from '/imports/ui/layouts/App';
+
+// Imports Bootstrap
+// Hack for import Bootstrap before "merged-stylesheets.css"
+const bootstrapCSS = document.createElement('link');
+bootstrapCSS.setAttribute('rel', 'stylesheet');
+bootstrapCSS.setAttribute('type', 'text/css');
+bootstrapCSS.setAttribute('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+bootstrapCSS.setAttribute('integrity', 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u');
+bootstrapCSS.setAttribute('crossorigin', 'anonymous');
+const headFirstChild = document.querySelector('head').firstChild;
+document.querySelector('head').insertBefore(bootstrapCSS, headFirstChild);
 
 // Bert settings
 Bert.defaults = {
@@ -12,8 +22,6 @@ Bert.defaults = {
   style: 'growl-top-right',
   type: 'default',
 };
-
-import App from '/imports/ui/layouts/App';
 
 Meteor.startup(() => {
   render(
