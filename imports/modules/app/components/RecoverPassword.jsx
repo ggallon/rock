@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
+// import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Alert from 'react-bootstrap/lib/Alert';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 import handleRecoverPassword from '../lib/recover-password';
 
 class RecoverPassword extends Component {
@@ -27,6 +34,7 @@ class RecoverPassword extends Component {
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
+                <ControlLabel className="sr-only">Identifiant</ControlLabel>
                 <FormControl
                   type="email"
                   ref="emailAddress"

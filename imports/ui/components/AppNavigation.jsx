@@ -2,7 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
+// import { Navbar } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/lib/Navbar';
+
 import container from '/imports/lib/container';
 import PublicNavigation from './PublicNavigation';
 import AuthenticatedNavigation from './AuthenticatedNavigation';
