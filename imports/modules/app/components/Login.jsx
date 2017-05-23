@@ -31,20 +31,18 @@ class Login extends Component {
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
-                <ControlLabel className="sr-only">Identifiant</ControlLabel>
+                <ControlLabel srOnly>Identifiant</ControlLabel>
                 <FormControl
                   type="email"
-                  ref="emailAddress"
                   name="emailAddress"
                   placeholder="Identifiant"
                   bsSize="large"
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel className="sr-only">Mot de passe</ControlLabel>
+                <ControlLabel srOnly>Mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="password"
                   name="password"
                   placeholder="Mot de passe"
                   bsSize="large"

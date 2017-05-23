@@ -39,7 +39,6 @@ class ResetPassword extends Component {
                 <ControlLabel>Nouveau mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="newPassword"
                   name="newPassword"
                   placeholder="Mot de passe"
                 />

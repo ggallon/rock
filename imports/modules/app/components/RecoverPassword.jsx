@@ -34,10 +34,9 @@ class RecoverPassword extends Component {
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
-                <ControlLabel className="sr-only">Identifiant</ControlLabel>
+                <ControlLabel srOnly>Identifiant</ControlLabel>
                 <FormControl
                   type="email"
-                  ref="emailAddress"
                   name="emailAddress"
                   placeholder="Veuillez saisir votre identifiant (e-mail)"
                 />

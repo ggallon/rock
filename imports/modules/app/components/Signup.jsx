@@ -31,23 +31,21 @@ class Signup extends Component {
               onSubmit={this.handleSubmit}
             >
               <Row>
-                <Col xs={6} sm={6}>
+                <Col xs={12} sm={6} md={6} lg={6}>
                   <FormGroup>
                     <ControlLabel>Prénom</ControlLabel>
                     <FormControl
                       type="text"
-                      ref="firstName"
                       name="firstName"
                       placeholder="prénom"
                     />
                   </FormGroup>
                 </Col>
-                <Col xs={6} sm={6}>
+                <Col xs={12} sm={6} md={6} lg={6}>
                   <FormGroup>
                     <ControlLabel>Nom</ControlLabel>
                     <FormControl
                       type="text"
-                      ref="lastName"
                       name="lastName"
                       placeholder="nom de famille"
                     />
@@ -58,7 +56,6 @@ class Signup extends Component {
                 <ControlLabel>Identifiant (e-mail)</ControlLabel>
                 <FormControl
                   type="text"
-                  ref="emailAddress"
                   name="emailAddress"
                   placeholder="nom@exemple.com"
                 />
@@ -68,7 +65,6 @@ class Signup extends Component {
                 <ControlLabel>Mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="password"
                   name="password"
                   placeholder="Mot de passe"
                 />
@@ -77,7 +73,6 @@ class Signup extends Component {
                 <ControlLabel>Confirmation mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="repeatPassword"
                   name="repeatPassword"
                   placeholder="Mot de passe"
                 />
