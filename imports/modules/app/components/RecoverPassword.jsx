@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';

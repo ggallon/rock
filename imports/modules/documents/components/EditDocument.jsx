@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
 import NotFound from '/imports/ui/components/notFound';

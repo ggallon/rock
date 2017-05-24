@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-// import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
