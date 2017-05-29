@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 
 const Index = () => (
   <div className="Index">
@@ -7,7 +7,7 @@ const Index = () => (
       <h2>Rock</h2>
       <p>A starting point for Meteor applications.</p>
       <p><a className="btn btn-success" href="https://github.com/ggallon/rock" role="button">Read the Documentation</a></p>
-      <p style={{ fontSize: '16px', color: '#aaa' }}>Currently at v1.1.1</p>
+      <p style={{ fontSize: '16px', color: '#aaa' }}>Currently at v1.1.2</p>
     </Jumbotron>
   </div>
 );

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Alert from 'react-bootstrap/lib/Alert';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 import handleResetPassword from '../lib/reset-password';
 
 class ResetPassword extends Component {
@@ -32,7 +38,6 @@ class ResetPassword extends Component {
                 <ControlLabel>Nouveau mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="newPassword"
                   name="newPassword"
                   placeholder="Mot de passe"
                 />

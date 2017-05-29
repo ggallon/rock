@@ -1,5 +1,5 @@
-import './accounts/email-templates';
-import './accounts/on-create-user';
+import './accounts';
 import './browser-policy';
 import './fixtures';
 import './api';
+import './roles';

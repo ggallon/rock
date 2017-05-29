@@ -26,9 +26,21 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The body of the document.',
   },
+  createdAt: {
+    type: Date,
+  },
+  userId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    optional: true,
+  },
 });
 
 Documents.attachSchema(Documents.schema);
+
+Documents._ensureIndex({ userId: 1 });
+Documents._ensureIndex({ createdAt: -1 });
+
 
 Factory.define('document', Documents, {
   title: () => 'Factory Title',

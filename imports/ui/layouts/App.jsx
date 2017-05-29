@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Grid } from 'react-bootstrap';
+import Grid from 'react-bootstrap/lib/Grid';
 import PrivateRoute from '/imports/lib/private-route';
 import AppNavigation from '/imports/ui/components/AppNavigation';
 
@@ -17,7 +17,7 @@ import RecoverPassword from '/imports/modules/app/components/RecoverPassword';
 import ResetPassword from '/imports/modules/app/components/ResetPassword';
 import Signup from '/imports/modules/app/components/Signup';
 
-import NotFound from '/imports/ui/components/NotFound';
+import NotFound from '/imports/ui/components/notFound';
 
 const App = () => (
   <BrowserRouter>

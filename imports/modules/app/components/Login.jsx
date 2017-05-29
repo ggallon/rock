@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
+
 import handleLogin from '../lib/login';
 
 class Login extends Component {
@@ -24,20 +30,18 @@ class Login extends Component {
               onSubmit={this.handleSubmit}
             >
               <FormGroup>
-                <ControlLabel className="sr-only">Identifiant</ControlLabel>
+                <ControlLabel srOnly>Identifiant</ControlLabel>
                 <FormControl
                   type="email"
-                  ref="emailAddress"
                   name="emailAddress"
                   placeholder="Identifiant"
                   bsSize="large"
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel className="sr-only">Mot de passe</ControlLabel>
+                <ControlLabel srOnly>Mot de passe</ControlLabel>
                 <FormControl
                   type="password"
-                  ref="password"
                   name="password"
                   placeholder="Mot de passe"
                   bsSize="large"
@@ -45,7 +49,7 @@ class Login extends Component {
               </FormGroup>
               <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
             </form>
-            <p><Link className="pull-right" to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
+            <p><Link to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
           </Col>
         </Row>
       </div>
