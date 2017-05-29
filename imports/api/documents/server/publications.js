@@ -12,17 +12,18 @@ Meteor.publish('documents.list', function documentsListPublish() {
       title: 1,
       body: 1,
     },
+    sort: { createdAt: -1 },
   });
 });
 
-Meteor.publish('documents.view', function documentsViewPublish(id) {
+Meteor.publish('documents.view', function documentsViewPublish(documentId) {
   if (!this.userId) {
     return this.ready();
   }
 
-  check(id, String);
+  check(documentId, String);
 
-  return Documents.find({ _id: id }, {
+  return Documents.find({ _id: documentId }, {
     fields: {
       title: 1,
       body: 1,

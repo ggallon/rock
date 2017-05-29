@@ -13,24 +13,37 @@ export const upsertDocument = new ValidatedMethod({
   }).validator(),
   run(document) {
     if (!this.userId) {
-      throw new Meteor.Error('documents.upsert',
+      throw new Meteor.Error('documents.upsert.notLoggedIn',
         'Must be logged in to upsert documents.');
     }
-    return Documents.upsert({ _id: document._id }, { $set: document });
+
+    const data = document;
+    data.createdAt = new Date();
+    data.userId = this.userId;
+
+    return Documents.upsert({ _id: document._id }, { $set: data });
   },
 });
 
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
   validate: new SimpleSchema({
-    _id: { type: String },
+    documentId: { type: String },
   }).validator(),
-  run({ _id }) {
+  run({ documentId }) {
     if (!this.userId) {
-      throw new Meteor.Error('documents.remove',
+      throw new Meteor.Error('documents.remove.notLoggedIn',
         'Must be logged in to remove documents.');
     }
-    Documents.remove(_id);
+
+    const document = Documents.findOne(documentId);
+
+    if (!document.userId === this.userId) {
+      throw new Meteor.Error('documents.remove.accessDenied',
+        'You don\'t have permission to remove this document.');
+    }
+
+    Documents.remove(documentId);
   },
 });
 
