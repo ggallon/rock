@@ -1,3 +1,10 @@
+/* Fix body with navbar fixedTop */
+body {
+  padding-top: 70px;
+}
+
 /* Bootstrap CSS uses: margin: 0 auto;,
    but it gets run over by the float property of the size container. */
-.center-block { float: none !important }
+.center-block {
+  float: none !important
+}
