@@ -13,6 +13,8 @@ import NewDocument from '/imports/modules/documents/components/NewDocument';
 import ViewDocument from '/imports/modules/documents/components/ViewDocument';
 import EditDocument from '/imports/modules/documents/components/EditDocument';
 
+import Calendar from '/imports/modules/calendar/components/calendar';
+
 import Login from '/imports/modules/app/components/Login';
 import RecoverPassword from '/imports/modules/app/components/RecoverPassword';
 import ResetPassword from '/imports/modules/app/components/ResetPassword';
@@ -31,6 +33,7 @@ const App = () => (
           <PrivateRoute path="/documents/:_id/edit" component={EditDocument} />
           <PrivateRoute path="/documents/:_id" component={ViewDocument} />
           <PrivateRoute path="/documents" component={Documents} />
+          <PrivateRoute path="/calendar" component={Calendar} />
           <Route path="/login" component={Login} />
           <Route path="/recover-password" component={RecoverPassword} />
           <Route path="/reset-password/:token" component={ResetPassword} />
