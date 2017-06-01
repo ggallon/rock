@@ -38,7 +38,7 @@ export const removeDocument = new ValidatedMethod({
 
     const document = Documents.findOne(_id);
 
-    if (!document.userId === this.userId) {
+    if (document.userId !== this.userId) {
       throw new Meteor.Error('documents.remove.accessDenied',
         'You don\'t have permission to remove this document.');
     }
