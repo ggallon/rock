@@ -7,7 +7,7 @@ let component;
 
 const handleUpsert = () => {
   const { doc, history } = component.props;
-  const confirmation = doc && doc._id ? 'Document mise à jour !' : 'Document ajouté !';
+  const confirmation = doc && doc._id ? 'Document mis à jour !' : 'Document ajouté !';
   const upsert = {
     title: document.querySelector('[name="title"]').value.trim(),
     body: document.querySelector('[name="body"]').value.trim(),

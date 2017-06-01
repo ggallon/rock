@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Factory } from 'meteor/dburles:factory';
@@ -38,9 +39,12 @@ Documents.schema = new SimpleSchema({
 
 Documents.attachSchema(Documents.schema);
 
-Documents._ensureIndex({ userId: 1 });
-Documents._ensureIndex({ createdAt: -1 });
-
+Meteor.startup(() => {
+  if (Meteor.isServer) {
+    Documents._ensureIndex({ userId: 1 });
+    Documents._ensureIndex({ createdAt: -1 });
+  }
+});
 
 Factory.define('document', Documents, {
   title: () => 'Factory Title',

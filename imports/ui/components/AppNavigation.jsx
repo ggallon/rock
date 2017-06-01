@@ -11,7 +11,7 @@ import AuthenticatedNavigation from './AuthenticatedNavigation';
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
 const AppNavigation = ({ hasUser }) => (
-  <Navbar collapseOnSelect>
+  <Navbar fixedTop collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">Rock</Link>

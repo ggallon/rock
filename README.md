@@ -5,11 +5,11 @@ A starting point for Meteor apps and development testing.
   <tbody>
     <tr>
       <th>Rock Version</th>
-      <td>v1.1.2</td>
+      <td>v1.2.0</td>
     </tr>
     <tr>
       <th>Meteor Version</th>
-      <td>v1.4.4.3</td>
+      <td>v1.5</td>
     </tr>
   </tbody>
 </table>
