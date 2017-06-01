@@ -7,7 +7,7 @@ const Index = () => (
       <h2>Rock</h2>
       <p>A starting point for Meteor applications.</p>
       <p><a className="btn btn-success" href="https://github.com/ggallon/rock" role="button">Read the Documentation</a></p>
-      <p style={{ fontSize: '16px', color: '#aaa' }}>Currently at v1.1.2</p>
+      <p style={{ fontSize: '16px', color: '#aaa' }}>Currently at v1.2.0</p>
     </Jumbotron>
   </div>
 );
