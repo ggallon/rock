@@ -28,22 +28,22 @@ export const upsertDocument = new ValidatedMethod({
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
   validate: new SimpleSchema({
-    documentId: { type: String },
+    _id: { type: String },
   }).validator(),
-  run({ documentId }) {
+  run({ _id }) {
     if (!this.userId) {
       throw new Meteor.Error('documents.remove.notLoggedIn',
         'Must be logged in to remove documents.');
     }
 
-    const document = Documents.findOne(documentId);
+    const document = Documents.findOne(_id);
 
     if (!document.userId === this.userId) {
       throw new Meteor.Error('documents.remove.accessDenied',
         'You don\'t have permission to remove this document.');
     }
 
-    Documents.remove(documentId);
+    Documents.remove(_id);
   },
 });
 
