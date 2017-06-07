@@ -2,53 +2,65 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import Button from 'react-bootstrap/lib/Button';
-
-import handleLogin from '../lib/login';
+import AutoForm from 'uniforms-bootstrap3/AutoForm';
+import { SubmitField } from 'uniforms-bootstrap3';
+import LoginSchema  from '/imports/modules/app/lib/loginSchema';
 
 class Login extends Component {
-  componentDidMount() {
-    handleLogin({ component: this });
+  constructor() {
+    super(...arguments);
+    this.state = {
+      loginError: null
+    };
+    this.onChange        = this.onChange.bind(this);
+    this.onSubmit        = this.onSubmit.bind(this);
+    this.onSubmitFailure = this.onSubmitFailure.bind(this);
+    this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  onChange() {
+    this.setState({ loginError: null });
+  }
+
+  onSubmit({ email, password }) {
+    return new Promise((resolve, reject) =>
+      Meteor.loginWithPassword(email, password, error =>
+        error ? reject(error) : resolve()
+      )
+    );
+  };
+
+  onSubmitFailure(error) {
+    this.setState({ loginError: error });
+  }
+
+  onSubmitSuccess() {
+    const { location, history } = this.props;
+    if (location.state && location.state.from.pathname) {
+      history.push(location.state.from.pathname);
+    } else {
+      history.push('/');
+    }
   }
 
   render() {
+    const CustomSubmitField = props => <SubmitField value="Continuer" className="pull-right" />;
+
     return (
       <div className="Login">
         <Row>
           <Col xs={12} sm={5} md={4} lg={4} className="center-block">
             <h4 className="page-header">Connexion à Rock</h4>
-            <form
-              ref={form => (this.loginForm = form)}
-              className="form-login"
-              onSubmit={this.handleSubmit}
-            >
-              <FormGroup>
-                <ControlLabel srOnly>Identifiant</ControlLabel>
-                <FormControl
-                  type="email"
-                  name="emailAddress"
-                  placeholder="Identifiant"
-                  bsSize="large"
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel srOnly>Mot de passe</ControlLabel>
-                <FormControl
-                  type="password"
-                  name="password"
-                  placeholder="Mot de passe"
-                  bsSize="large"
-                />
-              </FormGroup>
-              <Button type="submit" bsStyle="success" className="pull-right">Continuer</Button>
-            </form>
+            <AutoForm schema={ LoginSchema }
+                      placeholder
+                      label={ false }
+                      error={ this.state.loginError }
+                      onChange={ this.onChange }
+                      onSubmit={ this.onSubmit }
+                      onSubmitFailure={ this.onSubmitFailure }
+                      onSubmitSuccess={ this.onSubmitSuccess }
+                      submitField={ CustomSubmitField }>
+             </AutoForm>
             <p><Link to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
           </Col>
         </Row>
