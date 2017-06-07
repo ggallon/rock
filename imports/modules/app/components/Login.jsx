@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -43,7 +44,7 @@ class Login extends Component {
   }
 
   render() {
-    const CustomSubmitField = props => <SubmitField value="Continuer" className="pull-right" />;
+    const CustomSubmitField = () => <SubmitField value="Continuer" className="pull-right" />;
 
     return (
       <div className="Login">
@@ -69,5 +70,19 @@ class Login extends Component {
     );
   }
 }
+
+Login.defaultProps = {
+  history: null,
+  location: null,
+};
+
+Login.propTypes = {
+  history: PropTypes.object,
+};
+
+Login.propTypes = {
+  location: PropTypes.object,
+  history: PropTypes.object,
+};
 
 export default withRouter(Login);
