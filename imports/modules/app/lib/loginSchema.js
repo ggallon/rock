@@ -5,17 +5,17 @@ const LoginSchema = new SimpleSchema({
     type: String,
     regEx: SimpleSchema.RegEx.EmailWithTLD,
     uniforms: {
-      type: "email",
-      placeholder: "Identifiant"
-    }
+      type: 'email',
+      placeholder: 'Identifiant',
+    },
   },
   password: {
     type: String,
     uniforms: {
-      type: "password",
-      placeholder: "Mot de passe"
-    }
-  }
+      type: 'password',
+      placeholder: 'Mot de passe',
+    },
+  },
 });
 
 export default LoginSchema;
