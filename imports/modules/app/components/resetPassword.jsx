@@ -1,25 +1,52 @@
+import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import Button from 'react-bootstrap/lib/Button';
-import handleResetPassword from '../lib/reset-password';
+import AutoForm from 'uniforms-bootstrap3/AutoForm';
+import { SubmitField } from 'uniforms-bootstrap3';
+import ResetPasswordSchema from '/imports/modules/app/lib/resetPasswordSchema';
 
 class ResetPassword extends Component {
-  componentDidMount() {
-    handleResetPassword({ component: this });
+  constructor() {
+    super();
+    this.state = {
+      recoverPasswordSuccess: false,
+      resetPasswordError: null,
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitFailure = this.onSubmitFailure.bind(this);
+    this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  onChange() {
+    this.setState({ resetPasswordError: null });
+  }
+
+  onSubmit({ newPassword }) {
+    const { match } = this.props;
+    return new Promise((resolve, reject) =>
+      Accounts.resetPassword(match.params.token, newPassword, error =>
+        error ? reject(error) : resolve(),
+      ),
+    );
+  }
+
+  onSubmitFailure(error) {
+    this.setState({ resetPasswordError: error });
+  }
+
+  onSubmitSuccess() {
+    const { history } = this.props;
+    history.push('/');
   }
 
   render() {
+    const CustomSubmitField = () => <SubmitField value="Confirmer" className="pull-right" />;
+
     return (
       <div className="ResetPassword">
         <Row>
@@ -29,30 +56,19 @@ class ResetPassword extends Component {
               Votre mot de passe doit comporter un minimum de 8 caractères,
               il peut contenir des chiffres, des majuscules et des caractères spéciaux.
             </Alert>
-            <form
-              ref={form => (this.resetPasswordForm = form)}
-              className="reset-password"
-              onSubmit={this.handleSubmit}
+
+            <AutoForm
+              schema={ResetPasswordSchema}
+              placeholder
+              label={false}
+              error={this.state.resetPasswordError}
+              onChange={this.onChange}
+              onSubmit={this.onSubmit}
+              onSubmitFailure={this.onSubmitFailure}
+              onSubmitSuccess={this.onSubmitSuccess}
+              submitField={CustomSubmitField}
             >
-              <FormGroup>
-                <ControlLabel>Nouveau mot de passe</ControlLabel>
-                <FormControl
-                  type="password"
-                  name="newPassword"
-                  placeholder="Mot de passe"
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>Confirmation mot de passe</ControlLabel>
-                <FormControl
-                  type="password"
-                  ref="repeatNewPassword"
-                  name="repeatNewPassword"
-                  placeholder="Mot de passe"
-                />
-              </FormGroup>
-              <Button type="submit" bsStyle="success" className="pull-right">Confirmer</Button>
-            </form>
+            </AutoForm>
           </Col>
         </Row>
       </div>
@@ -60,8 +76,14 @@ class ResetPassword extends Component {
   }
 }
 
+ResetPassword.defaultProps = {
+  history: null,
+  match: null,
+};
+
 ResetPassword.propTypes = {
-  match: PropTypes.object.isRequired,
+  history: PropTypes.object,
+  match: PropTypes.object,
 };
 
 export default withRouter(ResetPassword);
