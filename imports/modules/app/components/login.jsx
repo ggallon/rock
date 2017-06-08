@@ -78,11 +78,7 @@ Login.defaultProps = {
 
 Login.propTypes = {
   history: PropTypes.object,
-};
-
-Login.propTypes = {
   location: PropTypes.object,
-  history: PropTypes.object,
 };
 
 export default withRouter(Login);
