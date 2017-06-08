@@ -6,7 +6,7 @@ import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
 import NotFound from '/imports/ui/components/notFound';
 import Loading from '/imports/ui/components/loading';
-import DocumentEditor from './DocumentEditor';
+import DocumentEditor from './documentEditor';
 
 const EditDocument = ({ doc }) => (
   doc ? (
