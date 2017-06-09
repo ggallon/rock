@@ -14,8 +14,10 @@ if (!Meteor.isProduction) {
 
   users.forEach(({ email, password, profile, roles }) => {
     const userExists = Meteor.users.findOne({ 'emails.address': email });
-
-    if (!userExists) {
+    
+    if (userExists) {
+      console.log('fixtures.createUser.userExists : A user already exists with the mail: ' + email);
+    } else {
       const userId = Accounts.createUser({ email, password, profile });
       Meteor.users.update(userId, { $set: { 'emails.0.verified': true } });
       Roles.addUsersToRoles(userId, roles, Roles.GLOBAL_GROUP);
