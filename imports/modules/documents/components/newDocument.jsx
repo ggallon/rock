@@ -1,5 +1,5 @@
 import React from 'react';
-import DocumentEditor from './DocumentEditor';
+import DocumentEditor from './documentEditor';
 
 const NewDocument = () => (
   <div className="NewDocument">

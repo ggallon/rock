@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
-import App from '/imports/ui/layouts/App';
+import App from '/imports/ui/layouts/app';
 
 // Imports Bootstrap stylesheet
 // Hack for import Bootstrap before "merged-stylesheets.css"
