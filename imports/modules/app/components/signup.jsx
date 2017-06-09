@@ -25,9 +25,20 @@ class Signup extends Component {
     this.setState({ signupError: null });
   }
 
-  onSubmit({ identfiant, password }) {
+  onSubmit({ identifiant, password, fisrtName, lastName }) {
+    const userData = {
+      email: identifiant,
+      password: password,
+      profile: {
+        name: {
+          first: fisrtName,
+          last: lastName,
+        },
+      },
+    };
+    
     return new Promise((resolve, reject) =>
-      Accounts.createUser(user, error =>
+      Accounts.createUser(userData, error =>
         error ? reject(error) : resolve(),
       ),
     );
