@@ -1,15 +1,5 @@
 import SimpleSchema from 'simpl-schema';
-
-// Resolved error due to simpl-schema with "SimpleSchema.setDefaultMessages"
-global.Buffer = global.Buffer || require("buffer").Buffer;
-
-// Set custom message for custom repeatNewPassword field validation
-SimpleSchema.setDefaultMessages({
-  messages: {
-    en: { passwordMismatch: 'Passwords do not match' },
-    fr: { passwordMismatch: 'Les mots de passe ne correspondents pas' }
-  },
-});
+import '/imports/lib/simple_schema_message_box_fr';
 
 const ResetPasswordSchema = new SimpleSchema({
   newPassword: {
