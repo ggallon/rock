@@ -24,7 +24,7 @@ const signupSchema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.EmailWithTLD,
     uniforms: {
       type: 'email',
-      placeholder: 'Identifiant',
+      placeholder: 'nom@exemple.com',
     },
   },
   password: {
