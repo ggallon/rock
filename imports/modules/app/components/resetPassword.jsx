@@ -12,10 +12,7 @@ import ResetPasswordSchema from '/imports/modules/app/lib/resetPasswordSchema';
 class ResetPassword extends Component {
   constructor() {
     super();
-    this.state = {
-      recoverPasswordSuccess: false,
-      resetPasswordError: null,
-    };
+    this.state = { resetPasswordError: null };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
