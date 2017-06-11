@@ -1,59 +1,85 @@
-/* eslint-disable max-len, no-return-assign */
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import Button from 'react-bootstrap/lib/Button';
-
-import documentEditor from '../lib/document-editor';
+import AutoForm from 'uniforms-bootstrap3/AutoForm';
+import { SubmitField } from 'uniforms-bootstrap3';
+import DocumentSchema from '/imports/modules/documents/lib/documentSchema';
+import { upsertDocument } from '/imports/api/documents/methods';
 
 class DocumentEditor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      documentEditorError: null,
+      model: this.props.doc || { doc: {} },
+    };
+
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitFailure = this.onSubmitFailure.bind(this);
+    this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
+  }
+
   componentDidMount() {
-    documentEditor({ component: this });
-    setTimeout(() => { document.querySelector('[name="title"]').focus(); }, 0);
+    setTimeout(() => {
+      document.querySelector('[name="title"]').focus();
+    }, 0);
+  }
+
+  onSubmit(doc) {
+    const upsert = {
+      title: doc.title,
+      body: doc.body,
+    };
+
+    if (doc && doc._id) upsert._id = doc._id;
+
+    return new Promise((resolve, reject) =>
+      upsertDocument.call(upsert, (error, response) =>
+        error ? reject(error) : resolve(response),
+      ),
+    );
+  }
+
+  onSubmitFailure(error) {
+    this.setState({ documentEditorError: error });
+  }
+
+  onSubmitSuccess(response) {
+    const { doc, history } = this.props;
+    history.push(`/documents/${response.insertedId || doc._id}`);
   }
 
   render() {
     const { doc } = this.props;
+    const CustomSubmitField = () => (
+      <SubmitField
+        value={doc && doc._id ? 'Enregistrer' : 'Nouveau'}
+        className="pull-right"
+      />);
 
     return (
-      <form
-        ref={form => (this.documentEditorForm = form)}
-        onSubmit={event => event.preventDefault()}
-      >
-        <FormGroup>
-          <ControlLabel>Titre</ControlLabel>
-          <FormControl
-            type="text"
-            name="title"
-            defaultValue={doc && doc.title}
-            placeholder="Oh, les lieu où vous irez!"
-          />
-        </FormGroup>
-        <FormGroup>
-          <ControlLabel>Corp</ControlLabel>
-          <FormControl
-            componentClass="textarea"
-            name="body"
-            defaultValue={doc && doc.body}
-            placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
-          />
-        </FormGroup>
-        <Button type="submit" bsStyle="success">
-          {doc && doc._id ? 'Enregistrer' : 'Nouveau'}
-        </Button>
-      </form>
+      <AutoForm
+        schema={DocumentSchema}
+        placeholder
+        error={this.state.documentEditorError}
+        onSubmit={this.onSubmit}
+        onSubmitFailure={this.onSubmitFailure}
+        onSubmitSuccess={this.onSubmitSuccess}
+        model={this.state.model}
+        submitField={CustomSubmitField}
+      />
     );
   }
 }
 
 DocumentEditor.defaultProps = {
+  history: null,
   doc: null,
 };
 
 DocumentEditor.propTypes = {
+  history: PropTypes.object,
   doc: PropTypes.object,
 };
 
