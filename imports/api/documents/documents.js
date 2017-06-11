@@ -33,7 +33,6 @@ Documents.schema = new SimpleSchema({
   userId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    optional: true,
   },
 });
 
