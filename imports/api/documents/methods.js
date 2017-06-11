@@ -10,11 +10,12 @@ export const upsertDocument = new ValidatedMethod({
     _id: { type: String, optional: true },
     title: { type: String, optional: true },
     body: { type: String, optional: true },
+    userId: { type: String, optional: true },
   }).validator(),
   run(document) {
     if (!this.userId) {
       throw new Meteor.Error('documents.upsert.notLoggedIn',
-        'Must be logged in to upsert documents.');
+        'Must be logged in to insertor update a document');
     }
 
     if (document._id && document.userId !== this.userId) {
@@ -22,7 +23,10 @@ export const upsertDocument = new ValidatedMethod({
         'You don\'t have permission to update this document.');
     }
 
-    const data = document;
+    const data = {
+      title: document.title,
+      body: document.body,
+    };
 
     if (!document._id) {
       data.createdAt = new Date();
@@ -41,7 +45,7 @@ export const removeDocument = new ValidatedMethod({
   run({ _id }) {
     if (!this.userId) {
       throw new Meteor.Error('documents.remove.notLoggedIn',
-        'Must be logged in to remove documents.');
+        'Must be logged in to remove a document.');
     }
 
     const document = Documents.findOne(_id);

@@ -29,10 +29,12 @@ Documents.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
+    optional: true,
   },
   userId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
+    optional: true,
   },
 });
 

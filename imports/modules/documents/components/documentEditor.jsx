@@ -12,7 +12,7 @@ class DocumentEditor extends Component {
 
     this.state = {
       documentEditorError: null,
-      model: this.props.doc || { doc: {} },
+      model: this.props.doc || {},
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -27,15 +27,8 @@ class DocumentEditor extends Component {
   }
 
   onSubmit(doc) {
-    const upsert = {
-      title: doc.title,
-      body: doc.body,
-    };
-
-    if (doc && doc._id) upsert._id = doc._id;
-
     return new Promise((resolve, reject) =>
-      upsertDocument.call(upsert, (error, response) =>
+      upsertDocument.call(doc, (error, response) =>
         error ? reject(error) : resolve(response),
       ),
     );
