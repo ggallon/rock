@@ -32,7 +32,6 @@ aldeed:collection2-core@2.0.1  # Core package for aldeed:collection2
 
 # UI
 fourseven:scss@4.5.0           # Style with attitude. Sass and SCSS support for Meteor.js
-themeteorchef:bert@2.1.2       # A client side, multi-style alerts system for Meteor
 
 # Development tools
 msavin:mongol@2.0.1            # In-App MongoDB Editor.. now works better than ever!

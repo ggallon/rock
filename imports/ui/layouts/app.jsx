@@ -1,21 +1,21 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
+
 import PrivateRoute from '/imports/lib/private-route';
-import AppNavigation from '/imports/ui/components/AppNavigation';
+import AppNavigation from '/imports/ui/components/appNavigation';
 
-import Index from '/imports/modules/app/components/Index';
+import Index from '/imports/modules/app/components/index';
 
-import Documents from '/imports/modules/documents/components/Documents';
-import NewDocument from '/imports/modules/documents/components/NewDocument';
-import ViewDocument from '/imports/modules/documents/components/ViewDocument';
-import EditDocument from '/imports/modules/documents/components/EditDocument';
+import Documents from '/imports/modules/documents/components/documents';
+import NewDocument from '/imports/modules/documents/components/newDocument';
+import ViewDocument from '/imports/modules/documents/components/viewDocument';
+import EditDocument from '/imports/modules/documents/components/editDocument';
 
-import Login from '/imports/modules/app/components/Login';
-import RecoverPassword from '/imports/modules/app/components/RecoverPassword';
-import ResetPassword from '/imports/modules/app/components/ResetPassword';
-import Signup from '/imports/modules/app/components/Signup';
+import Login from '/imports/modules/app/components/login';
+import RecoverPassword from '/imports/modules/app/components/recoverPassword';
+import ResetPassword from '/imports/modules/app/components/resetPassword';
+import Signup from '/imports/modules/app/components/signup';
 
 import NotFound from '/imports/ui/components/notFound';
 

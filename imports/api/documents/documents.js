@@ -29,6 +29,7 @@ Documents.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
+    optional: true,
   },
   userId: {
     type: String,

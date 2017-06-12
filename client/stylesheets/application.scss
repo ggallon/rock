@@ -3,10 +3,10 @@
 @import "base/animations";
 @import "base/forms";
 
-@import "state/Navbar";
+@import "state/navbar";
 
-@import "module/ui/Loading";
-@import "module/ui/PageHeader";
+@import "module/ui/loading";
+@import "module/ui/pageHeader";
 
-@import "module/app/Login";
-@import "module/app/Signup";
+@import "module/app/login";
+@import "module/app/signup";
