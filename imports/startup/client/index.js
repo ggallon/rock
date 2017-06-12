@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
-import { Bert } from 'meteor/themeteorchef:bert';
 import App from '/imports/ui/layouts/app';
 
 // Imports Bootstrap stylesheet
@@ -14,13 +13,6 @@ bootstrapCSS.setAttribute('integrity', 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcw
 bootstrapCSS.setAttribute('crossorigin', 'anonymous');
 const headFirstChild = document.querySelector('head').firstChild;
 document.querySelector('head').insertBefore(bootstrapCSS, headFirstChild);
-
-// Bert settings
-Bert.defaults = {
-  hideDelay: 7000,
-  style: 'growl-top-right',
-  type: 'default',
-};
 
 Meteor.startup(() => {
   render(
