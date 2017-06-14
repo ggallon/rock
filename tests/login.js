@@ -5,7 +5,7 @@ describe('Log In', function () {
   beforeEach(function () {
     server.execute(function () {
       const { Meteor } = require('meteor/meteor');
-      const user = Meteor.users.findOne({ 'emails.address': 'carl.winslow@abc.com' });
+      const user = Meteor.users.findOne({ 'emails.address': 'admin@admin.com' });
       if (user) {
         Meteor.users.remove(user._id);
       }
@@ -16,17 +16,17 @@ describe('Log In', function () {
     server.execute(function () {
       const { Accounts } = require('meteor/accounts-base');
       Accounts.createUser({
-        email: 'carl.winslow@abc.com',
-        password: 'bigguy1989',
+        email: 'admin@admin.com',
+        password: 'password',
         profile: {
-          name: { first: 'Carl', last: 'Winslow' },
+          name: { first: 'Gwenaël', last: 'Gallon' },
         },
       });
     });
 
     browser.url('http://localhost:3000/login')
-           .setValue('[name="emailAddress"]', 'carl.winslow@abc.com')
-           .setValue('[name="password"]', 'bigguy1989')
+           .setValue('[name="emailAddress"]', 'admin@admin.com')
+           .setValue('[name="password"]', 'password')
            .submitForm('form');
 
     browser.waitForExist('.jumbotron');
