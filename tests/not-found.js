@@ -6,6 +6,6 @@ describe('404 Error', function () {
     browser.url('http://localhost:3000/dididothat')
            .waitForExist('.alert-danger');
 
-    expect(browser.getText('.alert-danger p')).to.equal('Error [404]: /dididothat does not exist.');
+    expect(browser.getText('.alert-danger p')).to.equal("<strong>[404] Erreur </strong>: /dididothat n'existe pas.");
   });
 });
