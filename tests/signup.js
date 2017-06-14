@@ -5,7 +5,7 @@ describe('Sign Up', function () {
   beforeEach(function () {
     server.execute(function () {
       const { Meteor } = require('meteor/meteor');
-      const user = Meteor.users.findOne({ 'emails.address': 'carl.winslow@abc.com' });
+      const user = Meteor.users.findOne({ 'emails.address': 'admin@admin.com' });
       if (user) {
         Meteor.users.remove(user._id);
       }
@@ -14,10 +14,11 @@ describe('Sign Up', function () {
 
   it('should create a new user and login with redirect to index @watch', function () {
     browser.url('http://localhost:3000/signup')
-           .setValue('[name="firstName"]', 'Carl')
-           .setValue('[name="lastName"]', 'Winslow')
-           .setValue('[name="emailAddress"]', 'carl.winslow@abc.com')
-           .setValue('[name="password"]', 'bigguy1989')
+           .setValue('[name="firstName"]', 'Gwenaël')
+           .setValue('[name="lastName"]', 'Gallon')
+           .setValue('[name="identifiant"]', 'admin@admin.com')
+           .setValue('[name="password"]', 'password')
+           .setValue('[name="repeatPassword]', 'password')
            .submitForm('form');
 
     browser.waitForExist('.jumbotron');
