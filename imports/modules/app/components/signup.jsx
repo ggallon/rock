@@ -25,18 +25,18 @@ class Signup extends Component {
     this.setState({ signupError: null });
   }
 
-  onSubmit({ identifiant, password, fisrtName, lastName }) {
+  onSubmit({ identifiant, password, firstName, lastName }) {
     const userData = {
       email: identifiant,
       password: password,
       profile: {
         name: {
-          first: fisrtName,
+          first: firstName,
           last: lastName,
         },
       },
     };
-    
+
     return new Promise((resolve, reject) =>
       Accounts.createUser(userData, error =>
         error ? reject(error) : resolve(),
@@ -71,7 +71,7 @@ class Signup extends Component {
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name='fisrtName' />
+                  <AutoField name='firstName' />
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6}>
                   <AutoField name='lastName' />
