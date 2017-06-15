@@ -15,6 +15,7 @@ describe('Log In', function () {
   it('should allow us to login @watch', function () {
     server.execute(function () {
       const { Accounts } = require('meteor/accounts-base');
+
       Accounts.createUser({
         email: 'admin@admin.com',
         password: 'password',
@@ -25,7 +26,7 @@ describe('Log In', function () {
     });
 
     browser.url('http://localhost:3000/login')
-           .setValue('[name="emailAddress"]', 'admin@admin.com')
+           .setValue('[name="identifiant"]', 'admin@admin.com')
            .setValue('[name="password"]', 'password')
            .submitForm('form');
 

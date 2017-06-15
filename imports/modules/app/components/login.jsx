@@ -22,9 +22,9 @@ class Login extends Component {
     this.setState({ loginError: null });
   }
 
-  onSubmit({ email, password }) {
+  onSubmit({ identifiant, password }) {
     return new Promise((resolve, reject) =>
-      Meteor.loginWithPassword(email, password, error =>
+      Meteor.loginWithPassword(identifiant, password, error =>
         error ? reject(error) : resolve(),
       ),
     );
