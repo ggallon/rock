@@ -18,7 +18,7 @@ describe('Sign Up', function () {
            .setValue('[name="lastName"]', 'Gallon')
            .setValue('[name="identifiant"]', 'admin@admin.com')
            .setValue('[name="password"]', 'password')
-           .setValue('[name="repeatPassword]', 'password')
+           .setValue('[name="repeatPassword"]', 'password')
            .submitForm('form');
 
     browser.waitForExist('.jumbotron');
