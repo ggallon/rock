@@ -10,7 +10,7 @@ export const upsertDocument = new ValidatedMethod({
     _id: { type: String, optional: true },
     title: { type: String, optional: true },
     body: { type: String, optional: true },
-    userId: { type: String, optional: true },
+    owner: { type: String, optional: true },
   }).validator(),
   run(document) {
     if (!this.userId) {
@@ -18,7 +18,7 @@ export const upsertDocument = new ValidatedMethod({
         'Must be logged in to insertor update a document');
     }
 
-    if (document._id && document.userId !== this.userId) {
+    if (document._id && document.owner !== this.userId) {
       throw new Meteor.Error('documents.upsert.accessDenied',
         'You don\'t have permission to update this document.');
     }
@@ -30,7 +30,7 @@ export const upsertDocument = new ValidatedMethod({
 
     if (!document._id) {
       data.createdAt = new Date();
-      data.userId = this.userId;
+      data.owner = this.userId;
     }
 
     return Documents.upsert({ _id: document._id }, { $set: data });
@@ -50,7 +50,7 @@ export const removeDocument = new ValidatedMethod({
 
     const document = Documents.findOne(_id);
 
-    if (document.userId !== this.userId) {
+    if (document.owner !== this.userId) {
       throw new Meteor.Error('documents.remove.accessDenied',
         'You don\'t have permission to remove this document.');
     }

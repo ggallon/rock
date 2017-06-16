@@ -31,7 +31,7 @@ Documents.schema = new SimpleSchema({
     type: Date,
     optional: true,
   },
-  userId: {
+  owner: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     optional: true,
@@ -42,7 +42,7 @@ Documents.attachSchema(Documents.schema);
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
-    Documents._ensureIndex({ userId: 1 });
+    Documents._ensureIndex({ owner: 1 });
     Documents._ensureIndex({ createdAt: -1 });
   }
 });
