@@ -1,12 +1,17 @@
-@import "base/extends";
-@import "base/layouts";
-@import "base/animations";
-@import "base/forms";
+// Core variables and mixins
+@import './colors';
+@import './mixins';
 
-@import "state/navbar";
+// Core CSS
+@import "./base";
+@import './bootstrap-overrides';
 
-@import "module/ui/loading";
-@import "module/ui/pageHeader";
+// Components
+@import "components/loading";
 
-@import "module/app/login";
-@import "module/app/signup";
+// Modules
+@import "modules/app/login";
+@import "modules/app/signup";
+
+// Utility classes
+@import "./utilities";
