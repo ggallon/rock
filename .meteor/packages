@@ -29,6 +29,7 @@ ddp-rate-limiter@1.0.7         # The DDPRateLimiter allows users to add rate lim
 check@1.2.5                    # Check whether a value matches a pattern
 mdg:validated-method@1.1.0     # A simple wrapper for Meteor.methods
 aldeed:collection2-core@2.0.1  # Core package for aldeed:collection2
+react-meteor-data@0.2.12       # React higher-order component for reactively tracking Meteor data
 
 # UI
 fourseven:scss@4.5.0           # Style with attitude. Sass and SCSS support for Meteor.js
