@@ -10,7 +10,7 @@ import AuthenticatedNavigation from './authenticatedNavigation';
 
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
-const AppNavigation = ({ hasUser }) => (
+const GlobalNavigation = ({ hasUser }) => (
   <Navbar fixedTop collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -24,7 +24,7 @@ const AppNavigation = ({ hasUser }) => (
   </Navbar>
 );
 
-AppNavigation.propTypes = {
+GlobalNavigation.propTypes = {
   hasUser: PropTypes.object,
 };
 
@@ -33,4 +33,4 @@ export default container((props, onData) => {
   if (subscription.ready()) {
     onData(null, { hasUser: Meteor.user() });
   }
-}, AppNavigation);
+}, GlobalNavigation);
