@@ -10,7 +10,6 @@
 .navbar-toggle {
 	background: transparent !important;
   border: none;
-  border-radius: 0px;
 
   &:hover {
     opacity: 0.65;
@@ -24,35 +23,35 @@
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     transition: all 0.2s;
+
+    // Animated
+    &:nth-of-type(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: 10% 10%;
+      -moz-transform-origin: 10% 10%;
+      -ms-transform-origin: 10% 10%;
+      transform-origin: 10% 10%;
+    }
+
+    &:nth-of-type(3) {
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+
+    &:nth-of-type(4) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 10% 90%;
+      -moz-transform-origin: 10% 90%;
+      -ms-transform-origin: 10% 90%;
+      transform-origin: 10% 90%;
+    }
   }
-}
-
-/* NavBar Toggle animated */
-.navbar-toggle .icon-bar:nth-of-type(2) {
-	-webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	-webkit-transform-origin: 10% 10%;
-  -moz-transform-origin: 10% 10%;
-	-ms-transform-origin: 10% 10%;
-	transform-origin: 10% 10%;
-}
-
-.navbar-toggle .icon-bar:nth-of-type(3) {
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
-
-.navbar-toggle .icon-bar:nth-of-type(4) {
-	-webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	-webkit-transform-origin: 10% 90%;
-  -moz-transform-origin: 10% 90%;
-	-ms-transform-origin: 10% 90%;
-	transform-origin: 10% 90%;
 }
 
 /* NavBar Toggle collapsed animated */
