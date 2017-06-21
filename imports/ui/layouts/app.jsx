@@ -7,21 +7,19 @@ import { Roles } from 'meteor/alanning:roles';
 import Grid from 'react-bootstrap/lib/Grid';
 
 import GlobalNavigation from '/imports/ui/components/globalNavigation';
-import PrivateRoute from '/imports/lib/private-route';
+import PrivateRoute from '/imports/ui/components/privateRoute';
+import NotFound from '/imports/ui/components/notFound';
 
 import Index from '/imports/modules/app/components/index';
-
-import Documents from '/imports/modules/documents/components/documents';
-import NewDocument from '/imports/modules/documents/components/newDocument';
-import ViewDocument from '/imports/modules/documents/components/viewDocument';
-import EditDocument from '/imports/modules/documents/components/editDocument';
-
 import Login from '/imports/modules/app/components/login';
 import RecoverPassword from '/imports/modules/app/components/recoverPassword';
 import ResetPassword from '/imports/modules/app/components/resetPassword';
 import Signup from '/imports/modules/app/components/signup';
 
-import NotFound from '/imports/ui/components/notFound';
+import Documents from '/imports/modules/documents/components/documents';
+import NewDocument from '/imports/modules/documents/components/newDocument';
+import ViewDocument from '/imports/modules/documents/components/viewDocument';
+import EditDocument from '/imports/modules/documents/components/editDocument';
 
 const App = props => (
   <BrowserRouter>
