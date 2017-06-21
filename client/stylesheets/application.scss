@@ -3,8 +3,8 @@
 @import './mixins';
 
 // Core CSS
-@import "./base";
 @import './bootstrap-overrides';
+@import "./base";
 
 // Components
 @import "components/loading";

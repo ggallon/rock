@@ -1,59 +1,61 @@
 // Navbar
 // -------------------------
 
-.navbar-default .navbar-nav > li > a.active,
-.navbar-default .navbar-nav > li > a.active:focus,
-.navbar-default .navbar-nav > li > a.active:hover {
-  color: #555;
-  background-color: #e7e7e7;
+.navbar {
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-// NavBar Toggle
+// Navbar toggle
+// --------------------------------------------------
 .navbar-toggle {
 	background: transparent !important;
   border: none;
-  border-radius: 0px;
-}
 
-.navbar-toggle:hover {
-  opacity: 0.65;
-	filter: alpha(opacity=0.65);
-	background: transparent !important;
-}
+  &:hover {
+    opacity: 0.65;
+    filter: alpha(opacity=0.65);
+    background: transparent !important;
+  }
 
-.navbar-toggle .icon-bar {
-	-webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-	transition: all 0.2s;
-}
+  // Bars
+  .icon-bar {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
 
-/* NavBar Toggle animated */
-.navbar-toggle .icon-bar:nth-of-type(2) {
-	-webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	-webkit-transform-origin: 10% 10%;
-  -moz-transform-origin: 10% 10%;
-	-ms-transform-origin: 10% 10%;
-	transform-origin: 10% 10%;
-}
+    // Animated
+    &:nth-of-type(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: 10% 10%;
+      -moz-transform-origin: 10% 10%;
+      -ms-transform-origin: 10% 10%;
+      transform-origin: 10% 10%;
+    }
 
-.navbar-toggle .icon-bar:nth-of-type(3) {
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
+    &:nth-of-type(3) {
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
 
-.navbar-toggle .icon-bar:nth-of-type(4) {
-	-webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	-webkit-transform-origin: 10% 90%;
-  -moz-transform-origin: 10% 90%;
-	-ms-transform-origin: 10% 90%;
-	transform-origin: 10% 90%;
+    &:nth-of-type(4) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 10% 90%;
+      -moz-transform-origin: 10% 90%;
+      -ms-transform-origin: 10% 90%;
+      transform-origin: 10% 90%;
+    }
+  }
 }
 
 /* NavBar Toggle collapsed animated */
@@ -74,4 +76,24 @@
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
 	transform: rotate(0);
+}
+
+// Alternate navbars
+// --------------------------------------------------
+.navbar-default {
+  background-color: #f2f2f2;
+  background-color: rgba(240, 240, 240, 0.9);
+  
+  .navbar-brand {
+    color: #000;
+    &:hover {
+      opacity: 0.65;
+      filter: alpha(opacity=65);
+      background-color: transparent !important;
+    }
+    &:focus {
+      color: #000;
+      background-color: transparent !important;
+    }
+  }
 }
