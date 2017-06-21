@@ -1,23 +1,23 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ loggingIn, authenticated, component, location, ...rest }) => (
   <Route
     {...rest}
-    render={props => (
-      (!Meteor.loggingIn() && !Meteor.userId()) ? (
+    render={(props) => {
+      if (loggingIn) return <div />;
+      return authenticated ? (
+        React.createElement(component, { ...props, loggingIn, authenticated })
+      ) : (
         <Redirect
           to={{
             pathname: '/login',
-            state: { from: props.location },
+            state: { from: location },
           }}
         />
-      ) : (
-        <Component {...props} />
-      )
-    )}
+      );
+    }}
   />
 );
 
@@ -26,10 +26,9 @@ PrivateRoute.defaultProps = {
 };
 
 PrivateRoute.propTypes = {
-  component: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.func,
-  ]).isRequired,
+  loggingIn: PropTypes.bool.isRequired,
+  authenticated: PropTypes.bool.isRequired,
+  component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
 
