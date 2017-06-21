@@ -1,31 +1,26 @@
 // Navbar
 // -------------------------
 
-.navbar-default .navbar-nav > li > a.active,
-.navbar-default .navbar-nav > li > a.active:focus,
-.navbar-default .navbar-nav > li > a.active:hover {
-  color: #555;
-  background-color: #e7e7e7;
-}
-
-// NavBar Toggle
+// Navbar toggle
+// --------------------------------------------------
 .navbar-toggle {
 	background: transparent !important;
   border: none;
   border-radius: 0px;
-}
 
-.navbar-toggle:hover {
-  opacity: 0.65;
-	filter: alpha(opacity=0.65);
-	background: transparent !important;
-}
+  &:hover {
+    opacity: 0.65;
+    filter: alpha(opacity=0.65);
+    background: transparent !important;
+  }
 
-.navbar-toggle .icon-bar {
-	-webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-	transition: all 0.2s;
+  // Bars
+  .icon-bar {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+  }
 }
 
 /* NavBar Toggle animated */
