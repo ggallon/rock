@@ -1,16 +1,12 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
-import container from '/imports/lib/container';
 import PublicNavigation from './publicNavigation';
 import AuthenticatedNavigation from './authenticatedNavigation';
 
-const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
-
-const GlobalNavigation = ({ hasUser }) => (
+const GlobalNavigation = props => (
   <Navbar fixedTop collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -19,18 +15,17 @@ const GlobalNavigation = ({ hasUser }) => (
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      { renderNavigation(hasUser) }
+      {!props.authenticated ? <PublicNavigation /> : <AuthenticatedNavigation {...props} />}
     </Navbar.Collapse>
   </Navbar>
 );
 
-GlobalNavigation.propTypes = {
-  hasUser: PropTypes.object,
+GlobalNavigation.defaultProps = {
+  authenticated: false,
 };
 
-export default container((props, onData) => {
-  const subscription = Meteor.subscribe('users.info');
-  if (subscription.ready()) {
-    onData(null, { hasUser: Meteor.user() });
-  }
-}, GlobalNavigation);
+GlobalNavigation.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
+};
+
+export default GlobalNavigation;
