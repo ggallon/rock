@@ -7,6 +7,7 @@ import { Roles } from 'meteor/alanning:roles';
 import Grid from 'react-bootstrap/lib/Grid';
 
 import GlobalNavigation from '/imports/ui/components/globalNavigation';
+import PublicRoute from '/imports/ui/components/publicRoute';
 import PrivateRoute from '/imports/ui/components/privateRoute';
 import NotFound from '/imports/ui/components/notFound';
 
@@ -33,10 +34,10 @@ const App = props => (
             <PrivateRoute path="/documents/:_id/edit" component={EditDocument} {...props} />
             <PrivateRoute path="/documents/:_id" component={ViewDocument} {...props} />
             <PrivateRoute path="/documents" component={Documents} {...props} />
-            <Route path="/login" component={Login} />
-            <Route path="/recover-password" component={RecoverPassword} />
-            <Route path="/reset-password/:token" component={ResetPassword} />
-            <Route path="/signup" component={Signup} />
+            <PublicRoute path="/login" component={Login} {...props} />
+            <PublicRoute path="/recover-password" component={RecoverPassword} {...props} />
+            <PublicRoute path="/reset-password/:token" component={ResetPassword} {...props} />
+            <PublicRoute path="/signup" component={Signup} {...props} />
             <Route component={NotFound} />
           </Switch>
         </Grid>
