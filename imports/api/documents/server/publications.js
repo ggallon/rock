@@ -27,7 +27,7 @@ Meteor.publish('documents.view', function documentsViewPublish(documentId) {
     fields: {
       title: 1,
       body: 1,
-      userId: 1,
+      owner: 1,
     },
   });
 });
