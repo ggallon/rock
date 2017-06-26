@@ -40,7 +40,7 @@ export const upsertDocument = new ValidatedMethod({
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
   validate: new SimpleSchema({
-    _id: { type: String },
+    _id: { type: String, regEx: SimpleSchema.RegEx.Id },
   }).validator(),
   run({ _id }) {
     if (!this.userId) {
