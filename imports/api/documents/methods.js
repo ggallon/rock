@@ -55,7 +55,11 @@ export const removeDocument = new ValidatedMethod({
         'You don\'t have permission to remove this document.');
     }
 
-    Documents.remove(_id);
+    try {
+      return Documents.remove(_id);
+    } catch (exception) {
+      throw new Meteor.Error('500', exception);
+    }
   },
 });
 
