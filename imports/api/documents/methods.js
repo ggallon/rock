@@ -24,6 +24,35 @@ export const insertDocument = new ValidatedMethod({
   },
 });
 
+export const updateDocument = new ValidatedMethod({
+  name: 'documents.update',
+  validate: new SimpleSchema({
+    _id: { type: String, regEx: SimpleSchema.RegEx.Id },
+    title: { type: String, optional: true },
+    body: { type: String, optional: true },
+    owner: { type: String, regEx: SimpleSchema.RegEx.Id },
+  }).validator(),
+  run(document) {
+    if (!this.userId) {
+      throw new Meteor.Error('documents.upsert.notLoggedIn',
+        'Must be logged in to insertor update a document');
+    }
+
+    if (document._id && document.owner !== this.userId) {
+      throw new Meteor.Error('documents.upsert.accessDenied',
+        'You don\'t have permission to update this document.');
+    }
+
+    try {
+      const documentId = document._id;
+      Documents.update({ _id: document._id }, { $set: document });
+      return documentId; // Return _id so we can redirect to document after update.
+    } catch (exception) {
+      throw new Meteor.Error('500', exception);
+    }
+  },
+});
+
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
   validate: new SimpleSchema({
@@ -53,6 +82,7 @@ export const removeDocument = new ValidatedMethod({
 rateLimit({
   methods: [
     insertDocument,
+    updateDocument,
     removeDocument,
   ],
   limit: 5,
