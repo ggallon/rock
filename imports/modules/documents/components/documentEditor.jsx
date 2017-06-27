@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import { SubmitField } from 'uniforms-bootstrap3';
+import { Meteor } from 'meteor/meteor';
 import DocumentSchema from '/imports/modules/documents/lib/documentSchema';
-import { upsertDocument } from '/imports/api/documents/methods';
 
 class DocumentEditor extends Component {
   constructor(props) {
@@ -26,9 +26,11 @@ class DocumentEditor extends Component {
     }, 0);
   }
 
-  onSubmit(doc) {
+  onSubmit(formData) {
+    const { doc } = this.props;
+    const methodToCall = doc && doc._id ? 'documents.update' : 'documents.insert';
     return new Promise((resolve, reject) =>
-      upsertDocument.call(doc, (error, response) =>
+      Meteor.call(methodToCall, formData, (error, response) =>
         error ? reject(error) : resolve(response),
       ),
     );
@@ -40,7 +42,7 @@ class DocumentEditor extends Component {
 
   onSubmitSuccess(response) {
     const { doc, history } = this.props;
-    history.push(`/documents/${response.insertedId || doc._id}`);
+    history.push(`/documents/${response || doc._id}`);
   }
 
   render() {
