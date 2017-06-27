@@ -5,7 +5,7 @@ import rateLimit from '/imports/lib/rate-limit';
 import Documents from './documents';
 
 export const insertDocument = new ValidatedMethod({
-  name: 'documents.insert2',
+  name: 'documents.insert',
   validate: new SimpleSchema({
     title: { type: String },
     body: { type: String },
