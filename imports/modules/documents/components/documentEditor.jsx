@@ -15,6 +15,7 @@ class DocumentEditor extends Component {
       model: this.props.doc || {},
     };
 
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
     this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
@@ -24,6 +25,10 @@ class DocumentEditor extends Component {
     setTimeout(() => {
       document.querySelector('[name="title"]').focus();
     }, 0);
+  }
+
+  onChange() {
+    this.setState({ documentEditorError: null });
   }
 
   onSubmit(formData) {
@@ -58,6 +63,7 @@ class DocumentEditor extends Component {
         schema={DocumentSchema}
         placeholder
         error={this.state.documentEditorError}
+        onChange={this.onChange}
         onSubmit={this.onSubmit}
         onSubmitFailure={this.onSubmitFailure}
         onSubmitSuccess={this.onSubmitSuccess}
