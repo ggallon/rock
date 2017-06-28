@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import AutoForm from 'uniforms-bootstrap3/AutoForm';
-import { SubmitField } from 'uniforms-bootstrap3';
 import { Meteor } from 'meteor/meteor';
+import AutoForm from 'uniforms-bootstrap3/AutoForm';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import DocumentSchema from '/imports/modules/documents/lib/documentSchema';
 
 class DocumentEditor extends Component {
@@ -75,13 +75,12 @@ class DocumentEditor extends Component {
 }
 
 DocumentEditor.defaultProps = {
-  history: null,
   doc: null,
 };
 
 DocumentEditor.propTypes = {
-  history: PropTypes.object,
   doc: PropTypes.object,
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(DocumentEditor);

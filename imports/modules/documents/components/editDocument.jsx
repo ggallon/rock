@@ -1,11 +1,10 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import container from '/imports/lib/container';
+import { Meteor } from 'meteor/meteor';
 import Documents from '/imports/api/documents/documents';
-import NotFound from '/imports/ui/components/notFound';
+import container from '/imports/lib/container';
 import Loading from '/imports/ui/components/loading';
+import NotFound from '/imports/ui/components/notFound';
 import DocumentEditor from './documentEditor';
 
 const EditDocument = ({ doc }) => (
@@ -21,12 +20,12 @@ EditDocument.propTypes = {
   doc: PropTypes.object.isRequired,
 };
 
-export default withRouter(container((props, onData) => {
-  const documentId = props.match.params._id;
-  const subscription = Meteor.subscribe('documents.view', documentId);
+export default container(({ match }, onData) => {
+  const docId = match.params._id;
+  const subscription = Meteor.subscribe('documents.view', docId);
 
   if (subscription.ready()) {
-    const doc = Documents.findOne(documentId);
+    const doc = Documents.findOne(docId);
     onData(null, { doc });
   }
-}, EditDocument, { loadingHandler: () => <Loading /> }));
+}, EditDocument, { loadingHandler: () => <Loading /> });

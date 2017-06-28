@@ -1,11 +1,10 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
-
 import Documents from '/imports/api/documents/documents';
 import container from '/imports/lib/container';
 import Loading from '/imports/ui/components/loading';
@@ -24,16 +23,16 @@ const DocumentsList = ({ documents, history }) => (
 
 DocumentsList.defaultProps = {
   documents: [],
-  history: null,
 };
 
 DocumentsList.propTypes = {
-  documents: PropTypes.array,
-  history: PropTypes.object,
+  documents: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(container((props, onData) => {
   const subscription = Meteor.subscribe('documents.list');
+
   if (subscription.ready()) {
     const documents = Documents.find().fetch();
     onData(null, { documents });
