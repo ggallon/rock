@@ -69,13 +69,13 @@ class Signup extends Component {
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name='firstName' />
+                  <AutoField name="firstName" />
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name='lastName' />
+                  <AutoField name="lastName" />
                 </Col>
               </Row>
-              <AutoField name='identifiant' help='Cette adresse e-mail sera votre identifiant.' />
+              <AutoField name="identifiant" help="Cette adresse e-mail sera votre identifiant." />
               <AutoFields fields={['password', 'repeatPassword']} />
               <ErrorsField />
               <SubmitField value="Confirmer" className="pull-right" />
