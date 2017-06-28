@@ -73,8 +73,7 @@ class RecoverPassword extends Component {
               onSubmitFailure={this.onSubmitFailure}
               onSubmitSuccess={this.onSubmitSuccess}
               submitField={CustomSubmitField}
-            >
-            </AutoForm>
+            />
           </Col>
         </Row>
       </div>

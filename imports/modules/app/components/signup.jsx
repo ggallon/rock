@@ -12,9 +12,7 @@ import SignupSchema from '/imports/modules/app/lib/signupSchema';
 class Signup extends Component {
   constructor() {
     super();
-    this.state = {
-      signupError: null,
-    };
+    this.state = { signupError: null };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -54,7 +52,7 @@ class Signup extends Component {
   }
 
   render() {
-     return (
+    return (
       <div className="Signup">
         <Row>
           <Col xs={12} sm={6} md={5} lg={4} className="center-block">

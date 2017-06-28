@@ -61,8 +61,7 @@ class Login extends Component {
               onSubmitFailure={this.onSubmitFailure}
               onSubmitSuccess={this.onSubmitSuccess}
               submitField={CustomSubmitField}
-            >
-            </AutoForm>
+            />
             <p><Link to="/recover-password" className="pull-left">Mot de passe oublié ?</Link></p>
           </Col>
         </Row>
