@@ -8,7 +8,6 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
 import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
-import { removeDocument } from '/imports/api/documents/methods';
 import NotFound from '/imports/ui/components/notFound';
 import Loading from '/imports/ui/components/loading';
 
@@ -21,10 +20,9 @@ class ViewDocument extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  handleRemove(_id) {
-    const { history } = this.props;
+  handleRemove(_id, history) {
     if (confirm('Êtes-vous sûr ? Ceci est définitif !')) {
-      removeDocument.call({ _id }, (error) => {
+      Meteor.call('documents.remove', { _id }, (error) => {
         if (error) {
           this.setState({ handleRemoveError: error.reason });
         } else {
@@ -50,7 +48,7 @@ class ViewDocument extends Component {
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
                 <Button onClick={() => history.push(`/documents/${doc._id}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(doc._id)} className="text-danger">Supprimer</Button>
+                <Button onClick={() => this.handleRemove(doc._id, history)} className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
