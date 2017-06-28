@@ -1,3 +1,4 @@
+import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
