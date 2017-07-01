@@ -1,20 +1,22 @@
-import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Accounts } from 'meteor/accounts-base';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import AutoField from 'uniforms-bootstrap3/AutoField';
 import AutoFields from 'uniforms-bootstrap3/AutoFields';
 import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
-import { SubmitField } from 'uniforms-bootstrap3';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import SignupSchema from '/imports/modules/app/lib/signupSchema';
 
 class Signup extends Component {
   constructor() {
     super();
+
     this.state = { signupError: null };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -94,7 +96,7 @@ Signup.defaultProps = {
 };
 
 Signup.propTypes = {
-  history: PropTypes.object,
+  history: PropTypes.object.isRequired,
 };
 
-export default withRouter(Signup);
+export default Signup;
