@@ -1,17 +1,19 @@
-import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
-import { SubmitField } from 'uniforms-bootstrap3';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import LoginSchema from '/imports/modules/app/lib/loginSchema';
 
 class Login extends Component {
   constructor() {
     super();
+
     this.state = { loginError: null };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -76,8 +78,8 @@ Login.defaultProps = {
 };
 
 Login.propTypes = {
-  history: PropTypes.object,
-  location: PropTypes.object,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
-export default withRouter(Login);
+export default Login;

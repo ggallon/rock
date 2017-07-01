@@ -1,18 +1,19 @@
-import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Accounts } from 'meteor/accounts-base';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
-import { SubmitField } from 'uniforms-bootstrap3';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import ResetPasswordSchema from '/imports/modules/app/lib/resetPasswordSchema';
 
 class ResetPassword extends Component {
   constructor() {
     super();
+
     this.state = { resetPasswordError: null };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -78,8 +79,8 @@ ResetPassword.defaultProps = {
 };
 
 ResetPassword.propTypes = {
-  history: PropTypes.object,
-  match: PropTypes.object,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default withRouter(ResetPassword);
+export default ResetPassword;
