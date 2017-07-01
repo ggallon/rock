@@ -7,7 +7,9 @@ Meteor.publish('users.info', function userInfoPublish() {
 
   return Meteor.users.find(this.userId, {
     fields: {
-      name: 1,
+      emails: 1,
+      profile: 1,
+      services: 1,
     },
   });
 });
