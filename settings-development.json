@@ -1,4 +1,17 @@
 {
   "public": {},
-  "private": {}
+  "private": {
+    "externalServices": {
+      "google": {
+        "clientId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      },
+      "github": {
+        "clientId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      }
+    }
+  }
 }

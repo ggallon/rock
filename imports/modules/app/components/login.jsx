@@ -15,6 +15,7 @@ class Login extends Component {
     this.state = { loginError: null };
 
     this.onChange = this.onChange.bind(this);
+    this.onSubmitGoogle = this.onSubmitGoogle.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
     this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
@@ -22,6 +23,20 @@ class Login extends Component {
 
   onChange() {
     this.setState({ loginError: null });
+  }
+
+  onSubmitGoogle() {
+    return new Promise((resolve, reject) =>
+      Meteor.loginWithGoogle({
+        requestPermissions: ['email', 'profile', 'openid'],
+        requestOfflineToken: true,
+        loginStyle: 'popup',
+      }, error =>
+        error ?
+          reject(this.onSubmitFailure(error)) :
+          resolve(this.onSubmitSuccess),
+      ),
+    );
   }
 
   onSubmit({ identifiant, password }) {
@@ -53,6 +68,16 @@ class Login extends Component {
         <Row>
           <Col xs={12} sm={5} md={4} lg={4} className="center-block">
             <h4 className="page-header">Connexion à Rock</h4>
+            <button
+              className="GoogleLoginButton"
+              type="button"
+              onClick={this.onSubmitGoogle}
+            >
+              <i className="fa fa-google" aria-hidden="true" /> Se connecter avec Google
+            </button>
+            <div className="or-box">
+              <span className="or">OU</span>
+            </div>
             <AutoForm
               schema={LoginSchema}
               placeholder
