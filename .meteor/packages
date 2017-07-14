@@ -34,7 +34,7 @@ aldeed:collection2-core@2.0.1  # Core package for aldeed:collection2
 react-meteor-data@0.2.12       # React higher-order component for reactively tracking Meteor data
 
 # UI
-fourseven:scss@4.5.0           # Style with attitude. Sass and SCSS support for Meteor.js
+fourseven:scss@4.5.4           # Style with attitude. Sass and SCSS support for Meteor.js
 
 # Development tools
 msavin:mongol@2.0.1            # In-App MongoDB Editor.. now works better than ever!
