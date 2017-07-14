@@ -16,14 +16,14 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers
 ecmascript@0.8.1               # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3             # Server-side component of the `meteor shell` command
 session@1.1.7                  # Session variable
-dynamic-import@0.1.0           # Runtime support for Meteor 1.5 dynamic import(...) syntax
+dynamic-import@0.1.1           # Runtime support for Meteor 1.5 dynamic import(...) syntax
 
 # Security
 accounts-base@1.3.0            # A user account system
 accounts-google@1.2.0          # Login service for Google accounts
 accounts-password@1.3.7        # Password support for accounts
 service-configuration@1.0.11   # Manage the configuration for third-party services
-alanning:roles                 # Authorization package for Meteor
+alanning:roles@1.2.16          # Authorization package for Meteor
 browser-policy@1.1.0           # Configure security policies enforced by the browser
 ddp-rate-limiter@1.0.7         # The DDPRateLimiter allows users to add rate limits to DDP methods and subscriptions
 
