@@ -7,12 +7,12 @@
 @import './bootstrap-overrides';
 @import "./base";
 
+// Utility classes
+@import "./utilities";
+
 // Components
 @import "components/loading";
 
 // Modules
 @import "modules/app/login";
 @import "modules/app/signup";
-
-// Utility classes
-@import "./utilities";
