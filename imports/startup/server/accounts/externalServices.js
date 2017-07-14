@@ -5,9 +5,11 @@ const externalServices = Meteor.settings.private.externalServices;
 
 if (externalServices) {
   Object.keys(externalServices).forEach((service) => {
-    ServiceConfiguration.configurations.upsert(
-      { service },
-      { $set: externalServices[service] },
-    );
+    if (externalServices[service].clientId !== '' || externalServices[service].secret !== '') {
+      ServiceConfiguration.configurations.upsert(
+        { service },
+        { $set: externalServices[service] },
+      );
+    }
   });
 }
