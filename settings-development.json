@@ -6,11 +6,6 @@
         "clientId": "",
         "secret": "",
         "loginStyle": "popup"
-      },
-      "github": {
-        "clientId": "",
-        "secret": "",
-        "loginStyle": "popup"
       }
     }
   }
