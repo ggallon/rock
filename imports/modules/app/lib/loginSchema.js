@@ -3,6 +3,7 @@ import '/imports/lib/simple_schema_message_box_fr';
 
 const LoginSchema = new SimpleSchema({
   identifiant: {
+    label: 'Identifiant',
     type: String,
     regEx: SimpleSchema.RegEx.EmailWithTLD,
     uniforms: {
@@ -11,6 +12,7 @@ const LoginSchema = new SimpleSchema({
     },
   },
   password: {
+    label: 'Mot de passe',
     type: String,
     uniforms: {
       type: 'password',
