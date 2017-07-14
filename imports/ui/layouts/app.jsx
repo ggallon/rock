@@ -29,7 +29,7 @@ const App = props => (
         <GlobalNavigation {...props} />
         <Grid>
           <Switch>
-            <Route exact path="/" component={Index} />
+            <PrivateRoute exact path="/" component={Index} {...props} />
             <PrivateRoute path="/documents/new" component={NewDocument} {...props} />
             <PrivateRoute path="/documents/:_id/edit" component={EditDocument} {...props} />
             <PrivateRoute path="/documents/:_id" component={ViewDocument} {...props} />
