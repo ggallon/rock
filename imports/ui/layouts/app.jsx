@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
-import { Roles } from 'meteor/alanning:roles';
 import Grid from 'react-bootstrap/lib/Grid';
 
 import GlobalNavigation from '/imports/ui/components/globalNavigation';
@@ -49,24 +46,4 @@ App.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-const getUserName = name => ({
-  string: name,
-  object: `${name.first} ${name.last}`,
-}[typeof name]);
-
-export default createContainer(() => {
-  const loggingIn = Meteor.loggingIn();
-  const user = Meteor.user();
-  const userId = Meteor.userId();
-  const loading = !Roles.subscription.ready();
-  const name = user && user.profile && user.profile.name && getUserName(user.profile.name);
-  const emailAddress = user && user.emails && user.emails[0].address;
-
-  return {
-    loading,
-    loggingIn,
-    authenticated: !loggingIn && !!userId,
-    name: name || emailAddress,
-    roles: !loading && Roles.getRolesForUser(userId),
-  };
-}, App);
+export default App;
