@@ -36,7 +36,7 @@ class DocumentEditor extends Component {
     const methodToCall = doc && doc._id ? 'documents.update' : 'documents.insert';
     return new Promise((resolve, reject) =>
       Meteor.call(methodToCall, formData, (error, response) =>
-        error ? reject(error) : resolve(response),
+        (error ? reject(error) : resolve(response)),
       ),
     );
   }
