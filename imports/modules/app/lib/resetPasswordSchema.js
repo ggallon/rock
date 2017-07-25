@@ -16,7 +16,7 @@ const ResetPasswordSchema = new SimpleSchema({
     type: String,
     custom() {
       if (this.value !== this.field('newPassword').value) {
-        return "passwordMismatch";
+        return 'passwordMismatch';
       }
     },
     uniforms: {

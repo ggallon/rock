@@ -28,7 +28,7 @@ class ResetPassword extends Component {
     const { match } = this.props;
     return new Promise((resolve, reject) =>
       Accounts.resetPassword(match.params.token, newPassword, error =>
-        error ? reject(error) : resolve(),
+        (error ? reject(error) : resolve()),
       ),
     );
   }

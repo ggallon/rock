@@ -5,10 +5,9 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = ({ loggingIn, authenticated, component, location, ...rest }) => (
   <Route
     {...rest}
-    render={(props) => {
-      if (loggingIn) return <div />;
-      return authenticated ? (
-        React.createElement(component, { ...props, loggingIn, authenticated })
+    render={props => (
+      authenticated ? (
+        React.createElement(component, { loggingIn, authenticated, ...rest, ...props })
       ) : (
         <Redirect
           to={{
@@ -16,8 +15,8 @@ const PrivateRoute = ({ loggingIn, authenticated, component, location, ...rest }
             state: { from: location },
           }}
         />
-      );
-    }}
+      ))
+    }
   />
 );
 

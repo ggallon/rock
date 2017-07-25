@@ -4,51 +4,67 @@ import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import LoginSchema from '/imports/modules/app/lib/loginSchema';
 
 class Login extends Component {
-  constructor() {
-    super();
-
-    this.state = { loginError: null };
+  constructor(props) {
+    super(props);
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmitGoogle = this.onSubmitGoogle.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
+    this.onSubmitGoogle = this.onSubmitGoogle.bind(this);
+    this.onSubmitGoogleFailure = this.onSubmitGoogleFailure.bind(this);
     this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
   }
 
-  onChange() {
-    this.setState({ loginError: null });
+  componentWillUnmount() {
+    this.props.setAppState({ error: {} });
   }
 
-  onSubmitGoogle() {
-    return new Promise((resolve, reject) =>
-      Meteor.loginWithGoogle({
-        requestPermissions: ['email', 'profile', 'openid'],
-        requestOfflineToken: true,
-        loginStyle: 'popup',
-      }, error =>
-        error ?
-          reject(this.onSubmitFailure(error)) :
-          resolve(this.onSubmitSuccess),
-      ),
-    );
+  onChange() {
+    this.props.setAppState({
+      error: Object.assign({}, this.props.error, {
+        loginError: null,
+        loginGoogleError: null,
+      }),
+    });
   }
 
   onSubmit({ identifiant, password }) {
     return new Promise((resolve, reject) =>
       Meteor.loginWithPassword(identifiant, password, error =>
-        error ? reject(error) : resolve(),
+        (error ? reject(error) : resolve()),
       ),
     );
   }
 
   onSubmitFailure(error) {
-    this.setState({ loginError: error });
+    this.props.setAppState({
+      error: Object.assign({}, this.props.error, { loginError: error }),
+    });
+  }
+
+  onSubmitGoogle() {
+    return new Promise(() =>
+      Meteor.loginWithGoogle({
+        requestPermissions: ['email', 'profile', 'openid'],
+        requestOfflineToken: true,
+        loginStyle: 'popup',
+      }, error => (error
+        ? this.onSubmitGoogleFailure(error)
+        : this.onSubmitSuccess()),
+      ),
+    );
+  }
+
+  onSubmitGoogleFailure(error) {
+    this.props.setAppState({
+      error: Object.assign({}, this.props.error, { loginGoogleError: error }),
+    });
   }
 
   onSubmitSuccess() {
@@ -61,6 +77,7 @@ class Login extends Component {
   }
 
   render() {
+    const { error } = this.props.appState;
     const CustomSubmitField = () => <SubmitField value="Continuer" className="pull-right" />;
 
     return (
@@ -75,6 +92,9 @@ class Login extends Component {
             >
               <i className="fa fa-google" aria-hidden="true" /> Se connecter avec Google
             </button>
+            {error && error.loginGoogleError
+              ? <Alert bsStyle="warning">{error.loginGoogleError.reason}</Alert>
+              : null}
             <div className="or-box">
               <span className="or">OU</span>
             </div>
@@ -82,7 +102,7 @@ class Login extends Component {
               schema={LoginSchema}
               placeholder
               label={false}
-              error={this.state.loginError}
+              error={error && error.loginError}
               onChange={this.onChange}
               onSubmit={this.onSubmit}
               onSubmitFailure={this.onSubmitFailure}
@@ -98,11 +118,15 @@ class Login extends Component {
 }
 
 Login.defaultProps = {
+  error: {},
   history: null,
   location: null,
 };
 
 Login.propTypes = {
+  error: PropTypes.object,
+  appState: PropTypes.object.isRequired,
+  setAppState: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
