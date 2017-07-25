@@ -11,19 +11,24 @@ const AuthenticatedNavigation = props => (
   <div>
     <Nav>
       <LinkContainer to="/documents">
-        <NavItem eventKey={2} href="/documents">Documents</NavItem>
+        <NavItem eventKey={2}>Documents</NavItem>
       </LinkContainer>
+      <NavDropdown eventKey={3} title="Administration" id="basic-nav-dropdown">
+        <LinkContainer to="/users">
+          <MenuItem eventKey={3.1}>Utilisateurs</MenuItem>
+        </LinkContainer>
+      </NavDropdown>
     </Nav>
     <Nav pullRight>
-      <NavDropdown eventKey={3} title={props.name} id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1} onClick={() => Meteor.logout()}>Se déconnecter</MenuItem>
+      <NavDropdown eventKey={4} title={props.name} id="basic-nav-dropdown">
+        <MenuItem eventKey={4.1} onClick={() => Meteor.logout()}>Se déconnecter</MenuItem>
       </NavDropdown>
     </Nav>
   </div>
 );
 
 AuthenticatedNavigation.defaultProps = {
-  name: '',
+  name: null,
 };
 
 AuthenticatedNavigation.propTypes = {
