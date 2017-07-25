@@ -2,7 +2,7 @@ import SimpleSchema from 'simpl-schema';
 import '/imports/lib/simple_schema_message_box_fr';
 
 const signupSchema = new SimpleSchema({
-  firstName: {
+  givenName: {
     label: 'Prénom',
     type: String,
     uniforms: {
@@ -10,7 +10,7 @@ const signupSchema = new SimpleSchema({
       placeholder: 'prénom',
     },
   },
-  lastName: {
+  familyName: {
     label: 'Nom',
     type: String,
     uniforms: {

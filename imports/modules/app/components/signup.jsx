@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -27,21 +27,10 @@ class Signup extends Component {
     this.setState({ signupError: null });
   }
 
-  onSubmit({ identifiant, password, firstName, lastName }) {
-    const userData = {
-      email: identifiant,
-      password: password,
-      profile: {
-        name: {
-          first: firstName,
-          last: lastName,
-        },
-      },
-    };
-
+  onSubmit(formData) {
     return new Promise((resolve, reject) =>
-      Accounts.createUser(userData, error =>
-        error ? reject(error) : resolve(),
+      Meteor.call('users.insert', formData, error =>
+        (error ? reject(error) : resolve()),
       ),
     );
   }
@@ -73,10 +62,10 @@ class Signup extends Component {
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name="firstName" />
+                  <AutoField name="givenName" />
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name="lastName" />
+                  <AutoField name="familyName" />
                 </Col>
               </Row>
               <AutoField name="identifiant" help="Cette adresse e-mail sera votre identifiant." />

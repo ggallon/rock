@@ -14,8 +14,8 @@ import UserSchema from '/imports/modules/app/lib/userSchema';
 
 const userTransform = user => ({
   _id: user._id,
-  firstName: user.profile.givenName,
-  lastName: user.profile.familyName,
+  givenName: user.profile.givenName,
+  familyName: user.profile.familyName,
   identifiant: user.emails[0].address,
 });
 
@@ -37,7 +37,7 @@ class UserEditor extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      document.querySelector('[name="firstName"]').focus();
+      document.querySelector('[name="givenName"]').focus();
     }, 0);
   }
 

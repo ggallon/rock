@@ -22,8 +22,8 @@ export const insertUser = new ValidatedMethod({
       email: user.identifiant,
       password: user.password,
       profile: {
-        givenName: user.firstName,
-        familyName: user.lastName,
+        givenName: user.givenName,
+        familyName: user.familyName,
       },
     };
 
@@ -50,8 +50,8 @@ export const updateUser = new ValidatedMethod({
       Meteor.users.update({ _id: user._id }, {
         $set: {
           profile: {
-            givenName: user.firstName,
-            familyName: user.lastName,
+            givenName: user.givenName,
+            familyName: user.familyName,
           },
         },
       });
