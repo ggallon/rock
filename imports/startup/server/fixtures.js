@@ -7,7 +7,8 @@ if (!Meteor.isProduction) {
     email: 'admin@admin.com',
     password: 'password',
     profile: {
-      name: { first: 'Gwenaël', last: 'Gallon' },
+      givenName: 'Gwenaël',
+      familyName: 'Gallon',
     },
     roles: ['super-admin'],
   }];

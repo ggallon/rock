@@ -16,10 +16,10 @@ Accounts.onCreateUser((options, user) => {
         userDoc.emails.push(email);
       }
       if (user.services[service].given_name) {
-        additionals.profile.given_name = user.services[service].given_name;
+        additionals.profile.givenName = user.services[service].given_name;
       }
       if (user.services[service].family_name) {
-        additionals.profile.family_name = user.services[service].family_name;
+        additionals.profile.familyName = user.services[service].family_name;
       }
       if (user.services[service].picture) {
         additionals.profile.picture = user.services[service].picture;
