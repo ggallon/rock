@@ -19,6 +19,11 @@ import NewDocument from '/imports/modules/documents/components/newDocument';
 import ViewDocument from '/imports/modules/documents/components/viewDocument';
 import EditDocument from '/imports/modules/documents/components/editDocument';
 
+import Users from '/imports/modules/app/components/users';
+import NewUser from '/imports/modules/app/components/newUser';
+import ViewUser from '/imports/modules/app/components/viewUser';
+import EditUser from '/imports/modules/app/components/editUser';
+
 const App = props => (
   <BrowserRouter>
     {!props.loading ?
@@ -31,6 +36,10 @@ const App = props => (
             <PrivateRoute path="/documents/:_id/edit" component={EditDocument} {...props} />
             <PrivateRoute path="/documents/:_id" component={ViewDocument} {...props} />
             <PrivateRoute path="/documents" component={Documents} {...props} />
+            <PrivateRoute path="/users/new" component={NewUser} {...props} />
+            <PrivateRoute path="/users/:_id/edit" component={EditUser} {...props} />
+            <PrivateRoute path="/users/:_id" component={ViewUser} {...props} />
+            <PrivateRoute path="/users" component={Users} {...props} />
             <PublicRoute path="/login" component={Login} {...props} />
             <PublicRoute path="/recover-password" component={RecoverPassword} {...props} />
             <PublicRoute path="/reset-password/:token" component={ResetPassword} {...props} />
