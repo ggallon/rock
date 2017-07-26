@@ -43,7 +43,7 @@ class ViewUser extends Component {
             </Alert>
           ) : ''}
           <div className="page-header clearfix">
-            <h4 className="pull-left">{ user && user.profile && user.profile.name && getUserName(user.profile.name) }</h4>
+            <h4 className="pull-left">{ user && user.profile && getUserName(user.profile) }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
                 <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>

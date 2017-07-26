@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
@@ -19,8 +19,12 @@ const Users = props => (
           <h4 className="pull-left">Gestion des utilisateurs</h4>
           <div className="pull-right">
             <DropdownButton bsSize="small" title="Actions" pullRight id="users-dropdown">
-              <MenuItem eventKey="1" href="/users/new"><Glyphicon glyph="user" /> Ajouter utilisateur</MenuItem>
-              <MenuItem eventKey="2"><Glyphicon glyph="send" /> Envoyer invitation</MenuItem>
+              <LinkContainer to="/users/new">
+                <MenuItem eventKey="1"><Glyphicon glyph="user" /> Ajouter utilisateur</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="#">
+                <MenuItem eventKey="2"><Glyphicon glyph="send" /> Envoyer invitation</MenuItem>
+              </LinkContainer>
             </DropdownButton>
           </div>
         </div>
