@@ -10,7 +10,7 @@ import UserEditor from './userEditor';
 const EditUser = ({ user }) => (
   user ? (
     <div className="EditUser">
-      <h4 className="page-header">Modifier &quot;{ user && user.profile && user.profile.name && getUserName(user.profile.name) }&quot;</h4>
+      <h4 className="page-header">Modifier &quot;{ user && user.profile && getUserName(user.profile) }&quot;</h4>
       <UserEditor user={user} />
     </div>
   ) : <NotFound />
