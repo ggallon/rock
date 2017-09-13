@@ -2940,10 +2940,6 @@ lodash._isiterateecall@^3.0.0:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz#5203ad7ba425fae842460e696db9cf3e6aac057c"
 
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-
 lodash.cond@^4.3.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.cond/-/lodash.cond-4.5.2.tgz#f471a1da486be60f6ab955d17115523dd1d255d5"
@@ -2960,10 +2956,6 @@ lodash.find@4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.find/-/lodash.find-4.6.0.tgz#cb0704d47ab71789ffa0de8b97dd926fb88b13b1"
 
-lodash.get@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -2971,10 +2963,6 @@ lodash.isarguments@^3.0.0:
 lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
-
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
 lodash.keys@^3.0.0, lodash.keys@^3.1.2:
   version "3.1.2"
@@ -2991,14 +2979,6 @@ lodash.memoize@4.1.2:
 lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
-
-lodash.set@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
-
-lodash.xorwith@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.xorwith/-/lodash.xorwith-4.5.0.tgz#8dd1502335d96adc9e46d9a56ec3be4ef26fc2a7"
 
 lodash@3.9.3:
   version "3.9.3"
@@ -4535,24 +4515,20 @@ underscore@1.8.3, underscore@^1.8.3, underscore@~1.8.3:
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
-uniforms-bootstrap3@1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/uniforms-bootstrap3/-/uniforms-bootstrap3-1.19.1.tgz#87fc56779944b601e8f460d98bacd65527af1fbb"
+uniforms-bootstrap3@1.20.1:
+  version "1.20.1"
+  resolved "https://registry.yarnpkg.com/uniforms-bootstrap3/-/uniforms-bootstrap3-1.20.1.tgz#dff028c58489aff7dca4dd0e06ebba67ae47593a"
   dependencies:
     babel-runtime "^6.20.0"
     classnames "^2.2.5"
     prop-types "^15.5.7"
 
-uniforms@1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-1.19.1.tgz#5b9e4cb1024783819cd0a5b2c84d6bb76725186c"
+uniforms@1.20.1:
+  version "1.20.1"
+  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-1.20.1.tgz#69642c5ed2f8037950b54ae96a30623ccd54cb63"
   dependencies:
     babel-runtime "^6.20.0"
-    lodash.clonedeep "^4.5.0"
-    lodash.get "^4.4.2"
-    lodash.isequal "^4.5.0"
-    lodash.set "^4.3.2"
-    lodash.xorwith "^4.5.0"
+    lodash "^4.0.0"
     prop-types "^15.5.7"
 
 upper-case@^1.1.1:
