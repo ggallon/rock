@@ -4483,17 +4483,17 @@ underscore@^1.8.3, underscore@~1.8.3:
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
-uniforms-bootstrap3@1.20.1:
-  version "1.20.1"
-  resolved "https://registry.yarnpkg.com/uniforms-bootstrap3/-/uniforms-bootstrap3-1.20.1.tgz#dff028c58489aff7dca4dd0e06ebba67ae47593a"
+uniforms-bootstrap3@1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/uniforms-bootstrap3/-/uniforms-bootstrap3-1.21.0.tgz#e945646484b2057e3d63952fd3217c1649f938c7"
   dependencies:
     babel-runtime "^6.20.0"
     classnames "^2.2.5"
     prop-types "^15.5.7"
 
-uniforms@1.20.1:
-  version "1.20.1"
-  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-1.20.1.tgz#69642c5ed2f8037950b54ae96a30623ccd54cb63"
+uniforms@1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-1.21.0.tgz#5841a961f113efb65a1ffcc324b684618b7b02be"
   dependencies:
     babel-runtime "^6.20.0"
     lodash "^4.0.0"
