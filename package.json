@@ -14,10 +14,10 @@
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
   "dependencies": {
-    "babel-runtime": "6.23.0",
-    "bcrypt": "1.0.2",
+    "babel-runtime": "6.26.0",
+    "bcrypt": "1.0.3",
     "meteor-node-stubs": "0.2.11",
-    "prop-types": "15.5.10",
+    "prop-types": "15.6.0",
     "react": "15.6.1",
     "react-bootstrap": "0.31.3",
     "react-dom": "15.6.1",
