@@ -9,7 +9,7 @@ A starting point for Meteor apps and development testing.
     </tr>
     <tr>
       <th>Meteor Version</th>
-      <td>v1.5.2.2</td>
+      <td>v1.6</td>
     </tr>
   </tbody>
 </table>
