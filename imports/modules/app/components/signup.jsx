@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import AutoField from 'uniforms-bootstrap3/AutoField';
 import AutoFields from 'uniforms-bootstrap3/AutoFields';
 import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
-import { SubmitField } from 'uniforms-bootstrap3';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import SignupSchema from '/imports/modules/app/lib/signupSchema';
 
 class Signup extends Component {
   constructor() {
     super();
-    this.state = {
-      signupError: null,
-    };
+
+    this.state = { signupError: null };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -25,21 +27,10 @@ class Signup extends Component {
     this.setState({ signupError: null });
   }
 
-  onSubmit({ identifiant, password, firstName, lastName }) {
-    const userData = {
-      email: identifiant,
-      password: password,
-      profile: {
-        name: {
-          first: firstName,
-          last: lastName,
-        },
-      },
-    };
-
+  onSubmit(formData) {
     return new Promise((resolve, reject) =>
-      Accounts.createUser(userData, error =>
-        error ? reject(error) : resolve(),
+      Meteor.call('users.insert', formData, error =>
+        (error ? reject(error) : resolve()),
       ),
     );
   }
@@ -54,7 +45,7 @@ class Signup extends Component {
   }
 
   render() {
-     return (
+    return (
       <div className="Signup">
         <Row>
           <Col xs={12} sm={6} md={5} lg={4} className="center-block">
@@ -71,13 +62,13 @@ class Signup extends Component {
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name='firstName' />
+                  <AutoField name="givenName" />
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6}>
-                  <AutoField name='lastName' />
+                  <AutoField name="familyName" />
                 </Col>
               </Row>
-              <AutoField name='identifiant' help='Cette adresse e-mail sera votre identifiant.' />
+              <AutoField name="identifiant" help="Cette adresse e-mail sera votre identifiant." />
               <AutoFields fields={['password', 'repeatPassword']} />
               <ErrorsField />
               <SubmitField value="Confirmer" className="pull-right" />
@@ -89,4 +80,12 @@ class Signup extends Component {
   }
 }
 
-export default withRouter(Signup);
+Signup.defaultProps = {
+  history: null,
+};
+
+Signup.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default Signup;

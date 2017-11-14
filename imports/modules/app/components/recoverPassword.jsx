@@ -1,20 +1,22 @@
-import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
+import { Accounts } from 'meteor/accounts-base';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
-import { SubmitField } from 'uniforms-bootstrap3';
+import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import RecoverPasswordSchema from '/imports/modules/app/lib/recoverPasswordSchema';
 
 class RecoverPassword extends Component {
   constructor() {
     super();
+
     this.state = {
       recoverPasswordSuccess: false,
       recoverPasswordError: null,
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onSubmitFailure = this.onSubmitFailure.bind(this);
@@ -25,10 +27,10 @@ class RecoverPassword extends Component {
     this.setState({ recoverPasswordError: null });
   }
 
-  onSubmit({ email }) {
+  onSubmit({ emailForm }) {
     return new Promise((resolve, reject) =>
-      Accounts.forgotPassword({ email: email }, error =>
-        error ? reject(error) : resolve(),
+      Accounts.forgotPassword({ email: emailForm }, error =>
+        (error ? reject(error) : resolve()),
       ),
     );
   }
@@ -73,8 +75,7 @@ class RecoverPassword extends Component {
               onSubmitFailure={this.onSubmitFailure}
               onSubmitSuccess={this.onSubmitSuccess}
               submitField={CustomSubmitField}
-            >
-            </AutoForm>
+            />
           </Col>
         </Row>
       </div>

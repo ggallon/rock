@@ -1,30 +1,27 @@
-import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
-import container from '/imports/lib/container';
 import Documents from '/imports/api/documents/documents';
-import { removeDocument } from '/imports/api/documents/methods';
-import NotFound from '/imports/ui/components/notFound';
+import container from '/imports/lib/container';
 import Loading from '/imports/ui/components/loading';
+import NotFound from '/imports/ui/components/notFound';
 
 class ViewDocument extends Component {
   constructor() {
     super();
 
-    this.state = { handleRemoveError: null};
+    this.state = { handleRemoveError: null };
 
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  handleRemove(_id) {
-    const { history } = this.props;
+  handleRemove(_id, history) {
     if (confirm('Êtes-vous sûr ? Ceci est définitif !')) {
-      removeDocument.call({ _id }, (error) => {
+      Meteor.call('documents.remove', { _id }, (error) => {
         if (error) {
           this.setState({ handleRemoveError: error.reason });
         } else {
@@ -35,7 +32,7 @@ class ViewDocument extends Component {
   }
 
   render() {
-    const { doc, history } = this.props;
+    const { doc, history, match } = this.props;
 
     return (
       doc ? (
@@ -49,8 +46,8 @@ class ViewDocument extends Component {
             <h4 className="pull-left">{ doc && doc.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`/documents/${doc._id}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(doc._id)} className="text-danger">Supprimer</Button>
+                <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>
+                <Button onClick={() => this.handleRemove(doc._id, history)} className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
@@ -61,22 +58,18 @@ class ViewDocument extends Component {
   }
 }
 
-ViewDocument.defaultProps = {
-  doc: null,
-  history: null,
-};
-
 ViewDocument.propTypes = {
-  doc: PropTypes.object,
-  history: PropTypes.object,
+  doc: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default withRouter(container((props, onData) => {
-  const documentId = props.match.params._id;
-  const subscription = Meteor.subscribe('documents.view', documentId);
+export default container(({ match }, onData) => {
+  const docId = match.params._id;
+  const subscription = Meteor.subscribe('documents.view', docId);
 
   if (subscription.ready()) {
-    const doc = Documents.findOne(documentId);
+    const doc = Documents.findOne(docId);
     onData(null, { doc });
   }
-}, ViewDocument, { loadingHandler: () => <Loading /> }));
+}, ViewDocument, { loadingHandler: () => <Loading /> });

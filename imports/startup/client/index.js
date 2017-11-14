@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
-import App from '/imports/ui/layouts/app';
+import AppState from '/imports/ui/components/appState';
+import AppContainer from '/imports/ui/containers/appContainer';
 
 // Imports Bootstrap stylesheet
 // Hack for import Bootstrap before "merged-stylesheets.css"
@@ -16,7 +17,9 @@ document.querySelector('head').insertBefore(bootstrapCSS, headFirstChild);
 
 Meteor.startup(() => {
   render(
-    <App />,
+    <AppState>
+      <AppContainer />
+    </AppState>,
     document.getElementById('react-root'),
   );
 });

@@ -14,10 +14,9 @@ const ResetPasswordSchema = new SimpleSchema({
   repeatNewPassword: {
     label: 'Confimer mot de passe',
     type: String,
-    min: 8,
     custom() {
       if (this.value !== this.field('newPassword').value) {
-        return "passwordMismatch";
+        return 'passwordMismatch';
       }
     },
     uniforms: {

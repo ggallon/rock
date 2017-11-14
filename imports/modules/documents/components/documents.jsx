@@ -13,9 +13,9 @@ const Documents = () => (
         <div className="page-header clearfix">
           <h4 className="pull-left">Documents</h4>
           <Link to="/documents/new">
-            <Button bsStyle="success" className="pull-right">
-              <span className="visible-lg-block">Nouveau document</span>
-              <span className="visible-md-block visible-sm-block">Nouveau</span>
+            <Button bsStyle="success" bsSize="small" className="pull-right">
+              <span className="visible-lg-block visible-md-block">Nouveau document</span>
+              <span className="visible-sm-block">Nouveau</span>
               <span className="visible-xs-block"><Glyphicon glyph="plus" /></span>
             </Button>
           </Link>

@@ -1,17 +1,14 @@
+# Rock files
+settings-development.json
 settings-production.json
 
 # OSX
-#
 .DS_Store
 .tmp/
 
-# IntelliJ
-#
-.idea
-
-# node.js
-#
+# node
 node_modules
 npm-debug.log
-yarn-error.log
 
+# yarn 
+yarn-error.log
