@@ -12,7 +12,7 @@ export const insertDocument = new ValidatedMethod({
   }).validator(),
   run(document) {
     if (!this.userId) {
-      throw new Meteor.Error('documents.upsert.notLoggedIn',
+      throw new Meteor.Error('documents.insert.notLoggedIn',
         'Must be logged in to insertor update a document');
     }
 
@@ -34,12 +34,12 @@ export const updateDocument = new ValidatedMethod({
   }).validator(),
   run(document) {
     if (!this.userId) {
-      throw new Meteor.Error('documents.upsert.notLoggedIn',
+      throw new Meteor.Error('documents.update.notLoggedIn',
         'Must be logged in to insertor update a document');
     }
 
     if (document._id && document.owner !== this.userId) {
-      throw new Meteor.Error('documents.upsert.accessDenied',
+      throw new Meteor.Error('documents.update.accessDenied',
         'You don\'t have permission to update this document.');
     }
 
