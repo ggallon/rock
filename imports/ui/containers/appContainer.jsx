@@ -1,11 +1,11 @@
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import getUserName from '/imports/lib/getUserName';
 
 import App from '/imports/ui/layouts/app.jsx';
 
-export default createContainer(() => {
+export default withTracker(props => {
   const loggingIn = Meteor.loggingIn();
   const user = Meteor.user();
   const userId = Meteor.userId();
@@ -22,4 +22,4 @@ export default createContainer(() => {
     name: name || emailAddress,
     roles: !loading && Roles.getRolesForUser(userId),
   };
-}, App);
+})(App);
