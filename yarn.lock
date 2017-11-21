@@ -4569,16 +4569,15 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simpl-schema@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-0.5.0.tgz#ed075964b2b9883c65936ea995f4f8051ffd69fa"
+simpl-schema@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-1.0.0.tgz#6185bb7152ff669f6420873e97767b14e597bd6c"
   dependencies:
     clone "^2.1.1"
     extend "^3.0.1"
     lodash.every "^4.6.0"
     lodash.find "^4.6.0"
     lodash.findwhere "^3.1.0"
-    lodash.foreach "^4.5.0"
     lodash.includes "^4.3.0"
     lodash.isempty "^4.4.0"
     lodash.isobject "^3.0.2"
