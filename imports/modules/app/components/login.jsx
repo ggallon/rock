@@ -53,12 +53,11 @@ class Login extends Component {
       Meteor.loginWithGoogle({
         requestPermissions: ['email', 'profile', 'openid'],
         requestOfflineToken: true,
+        loginUrlParameters: { prompt: 'select_account' },
         loginStyle: 'popup',
       }, error => (error
         ? this.onSubmitGoogleFailure(error)
-        : this.onSubmitSuccess()),
-      ),
-    );
+        : this.onSubmitSuccess())));
   }
 
   onSubmitGoogleFailure(error) {

@@ -5,7 +5,7 @@ A starting point for Meteor apps and development testing.
   <tbody>
     <tr>
       <th>Rock Version</th>
-      <td>v1.5.0</td>
+      <td>v1.5.1</td>
     </tr>
     <tr>
       <th>Meteor Version</th>

@@ -58,7 +58,7 @@ function typeOf(value) {
           typeof value.splice !== 'undefined' &&
             typeof value.propertyIsEnumerable !== 'undefined' &&
               !value.propertyIsEnumerable('splice')
-          )) {
+      )) {
         return 'array';
       }
 
@@ -80,7 +80,7 @@ function typeOf(value) {
         typeof value.call !== 'undefined' &&
           typeof value.propertyIsEnumerable !== 'undefined' &&
             !value.propertyIsEnumerable('call')
-          )) {
+      )) {
         return 'function';
       }
     } else {
@@ -188,7 +188,7 @@ const ENCODED_VALS_WEBSAFE = ENCODED_VALS_BASE + '-_.';
  * accessing any of the static map variables.
  * @private
  */
-function init_() {
+function init() {
   if (!byteToCharMap_) {
     byteToCharMap_ = {};
     charToByteMap_ = {};
@@ -222,7 +222,7 @@ function encodeByteArray(input, optionWebSafe) {
   // size of jscompiler output, and which yields slight performance increase.
   if (!isArrayLike(input)) return 'encodeByteArray takes an array as a parameter';
 
-  init_();
+  init();
 
   const byteToCharMap = optionWebSafe ? byteToCharMapWebSafe_ : byteToCharMap_;
 
@@ -294,8 +294,8 @@ function byteArrayToString(array) {
  * @param {function(number):void} pushByte result accumulator.
  * @private
  */
-function decodeStringInternal_(input, pushByte) {
-  init_();
+function decodeStringInternal(input, pushByte) {
+  init();
 
   let nextCharIndex = 0;
   /**
@@ -360,8 +360,7 @@ function decodeStringInternal_(input, pushByte) {
  * @return {string} The base64 encoded string.
  */
 export function encodeString(string, optionWebSafe) {
-  return encodeByteArray(
-    stringToByteArray(string), optionWebSafe);
+  return encodeByteArray(stringToByteArray(string), optionWebSafe);
 }
 
 /**
@@ -383,7 +382,7 @@ export function decodeString(string) {
   const output = [];
   function pushByte(a) { output.push(a); }
 
-  decodeStringInternal_(string, pushByte);
+  decodeStringInternal(string, pushByte);
 
   return byteArrayToString(output);
 }
