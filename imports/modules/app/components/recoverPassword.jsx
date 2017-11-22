@@ -27,12 +27,10 @@ class RecoverPassword extends Component {
     this.setState({ recoverPasswordError: null });
   }
 
-  onSubmit({ emailForm }) {
+  onSubmit({ email }) {
     return new Promise((resolve, reject) =>
-      Accounts.forgotPassword({ email: emailForm }, error =>
-        (error ? reject(error) : resolve()),
-      ),
-    );
+      Accounts.forgotPassword({ email }, error =>
+        (error ? reject(error) : resolve())));
   }
 
   onSubmitFailure(error) {
