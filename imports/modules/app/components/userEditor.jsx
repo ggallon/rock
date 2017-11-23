@@ -10,7 +10,7 @@ import AutoField from 'uniforms-bootstrap3/AutoField';
 import AutoFields from 'uniforms-bootstrap3/AutoFields';
 import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import UserSchema from '/imports/modules/app/lib/userSchema';
+import UserSchema from '../lib/userSchema';
 
 const userTransform = user => ({
   _id: user._id,
@@ -49,9 +49,7 @@ class UserEditor extends Component {
     const methodToCall = this.state.userUpdate ? 'users.update' : 'users.insert';
     return new Promise((resolve, reject) =>
       Meteor.call(methodToCall, formData, (error, response) =>
-        (error ? reject(error) : resolve(response)),
-      ),
-    );
+        (error ? reject(error) : resolve(response))));
   }
 
   onSubmitFailure(error) {

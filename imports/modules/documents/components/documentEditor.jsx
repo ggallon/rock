@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import DocumentSchema from '/imports/modules/documents/lib/documentSchema';
+import DocumentSchema from '../lib/documentSchema';
 
 class DocumentEditor extends Component {
   constructor(props) {
@@ -36,9 +36,7 @@ class DocumentEditor extends Component {
     const methodToCall = doc && doc._id ? 'documents.update' : 'documents.insert';
     return new Promise((resolve, reject) =>
       Meteor.call(methodToCall, formData, (error, response) =>
-        (error ? reject(error) : resolve(response)),
-      ),
-    );
+        (error ? reject(error) : resolve(response))));
   }
 
   onSubmitFailure(error) {

@@ -5,10 +5,10 @@ import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
-import container from '/imports/lib/container';
-import getUserName from '/imports/lib/getUserName';
-import Loading from '/imports/ui/components/loading';
-import NotFound from '/imports/ui/components/notFound';
+import container from '../../../lib/container';
+import getUserName from '../../../lib/getUserName';
+import Loading from '../../../ui/components/loading';
+import NotFound from '../../../ui/components/notFound';
 
 class ViewUser extends Component {
   constructor() {

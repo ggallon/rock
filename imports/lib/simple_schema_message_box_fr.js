@@ -49,7 +49,7 @@ SimpleSchema.setDefaultMessages({
         // See if there's one where exp matches this expression
         let msgObj;
         if (regExp) {
-          msgObj = _.find(regExpMessages, (o) => o.exp && o.exp.toString() === regExp);
+          msgObj = _.find(regExpMessages, o => o.exp && o.exp.toString() === regExp);
         }
 
         const regExpMessage = msgObj ? msgObj.msg : 'Validation d\'expression régulière non valide';

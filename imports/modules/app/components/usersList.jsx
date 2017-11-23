@@ -8,9 +8,9 @@ import Label from 'react-bootstrap/lib/Label';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import Loading from '/imports/ui/components/loading';
-import container from '/imports/lib/container';
-import capitalize from '/imports/lib/capitalize';
+import Loading from '../../../ui/components/loading';
+import container from '../../../lib/container';
+import capitalize from '../../../lib/capitalize';
 
 class UsersList extends Component {
   constructor(props) {
@@ -65,34 +65,36 @@ class UsersList extends Component {
         <tbody>
           {users.map(({ _id, emails, roles }) => {
             const isCurrentUser = this.checkIfCurrentUser(_id);
-            return (<tr key={_id}>
-              <td className="vertical-align" width="40%">
-                {isCurrentUser ? <Label bsStyle="success">You!</Label> : ''}
-                {emails[0].address}
-              </td>
-              <td>
-                <select
-                  className="form-control input-sm"
-                  value={roles ? roles[0] : 'Aucun'}
-                  disabled={isCurrentUser}
-                  onChange={(event) => { this.handleChangeRole(_id, event.target.value); }}
-                >
-                  {applicationRoles.map(({ name }) => (
-                    <option key={name} value={name}>{capitalize(name)}</option>
-                  ))}
-                </select>
-              </td>
-              <td>
-                <ButtonGroup>
-                  <Button bsSize="small" onClick={() => history.push(`/users/${_id}`)}>
-                    <Glyphicon glyph="eye-open" />
-                  </Button>
-                  <Button bsStyle="success" bsSize="small" onClick={() => history.push(`/users/${_id}/edit`)}>
-                    <Glyphicon glyph="edit" />
-                  </Button>
-                </ButtonGroup>
-              </td>
-            </tr>);
+            return (
+              <tr key={_id}>
+                <td className="vertical-align" width="40%">
+                  {isCurrentUser ? <Label bsStyle="success">You!</Label> : ''}
+                  {emails[0].address}
+                </td>
+                <td>
+                  <select
+                    className="form-control input-sm"
+                    value={roles ? roles[0] : 'Aucun'}
+                    disabled={isCurrentUser}
+                    onChange={(event) => { this.handleChangeRole(_id, event.target.value); }}
+                  >
+                    {applicationRoles.map(({ name }) => (
+                      <option key={name} value={name}>{capitalize(name)}</option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <ButtonGroup>
+                    <Button bsSize="small" onClick={() => history.push(`/users/${_id}`)}>
+                      <Glyphicon glyph="eye-open" />
+                    </Button>
+                    <Button bsStyle="success" bsSize="small" onClick={() => history.push(`/users/${_id}/edit`)}>
+                      <Glyphicon glyph="edit" />
+                    </Button>
+                  </ButtonGroup>
+                </td>
+              </tr>
+            );
           })}
         </tbody>
       </Table>

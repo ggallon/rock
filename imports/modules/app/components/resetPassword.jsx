@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import ResetPasswordSchema from '/imports/modules/app/lib/resetPasswordSchema';
+import ResetPasswordSchema from '../lib/resetPasswordSchema';
 
 class ResetPassword extends Component {
   constructor() {
@@ -28,9 +28,7 @@ class ResetPassword extends Component {
     const { match } = this.props;
     return new Promise((resolve, reject) =>
       Accounts.resetPassword(match.params.token, newPassword, error =>
-        (error ? reject(error) : resolve()),
-      ),
-    );
+        (error ? reject(error) : resolve())));
   }
 
   onSubmitFailure(error) {
@@ -72,11 +70,6 @@ class ResetPassword extends Component {
     );
   }
 }
-
-ResetPassword.defaultProps = {
-  history: null,
-  match: null,
-};
 
 ResetPassword.propTypes = {
   match: PropTypes.object.isRequired,

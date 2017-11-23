@@ -1,5 +1,5 @@
-import '/imports/api/documents/methods';
-import '/imports/api/documents/server/publications';
-import '/imports/api/users/server/methods';
-import '/imports/api/users/server/publications';
-import '/imports/api/invitations/server/publications';
+import '../../api/documents/methods';
+import '../../api/documents/server/publications';
+import '../../api/users/server/methods';
+import '../../api/users/server/publications';
+import '../../api/invitations/server/publications';

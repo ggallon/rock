@@ -5,9 +5,9 @@ import { Meteor } from 'meteor/meteor';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
-import Documents from '/imports/api/documents/documents';
-import container from '/imports/lib/container';
-import Loading from '/imports/ui/components/loading';
+import Documents from '../../../api/documents/documents';
+import container from '../../../lib/container';
+import Loading from '../../../ui/components/loading';
 
 const DocumentsList = ({ documents, history }) => (
   documents.length > 0 ? (
@@ -20,10 +20,6 @@ const DocumentsList = ({ documents, history }) => (
     </ListGroup>
   ) : <Alert bsStyle="warning">Aucun document</Alert>
 );
-
-DocumentsList.defaultProps = {
-  documents: [],
-};
 
 DocumentsList.propTypes = {
   documents: PropTypes.array.isRequired,

@@ -1,10 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import Documents from '/imports/api/documents/documents';
-import container from '/imports/lib/container';
-import Loading from '/imports/ui/components/loading';
-import NotFound from '/imports/ui/components/notFound';
+import Documents from '../../../api/documents/documents';
+import container from '../../../lib/container';
+import Loading from '../../../ui/components/loading';
+import NotFound from '../../../ui/components/notFound';
 import DocumentEditor from './documentEditor';
 
 const EditDocument = ({ doc }) => (

@@ -1,10 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import container from '/imports/lib/container';
-import getUserName from '/imports/lib/getUserName';
-import Loading from '/imports/ui/components/loading';
-import NotFound from '/imports/ui/components/notFound';
+import container from '../../../lib/container';
+import getUserName from '../../../lib/getUserName';
+import Loading from '../../../ui/components/loading';
+import NotFound from '../../../ui/components/notFound';
 import UserEditor from './userEditor';
 
 const EditUser = ({ user }) => (

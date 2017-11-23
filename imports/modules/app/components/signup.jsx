@@ -30,9 +30,7 @@ class Signup extends Component {
   onSubmit(formData) {
     return new Promise((resolve, reject) =>
       Meteor.call('users.insert', formData, error =>
-        (error ? reject(error) : resolve()),
-      ),
-    );
+        (error ? reject(error) : resolve())));
   }
 
   onSubmitFailure(error) {
@@ -79,10 +77,6 @@ class Signup extends Component {
     );
   }
 }
-
-Signup.defaultProps = {
-  history: null,
-};
 
 Signup.propTypes = {
   history: PropTypes.object.isRequired,

@@ -6,7 +6,7 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import RecoverPasswordSchema from '/imports/modules/app/lib/recoverPasswordSchema';
+import RecoverPasswordSchema from '../lib/recoverPasswordSchema';
 
 class RecoverPassword extends Component {
   constructor() {

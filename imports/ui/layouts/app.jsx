@@ -3,26 +3,26 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
 
-import GlobalNavigation from '/imports/ui/components/globalNavigation';
-import PublicRoute from '/imports/ui/components/publicRoute';
-import PrivateRoute from '/imports/ui/components/privateRoute';
-import NotFound from '/imports/ui/components/notFound';
+import GlobalNavigation from '../components/globalNavigation';
+import PublicRoute from '../components/publicRoute';
+import PrivateRoute from '../components/privateRoute';
+import NotFound from '../components/notFound';
 
-import Index from '/imports/modules/app/components/index';
-import Login from '/imports/modules/app/components/login';
-import RecoverPassword from '/imports/modules/app/components/recoverPassword';
-import ResetPassword from '/imports/modules/app/components/resetPassword';
-import Signup from '/imports/modules/app/components/signup';
+import Index from '../../modules/app/components/index';
+import Login from '../../modules/app/components/login';
+import RecoverPassword from '../../modules/app/components/recoverPassword';
+import ResetPassword from '../../modules/app/components/resetPassword';
+import Signup from '../../modules/app/components/signup';
 
-import Documents from '/imports/modules/documents/components/documents';
-import NewDocument from '/imports/modules/documents/components/newDocument';
-import ViewDocument from '/imports/modules/documents/components/viewDocument';
-import EditDocument from '/imports/modules/documents/components/editDocument';
+import Documents from '../../modules/documents/components/documents';
+import NewDocument from '../../modules/documents/components/newDocument';
+import ViewDocument from '../../modules/documents/components/viewDocument';
+import EditDocument from '../../modules/documents/components/editDocument';
 
-import Users from '/imports/modules/app/components/users';
-import NewUser from '/imports/modules/app/components/newUser';
-import ViewUser from '/imports/modules/app/components/viewUser';
-import EditUser from '/imports/modules/app/components/editUser';
+import Users from '../../modules/app/components/users';
+import NewUser from '../../modules/app/components/newUser';
+import ViewUser from '../../modules/app/components/viewUser';
+import EditUser from '../../modules/app/components/editUser';
 
 const App = props => (
   <BrowserRouter>
