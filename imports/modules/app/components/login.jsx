@@ -7,7 +7,9 @@ import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import LoginSchema from '../lib/loginSchema';
+import UserSchema from '../lib/userSchema';
+
+const LoginSchema = UserSchema.pick('identifiant', 'password');
 
 class Login extends Component {
   constructor(props) {

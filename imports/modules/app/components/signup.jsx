@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -9,7 +10,7 @@ import AutoField from 'uniforms-bootstrap3/AutoField';
 import AutoFields from 'uniforms-bootstrap3/AutoFields';
 import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import SignupSchema from '/imports/modules/app/lib/signupSchema';
+import UserSchema from '../lib/userSchema';
 
 class Signup extends Component {
   constructor() {
@@ -50,13 +51,19 @@ class Signup extends Component {
             <h4 className="page-header">Créer votre identifiant</h4>
             <p>Vous avez déjà un identifiant ? <Link to="/recover-password">Retrouvez-le ici</Link></p>
             <AutoForm
-              schema={SignupSchema}
-              placeholder
               error={this.state.signupError}
+              modelTransform={(mode, model) => {
+                if (mode === 'submit') {
+                  return _.omit(model, 'repeatPassword');
+                }
+                return model;
+              }}
               onChange={this.onChange}
-              onSubmit={this.onSubmit}
               onSubmitFailure={this.onSubmitFailure}
               onSubmitSuccess={this.onSubmitSuccess}
+              onSubmit={this.onSubmit}
+              placeholder
+              schema={UserSchema}
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>

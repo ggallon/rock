@@ -6,7 +6,9 @@ import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import ResetPasswordSchema from '../lib/resetPasswordSchema';
+import UserSchema from '../lib/userSchema';
+
+const ResetPasswordSchema = UserSchema.pick('password', 'repeatPassword');
 
 class ResetPassword extends Component {
   constructor() {
@@ -24,10 +26,10 @@ class ResetPassword extends Component {
     this.setState({ resetPasswordError: null });
   }
 
-  onSubmit({ newPassword }) {
+  onSubmit({ password }) {
     const { match } = this.props;
     return new Promise((resolve, reject) =>
-      Accounts.resetPassword(match.params.token, newPassword, error =>
+      Accounts.resetPassword(match.params.token, password, error =>
         (error ? reject(error) : resolve())));
   }
 
@@ -52,7 +54,6 @@ class ResetPassword extends Component {
               Votre mot de passe doit comporter un minimum de 8 caractères,
               il peut contenir des chiffres, des majuscules et des caractères spéciaux.
             </Alert>
-
             <AutoForm
               schema={ResetPasswordSchema}
               placeholder
