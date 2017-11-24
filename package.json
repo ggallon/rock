@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "meteor --settings settings-development.json",
+    "visualizer" : "meteor --settings settings-development.json --extra-packages bundle-visualizer --production",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
     "chimp-watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
     "chimp-test": "chimp --ddp=http://localhost:3000 --mocha --path=tests",
