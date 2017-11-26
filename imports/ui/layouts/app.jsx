@@ -19,10 +19,10 @@ import NewDocument from '../../modules/documents/components/newDocument';
 import ViewDocument from '../../modules/documents/components/viewDocument';
 import EditDocument from '../../modules/documents/components/editDocument';
 
-import Users from '../../modules/app/components/users';
-import NewUser from '../../modules/app/components/newUser';
-import ViewUser from '../../modules/app/components/viewUser';
-import EditUser from '../../modules/app/components/editUser';
+import Users from '../../modules/users/components/users';
+import NewUser from '../../modules/users/components/newUser';
+import ViewUser from '../../modules/users/components/viewUser';
+import EditUser from '../../modules/users/components/editUser';
 
 const App = props => (
   <BrowserRouter>
