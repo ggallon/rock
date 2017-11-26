@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import UserSchema from '../lib/userSchema';
+import UserSchema from '../../../api/users/userSchema';
 
 const LoginSchema = UserSchema.pick('identifiant', 'password');
 

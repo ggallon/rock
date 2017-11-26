@@ -10,7 +10,7 @@ import AutoField from 'uniforms-bootstrap3/AutoField';
 import AutoFields from 'uniforms-bootstrap3/AutoFields';
 import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import UserSchema from '../lib/userSchema';
+import UserSchema from '../../../api/users/userSchema';
 
 const userTransform = user => ({
   _id: user._id,
