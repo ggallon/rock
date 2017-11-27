@@ -2,27 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
+import LoadableWrapper from '../components/loadableWrapper';
 
 import GlobalNavigation from '../components/globalNavigation';
 import PublicRoute from '../components/publicRoute';
 import PrivateRoute from '../components/privateRoute';
 import NotFound from '../components/notFound';
 
-import Index from '../../modules/app/components/index';
-import Login from '../../modules/app/components/login';
-import RecoverPassword from '../../modules/app/components/recoverPassword';
-import ResetPassword from '../../modules/app/components/resetPassword';
-import Signup from '../../modules/app/components/signup';
+const Index = LoadableWrapper({ loader: () => import('../../modules/app/components/index') });
+const Login = LoadableWrapper({ loader: () => import('../../modules/app/components/login') });
+const RecoverPassword = LoadableWrapper({ loader: () => import('../../modules/app/components/recoverPassword') });
+const ResetPassword = LoadableWrapper({ loader: () => import('../../modules/app/components/resetPassword') });
+const Signup = LoadableWrapper({ loader: () => import('../../modules/app/components/signup') });
 
-import Documents from '../../modules/documents/components/documents';
-import NewDocument from '../../modules/documents/components/newDocument';
-import ViewDocument from '../../modules/documents/components/viewDocument';
-import EditDocument from '../../modules/documents/components/editDocument';
+const Documents = LoadableWrapper({ loader: () => import('../../modules/documents/components/documents') });
+const NewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/newDocument') });
+const ViewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/viewDocument') });
+const EditDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/editDocument') });
 
-import Users from '../../modules/users/components/users';
-import NewUser from '../../modules/users/components/newUser';
-import ViewUser from '../../modules/users/components/viewUser';
-import EditUser from '../../modules/users/components/editUser';
+const Users = LoadableWrapper({ loader: () => import('../../modules/users/components/users') });
+const NewUser = LoadableWrapper({ loader: () => import('../../modules/users/components/newUser') });
+const ViewUser = LoadableWrapper({ loader: () => import('../../modules/users/components/viewUser') });
+const EditUser = LoadableWrapper({ loader: () => import('../../modules/users/components/editUser') });
 
 const App = props => (
   <BrowserRouter>
