@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Invitations from '/imports/api/invitations/invitations';
+import Invitations from '../invitations';
 
 Meteor.publish('invitations.list', function invitationsListPublish() {
   if (!this.userId) {

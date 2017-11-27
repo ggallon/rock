@@ -2,27 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
+import LoadableWrapper from '../components/loadableWrapper';
 
-import GlobalNavigation from '/imports/ui/components/globalNavigation';
-import PublicRoute from '/imports/ui/components/publicRoute';
-import PrivateRoute from '/imports/ui/components/privateRoute';
-import NotFound from '/imports/ui/components/notFound';
+import GlobalNavigation from '../components/globalNavigation';
+import PublicRoute from '../components/publicRoute';
+import PrivateRoute from '../components/privateRoute';
+import NotFound from '../components/notFound';
 
-import Index from '/imports/modules/app/components/index';
-import Login from '/imports/modules/app/components/login';
-import RecoverPassword from '/imports/modules/app/components/recoverPassword';
-import ResetPassword from '/imports/modules/app/components/resetPassword';
-import Signup from '/imports/modules/app/components/signup';
+const Index = LoadableWrapper({ loader: () => import('../../modules/app/components/index') });
+const Login = LoadableWrapper({ loader: () => import('../../modules/app/components/login') });
+const RecoverPassword = LoadableWrapper({ loader: () => import('../../modules/app/components/recoverPassword') });
+const ResetPassword = LoadableWrapper({ loader: () => import('../../modules/app/components/resetPassword') });
+const Signup = LoadableWrapper({ loader: () => import('../../modules/app/components/signup') });
 
-import Documents from '/imports/modules/documents/components/documents';
-import NewDocument from '/imports/modules/documents/components/newDocument';
-import ViewDocument from '/imports/modules/documents/components/viewDocument';
-import EditDocument from '/imports/modules/documents/components/editDocument';
+const Documents = LoadableWrapper({ loader: () => import('../../modules/documents/components/documents') });
+const NewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/newDocument') });
+const ViewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/viewDocument') });
+const EditDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/editDocument') });
 
-import Users from '/imports/modules/app/components/users';
-import NewUser from '/imports/modules/app/components/newUser';
-import ViewUser from '/imports/modules/app/components/viewUser';
-import EditUser from '/imports/modules/app/components/editUser';
+const Users = LoadableWrapper({ loader: () => import('../../modules/users/components/users') });
+const NewUser = LoadableWrapper({ loader: () => import('../../modules/users/components/newUser') });
+const ViewUser = LoadableWrapper({ loader: () => import('../../modules/users/components/viewUser') });
+const EditUser = LoadableWrapper({ loader: () => import('../../modules/users/components/editUser') });
 
 const App = props => (
   <BrowserRouter>

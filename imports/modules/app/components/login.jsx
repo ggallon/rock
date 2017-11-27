@@ -7,7 +7,9 @@ import Col from 'react-bootstrap/lib/Col';
 import Alert from 'react-bootstrap/lib/Alert';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import LoginSchema from '/imports/modules/app/lib/loginSchema';
+import UserSchema from '../../../api/users/userSchema';
+
+const LoginSchema = UserSchema.pick('identifiant', 'password');
 
 class Login extends Component {
   constructor(props) {
@@ -37,9 +39,7 @@ class Login extends Component {
   onSubmit({ identifiant, password }) {
     return new Promise((resolve, reject) =>
       Meteor.loginWithPassword(identifiant, password, error =>
-        (error ? reject(error) : resolve()),
-      ),
-    );
+        (error ? reject(error) : resolve())));
   }
 
   onSubmitFailure(error) {
@@ -118,8 +118,6 @@ class Login extends Component {
 
 Login.defaultProps = {
   error: {},
-  history: null,
-  location: null,
 };
 
 Login.propTypes = {

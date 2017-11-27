@@ -4,9 +4,9 @@ import { Meteor } from 'meteor/meteor';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
-import Loading from '/imports/ui/components/loading';
-import container from '/imports/lib/container';
-import Invitations from '/imports/api/invitations/invitations';
+import Loading from '../../../ui/components/loading';
+import container from '../../../lib/container';
+import Invitations from '../../../api/invitations/invitations';
 
 const UsersInvitations = ({ invitations, history }) => (
   invitations.length > 0 ? (
@@ -19,10 +19,6 @@ const UsersInvitations = ({ invitations, history }) => (
     </ListGroup>
   ) : <Alert bsStyle="warning">Aucune invitation envoyée</Alert>
 );
-
-UsersInvitations.defaultProps = {
-  invitations: [],
-};
 
 UsersInvitations.propTypes = {
   invitations: PropTypes.array.isRequired,

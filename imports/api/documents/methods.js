@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import SimpleSchema from 'simpl-schema';
-import rateLimit from '/imports/lib/rate-limit';
+import rateLimit from '../../lib/rate-limit';
 import Documents from './documents';
 
 export const insertDocument = new ValidatedMethod({

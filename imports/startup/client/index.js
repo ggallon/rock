@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
-import AppState from '/imports/ui/components/appState';
-import AppContainer from '/imports/ui/containers/appContainer';
+import AppState from '../../ui/components/appState';
+import AppContainer from '../../ui/containers/appContainer';
 
 // Imports Bootstrap stylesheet
 // Hack for import Bootstrap before "merged-stylesheets.css"

@@ -5,10 +5,10 @@ import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
-import Documents from '/imports/api/documents/documents';
-import container from '/imports/lib/container';
-import Loading from '/imports/ui/components/loading';
-import NotFound from '/imports/ui/components/notFound';
+import Documents from '../../../api/documents/documents';
+import container from '../../../lib/container';
+import Loading from '../../../ui/components/loading';
+import NotFound from '../../../ui/components/notFound';
 
 class ViewDocument extends Component {
   constructor() {

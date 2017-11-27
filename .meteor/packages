@@ -37,8 +37,8 @@ react-meteor-data@0.2.12       # React higher-order component for reactively tra
 fourseven:scss@4.5.4           # Style with attitude. Sass and SCSS support for Meteor.js
 
 # Development tools
-msavin:mongol@2.0.1            # In-App MongoDB Editor.. now works better than ever!
 practicalmeteor:mocha@2.4.5_6  # Write package tests with mocha and run them in the browser or from the command line with spacejam
 dburles:factory@1.1.0          # Factories for Meteor
 xolvio:cleaner@0.3.1           # Runs arbitrary code on server
 xolvio:backdoor@0.2.1          # Gives you methods to clear your Mongo database and collections for testing purposes
+msavin:mongol                  # In-App MongoDB Editor.. now with improved third party package compatibility.
