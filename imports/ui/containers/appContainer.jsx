@@ -5,7 +5,7 @@ import getUserName from '../../lib/getUserName';
 
 import App from '../layouts/app.jsx';
 
-export default withTracker(props => {
+export default withTracker(() => {
   const loggingIn = Meteor.loggingIn();
   const user = Meteor.user();
   const userId = Meteor.userId();
