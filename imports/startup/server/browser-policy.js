@@ -19,9 +19,9 @@ if (process.env.NODE_ENV === 'development') {
 BrowserPolicy.framing.disallow();
 BrowserPolicy.content.disallowInlineScripts();
 
-BrowserPolicy.content.allowConnectOrigin('ws:' + hostname[1]);
-BrowserPolicy.content.allowConnectOrigin('wss:' + hostname[1]);
+BrowserPolicy.content.allowConnectOrigin('ws:');
+BrowserPolicy.content.allowConnectOrigin('wss:');
 
-BrowserPolicy.content.allowFontOrigin('data:' + hostname[1]);
+BrowserPolicy.content.allowFontOrigin('data:');
 
 BrowserPolicy.content.allowOriginForAll('https://maxcdn.bootstrapcdn.com');
