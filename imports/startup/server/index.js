@@ -1,5 +1,6 @@
-import './accounts';
+import './startup';
 import './browser-policy';
-import './fixtures';
 import './api';
+import './accounts';
 import './roles';
+import './fixtures';
