@@ -20,7 +20,7 @@
     "meteor-node-stubs": "0.3.2",
     "prop-types": "15.6.0",
     "react": "15.6.2",
-    "react-bootstrap": "0.31.5",
+    "react-bootstrap": "0.32.0",
     "react-dom": "15.6.2",
     "react-komposer": "2.0.0",
     "react-loadable": "5.3.1",
