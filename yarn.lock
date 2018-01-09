@@ -3553,9 +3553,9 @@ moment@2.x.x:
   version "2.19.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167"
 
-mongo-object@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/mongo-object/-/mongo-object-0.1.1.tgz#363a97827409a1a324ac2a67c734fa292fd6c8a7"
+mongo-object@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/mongo-object/-/mongo-object-0.1.2.tgz#1102ad0c12a23c9ad8dc4e0ce230d25bb39544be"
   dependencies:
     lodash.foreach "^4.5.0"
     lodash.isempty "^4.4.0"
@@ -4595,9 +4595,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simpl-schema@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-1.4.0.tgz#6a3b8a4461c146a0e862c546fdd2866a9518f347"
+simpl-schema@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-1.4.1.tgz#40e143556076f7a6337dc1b3d5c26fb61dec905b"
   dependencies:
     clone "^2.1.1"
     extend "^3.0.1"
@@ -4612,7 +4612,7 @@ simpl-schema@1.4.0:
     lodash.union "^4.6.0"
     lodash.uniq "^4.5.0"
     message-box "^0.2.0"
-    mongo-object "^0.1.1"
+    mongo-object "^0.1.2"
 
 slash@^1.0.0:
   version "1.0.0"
