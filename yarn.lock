@@ -54,6 +54,22 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@ggallon/react-komposer@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@ggallon/react-komposer/-/react-komposer-2.0.5.tgz#c5315ece60d485f43d71b27f200a3fd895dd0635"
+  dependencies:
+    "@ggallon/react-stubber" "1.0.2"
+    babel-runtime "6.26.0"
+    hoist-non-react-statics "1.2.0"
+    lodash.pick "4.4.0"
+    shallowequal "0.2.2"
+
+"@ggallon/react-stubber@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ggallon/react-stubber/-/react-stubber-1.0.2.tgz#b8cafafc83472d6cd47fed68cb27412a24f6d84d"
+  dependencies:
+    babel-runtime "6.26.0"
+
 Base64@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"
@@ -880,7 +896,7 @@ babel-runtime@6.25.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@6.26.0, babel-runtime@6.x.x, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.5.0:
+babel-runtime@6.26.0, babel-runtime@6.x.x, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -2638,7 +2654,7 @@ hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
-hoist-non-react-statics@^1.2.0:
+hoist-non-react-statics@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -3326,7 +3342,7 @@ lodash.pairs@^3.0.0:
   dependencies:
     lodash.keys "^3.0.0"
 
-lodash.pick@^4.4.0:
+lodash.pick@4.4.0, lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
 
@@ -4083,16 +4099,6 @@ react-dom@15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-komposer@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-komposer/-/react-komposer-2.0.0.tgz#b964738014a9b4aee494a83c0b5b833d66072a90"
-  dependencies:
-    babel-runtime "^6.11.6"
-    hoist-non-react-statics "^1.2.0"
-    lodash.pick "^4.4.0"
-    react-stubber "^1.0.0"
-    shallowequal "^0.2.2"
-
 react-loadable@5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/react-loadable/-/react-loadable-5.3.1.tgz#9699e9a08fed49bacd69caaa282034b62a76bcdd"
@@ -4144,12 +4150,6 @@ react-router@^4.2.0:
     path-to-regexp "^1.7.0"
     prop-types "^15.5.4"
     warning "^3.0.0"
-
-react-stubber@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-stubber/-/react-stubber-1.0.0.tgz#41ee2cac72d4d4fd70a63896da98e13739b84628"
-  dependencies:
-    babel-runtime "^6.5.0"
 
 react-transition-group@^2.0.0, react-transition-group@^2.2.0:
   version "2.2.1"
@@ -4569,7 +4569,7 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-shallowequal@^0.2.2:
+shallowequal@0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-0.2.2.tgz#1e32fd5bcab6ad688a4812cb0cc04efc75c7014e"
   dependencies:
