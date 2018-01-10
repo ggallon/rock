@@ -1,4 +1,4 @@
-import { compose } from 'react-komposer';
+import { compose } from '@ggallon/react-komposer';
 import getTrackerLoader from './get-tracker-loader';
 
 export default function container(composer, Component, options = {}) {
