@@ -54,15 +54,15 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@ggallon/react-komposer@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@ggallon/react-komposer/-/react-komposer-2.0.5.tgz#c5315ece60d485f43d71b27f200a3fd895dd0635"
+"@ggallon/react-komposer@2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@ggallon/react-komposer/-/react-komposer-2.0.6.tgz#f5e7308368d35db63504904c336a39095af4232a"
   dependencies:
     "@ggallon/react-stubber" "1.0.2"
     babel-runtime "6.26.0"
-    hoist-non-react-statics "1.2.0"
+    hoist-non-react-statics "2.3.1"
     lodash.pick "4.4.0"
-    shallowequal "0.2.2"
+    shallowequal "1.0.2"
 
 "@ggallon/react-stubber@1.0.2":
   version "1.0.2"
@@ -2654,11 +2654,7 @@ hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
-hoist-non-react-statics@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
-
-hoist-non-react-statics@^2.3.0:
+hoist-non-react-statics@2.3.1, hoist-non-react-statics@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
 
@@ -3316,7 +3312,7 @@ lodash.istypedarray@^3.0.0:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/lodash.istypedarray/-/lodash.istypedarray-3.0.6.tgz#c9a477498607501d8e8494d283b87c39281cef62"
 
-lodash.keys@^3.0.0, lodash.keys@^3.1.2:
+lodash.keys@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
   dependencies:
@@ -4569,11 +4565,9 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-shallowequal@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-0.2.2.tgz#1e32fd5bcab6ad688a4812cb0cc04efc75c7014e"
-  dependencies:
-    lodash.keys "^3.1.2"
+shallowequal@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.0.2.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
 
 shebang-command@^1.2.0:
   version "1.2.0"

@@ -15,7 +15,7 @@
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
   "dependencies": {
-    "@ggallon/react-komposer": "2.0.5",
+    "@ggallon/react-komposer": "2.0.6",
     "babel-runtime": "6.26.0",
     "bcrypt": "1.0.3",
     "meteor-node-stubs": "0.3.2",
