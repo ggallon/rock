@@ -1,4 +1,4 @@
-# Rock [![GitHub release](https://img.shields.io/badge/realase-1.6.1-blue.svg)](https://github.com/ggallon/rock)
+# Rock [![GitHub release](https://img.shields.io/github/release/ggallon/rock.svg)](https://github.com/ggallon/rock/)
 
 Rock is a web application boilerplate, based on the [Meteor JavaScript platform](https://www.meteor.com/).
 It is intended to be a starting point for developers looking to build their first software product.
