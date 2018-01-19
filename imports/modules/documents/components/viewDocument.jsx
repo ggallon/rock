@@ -32,7 +32,7 @@ class ViewDocument extends Component {
   }
 
   render() {
-    const { doc, history, match } = this.props;
+    const { doc, history, match, user } = this.props;
 
     return (
       doc ? (
@@ -46,8 +46,8 @@ class ViewDocument extends Component {
             <h4 className="pull-left">{ doc && doc.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(doc._id, history)} className="text-danger">Supprimer</Button>
+                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={ doc && doc.owner !== user._id }>Modifier</Button>
+                <Button onClick={() => this.handleRemove(doc._id, history)} disabled={ doc && doc.owner !== user._id } className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
