@@ -5,16 +5,18 @@ It is intended to be a starting point for developers looking to build their firs
 The goal above all else is to simplify the process of building your first piece of software.
 
 ## Getting Started
-To get started with Rock, clone a copy to your local machine using Git.
+Clone a copy to your local machine using Git.
 
 ```bash
 git clone https://github.com/ggallon/rock <my-project-name>
 ```
-Once the project has downloaded, ```cd``` into the directory and install dependencies.
+Go into the directory and install dependencies.
 
 ```bash
 cd <my-project-name> && meteor yarn install
 ```
+You're ready to start up the server.
+Included in Rock's /package.json file is a script for starting your server with settings-development.json file in tow.
 
 ```bash
 yarn start
