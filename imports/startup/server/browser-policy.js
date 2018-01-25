@@ -8,11 +8,11 @@ const hostname = parsedUrl.match(/^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i);
  * Set browser policies
  */
 if (process.env.NODE_ENV === 'development') {
-  BrowserPolicy.content.allowOriginForAll(hostname[1] + ':*');
-  BrowserPolicy.content.allowConnectOrigin('ws://' + hostname[1] + ':*');
-  BrowserPolicy.content.allowConnectOrigin('wss://' + hostname[1] + ':*');
-  BrowserPolicy.content.allowConnectOrigin('http://' + hostname[1] + ':*');
-  BrowserPolicy.content.allowConnectOrigin('https://' + hostname[1] + ':*');
+  BrowserPolicy.content.allowOriginForAll(`${hostname[1]}:*`);
+  BrowserPolicy.content.allowConnectOrigin(`ws://${hostname[1]}:*`);
+  BrowserPolicy.content.allowConnectOrigin(`wss://${hostname[1]}:*`);
+  BrowserPolicy.content.allowConnectOrigin(`http://${hostname[1]}:*`);
+  BrowserPolicy.content.allowConnectOrigin(`https://${hostname[1]}:*`);
   BrowserPolicy.framing.allowAll();
 }
 
