@@ -28,6 +28,8 @@ Meteor.publish('documents.view', function documentsViewPublish(documentId) {
       title: 1,
       body: 1,
       owner: 1,
+      createdAt: 1,
+      updatedAt: 1,
     },
   });
 });

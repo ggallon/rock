@@ -19,7 +19,6 @@ export const insertDocument = new ValidatedMethod({
     return Documents.insert({
       ...document,
       owner: this.userId,
-      createdAt: new Date(),
     });
   },
 });

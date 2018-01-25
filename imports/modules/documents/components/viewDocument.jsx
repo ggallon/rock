@@ -46,12 +46,16 @@ class ViewDocument extends Component {
             <h4 className="pull-left">{ doc && doc.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={ doc && doc.owner !== user._id }>Modifier</Button>
-                <Button onClick={() => this.handleRemove(doc._id, history)} disabled={ doc && doc.owner !== user._id } className="text-danger">Supprimer</Button>
+                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={doc && doc.owner !== user._id}>Modifier</Button>
+                <Button onClick={() => this.handleRemove(doc._id, history)} disabled={doc && doc.owner !== user._id} className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
-          { doc && doc.body }
+          <div>
+            <p>{ doc && doc.body }</p>
+            <p><i>{ doc && doc.createdAt.toString() }</i></p>
+            <p><b>{ doc && doc.updatedAt && doc.updatedAt.toString() }</b></p>
+          </div>
         </div>
       ) : <NotFound />
     );
@@ -62,6 +66,7 @@ ViewDocument.propTypes = {
   doc: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default container(({ match }, onData) => {

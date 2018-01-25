@@ -27,13 +27,36 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The body of the document.',
   },
-  createdAt: {
-    type: Date,
-    optional: true,
-  },
   owner: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
+    optional: true,
+  },
+  createdAt: {
+    type: Date,
+    autoValue() {
+      if (this.isInsert) {
+        return new Date();
+      } else if (this.isUpsert) {
+        return {
+          $setOnInsert: (new Date()).toISOString(),
+        };
+      }
+    },
+  },
+  updatedAt: {
+    type: Date,
+    autoValue() {
+      if (this.isUpdate) {
+        return {
+          $set: new Date(),
+        };
+      } else if (this.isUpsert) {
+        return {
+          $setOnInsert: (new Date()).toISOString(),
+        };
+      }
+    },
     optional: true,
   },
 });
