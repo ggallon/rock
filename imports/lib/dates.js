@@ -4,14 +4,14 @@ import 'moment-timezone';
 
 moment.locale('fr');
 
-export const monthDayYear = (timestamp, timezone) => (
-  !timezone ? moment(timestamp).format('MMMM Do, YYYY') :
-    moment(timestamp).tz(timezone).format('MMMM Do, YYYY')
+export const dayMonthYear = (timestamp, timezone) => (
+  !timezone ? moment(timestamp).format('Do MMMM YYYY') :
+    moment(timestamp).tz(timezone).format('Do MMMM YYYY')
 );
 
 export const dayMonthYearAtTime = (timestamp, timezone) => (
-  !timezone ? moment(timestamp).format('Do MMMM YYYY [à] hh:mm') :
-    moment(timestamp).tz(timezone).format('Do MMMM YYYY [à] hh:mm')
+  !timezone ? moment(timestamp).format('Do MMMM YYYY [à] HH:mm') :
+    moment(timestamp).tz(timezone).format('Do MMMM YYYY [à] HH:mm')
 );
 
 export const timeago = (timestamp, timezone) => (

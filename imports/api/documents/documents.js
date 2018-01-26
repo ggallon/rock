@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Factory } from 'meteor/dburles:factory';
+import '/imports/lib/simple_schema_message_box_fr';
 
 const Documents = new Mongo.Collection('Documents');
 export default Documents;
@@ -19,6 +20,10 @@ Documents.deny({
 });
 
 Documents.schema = new SimpleSchema({
+  _id: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+  },
   title: {
     type: String,
     label: 'The title of the document.',
@@ -33,10 +38,10 @@ Documents.schema = new SimpleSchema({
     optional: true,
   },
   createdAt: {
-    type: Date,
+    type: String,
     autoValue() {
       if (this.isInsert) {
-        return new Date();
+        return (new Date()).toISOString();
       } else if (this.isUpsert) {
         return {
           $setOnInsert: (new Date()).toISOString(),
@@ -45,11 +50,11 @@ Documents.schema = new SimpleSchema({
     },
   },
   updatedAt: {
-    type: Date,
+    type: String,
     autoValue() {
       if (this.isUpdate) {
         return {
-          $set: new Date(),
+          $set: (new Date()).toISOString(),
         };
       } else if (this.isUpsert) {
         return {
