@@ -6,14 +6,11 @@ import Documents from './documents';
 
 export const insertDocument = new ValidatedMethod({
   name: 'documents.insert',
-  validate: new SimpleSchema({
-    title: { type: String },
-    body: { type: String },
-  }).validator(),
+  validate: Documents.schema.pick('title', 'body').validator(),
   run(document) {
     if (!this.userId) {
       throw new Meteor.Error('documents.insert.notLoggedIn',
-        'Must be logged in to insertor update a document');
+        'Must be logged in to inser a document');
     }
 
     return Documents.insert({
@@ -25,18 +22,13 @@ export const insertDocument = new ValidatedMethod({
 
 export const updateDocument = new ValidatedMethod({
   name: 'documents.update',
-  validate: new SimpleSchema({
-    _id: { type: String, regEx: SimpleSchema.RegEx.Id },
-    title: { type: String, optional: true },
-    body: { type: String, optional: true },
-    owner: { type: String, regEx: SimpleSchema.RegEx.Id },
-  }).validator(),
+  validate: Documents.schema.pick('_id', 'title', 'body', 'owner', 'createdAt', 'updatedAt').validator(),
   run(document) {
     if (!this.userId) {
       throw new Meteor.Error('documents.update.notLoggedIn',
-        'Must be logged in to insertor update a document');
+        'Must be logged in to update a document');
     }
-
+    
     if (document._id && document.owner !== this.userId) {
       throw new Meteor.Error('documents.update.accessDenied',
         'You don\'t have permission to update this document.');
@@ -44,7 +36,10 @@ export const updateDocument = new ValidatedMethod({
 
     try {
       const documentId = document._id;
-      Documents.update({ _id: document._id }, { $set: document });
+      delete document._id;
+      delete document.owner;
+      delete document.createdAt;
+      Documents.update({ _id: documentId }, { $set: document });
       return documentId; // Return _id so we can redirect to document after update.
     } catch (exception) {
       throw new Meteor.Error('500', exception);
@@ -54,9 +49,7 @@ export const updateDocument = new ValidatedMethod({
 
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
-  validate: new SimpleSchema({
-    _id: { type: String, regEx: SimpleSchema.RegEx.Id },
-  }).validator(),
+  validate: Documents.schema.pick('_id').validator(),
   run({ _id }) {
     if (!this.userId) {
       throw new Meteor.Error('documents.remove.notLoggedIn',
