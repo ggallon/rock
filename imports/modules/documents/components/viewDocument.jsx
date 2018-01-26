@@ -55,7 +55,7 @@ class ViewDocument extends Component {
           <div>
             <p>{ doc.body }</p>
             <p><b>{ doc.updatedAt && `Modifié ${timeago(doc.updatedAt, 'Europe/Paris')}` }</b></p>
-            <p><i>Créé le { dayMonthYearAtTime(doc.createdAt) }</i></p>
+            <p><i>Créé le { dayMonthYearAtTime(doc.createdAt, 'Europe/Paris') }</i></p>
           </div>
         </div>
       ) : <NotFound />
