@@ -67,6 +67,7 @@ Meteor.startup(() => {
   if (Meteor.isServer) {
     Documents._ensureIndex({ owner: 1 });
     Documents._ensureIndex({ createdAt: -1 });
+    Documents._ensureIndex({ updatedAt: -1 });
   }
 });
 
