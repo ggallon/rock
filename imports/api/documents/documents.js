@@ -32,7 +32,7 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The body of the document.',
   },
-  owner: {
+  ownerId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     optional: true,
@@ -70,7 +70,7 @@ Documents.attachSchema(Documents.schema);
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
-    Documents._ensureIndex({ owner: 1 });
+    Documents._ensureIndex({ ownerId: 1 });
     Documents._ensureIndex({ createdAt: -1 });
     Documents._ensureIndex({ updatedAt: -1 });
   }

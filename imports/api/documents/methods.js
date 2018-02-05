@@ -15,21 +15,21 @@ export const insertDocument = new ValidatedMethod({
 
     return Documents.insert({
       ...document,
-      owner: this.userId,
+      ownerId: this.userId,
     });
   },
 });
 
 export const updateDocument = new ValidatedMethod({
   name: 'documents.update',
-  validate: Documents.schema.pick('_id', 'title', 'body', 'owner', 'createdAt', 'updatedAt').validator(),
+  validate: Documents.schema.pick('_id', 'title', 'body', 'ownerId', 'createdAt', 'updatedAt').validator(),
   run(document) {
     if (!this.userId) {
       throw new Meteor.Error('documents.update.notLoggedIn',
         'Must be logged in to update a document');
     }
-    
-    if (document._id && document.owner !== this.userId) {
+
+    if (document._id && document.ownerId !== this.userId) {
       throw new Meteor.Error('documents.update.accessDenied',
         'You don\'t have permission to update this document.');
     }
@@ -37,7 +37,7 @@ export const updateDocument = new ValidatedMethod({
     try {
       const documentId = document._id;
       delete document._id;
-      delete document.owner;
+      delete document.ownerId;
       delete document.createdAt;
       Documents.update({ _id: documentId }, { $set: document });
       return documentId; // Return _id so we can redirect to document after update.
@@ -58,7 +58,7 @@ export const removeDocument = new ValidatedMethod({
 
     const document = Documents.findOne(_id);
 
-    if (document.owner !== this.userId) {
+    if (document.ownerId !== this.userId) {
       throw new Meteor.Error('documents.remove.accessDenied',
         'You don\'t have permission to remove this document.');
     }
