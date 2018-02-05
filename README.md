@@ -16,7 +16,7 @@ Go into the directory and install dependencies.
 cd <my-project-name> && meteor yarn install
 ```
 You're ready to start up the server.
-Included in Rock's /package.json file is a script for starting your server with settings-development.json file in tow.
+Included in Rock's /package.json file is a script for starting your server with settings-development.json file.
 
 ```bash
 yarn start
