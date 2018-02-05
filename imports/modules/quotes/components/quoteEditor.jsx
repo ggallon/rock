@@ -4,15 +4,15 @@ import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import DocumentSchema from '../lib/documentSchema';
+import QuoteSchema from '../lib/quoteSchema';
 
-class DocumentEditor extends Component {
+class QuoteEditor extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      documentEditorError: null,
-      model: this.props.doc || {},
+      quoteEditorError: null,
+      model: this.props.quote || {},
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,39 +28,40 @@ class DocumentEditor extends Component {
   }
 
   onChange() {
-    this.setState({ documentEditorError: null });
+    this.setState({ quoteEditorError: null });
   }
 
   onSubmit(formData) {
-    const { doc } = this.props;
-    const methodToCall = doc && doc._id ? 'documents.update' : 'documents.insert';
+    console.log(formData);
+    const { quote } = this.props;
+    const methodToCall = quote && quote._id ? 'quotes.update' : 'quotes.insert';
     return new Promise((resolve, reject) =>
       Meteor.call(methodToCall, formData, (error, response) =>
         (error ? reject(error) : resolve(response))));
   }
 
   onSubmitFailure(error) {
-    this.setState({ documentEditorError: error });
+    this.setState({ quoteEditorError: error });
   }
 
   onSubmitSuccess(response) {
-    const { doc, history } = this.props;
-    history.push(`/documents/${response || doc._id}`);
+    const { quote, history } = this.props;
+    history.push(`/quotes/${response || quote._id}`);
   }
 
   render() {
-    const { doc } = this.props;
+    const { quote } = this.props;
     const CustomSubmitField = () => (
       <SubmitField
-        value={doc && doc._id ? 'Enregistrer' : 'Nouveau'}
+        value={quote && quote._id ? 'Enregistrer' : 'Nouveau'}
         className="pull-right"
       />);
 
     return (
       <AutoForm
-        schema={DocumentSchema}
+        schema={QuoteSchema}
         placeholder
-        error={this.state.documentEditorError}
+        error={this.state.quoteEditorError}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
         onSubmitFailure={this.onSubmitFailure}
@@ -72,13 +73,13 @@ class DocumentEditor extends Component {
   }
 }
 
-DocumentEditor.defaultProps = {
-  doc: null,
+QuoteEditor.defaultProps = {
+  quote: null,
 };
 
-DocumentEditor.propTypes = {
-  doc: PropTypes.object,
+QuoteEditor.propTypes = {
+  quote: PropTypes.object,
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(DocumentEditor);
+export default withRouter(QuoteEditor);

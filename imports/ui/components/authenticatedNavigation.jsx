@@ -10,8 +10,8 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
 const AuthenticatedNavigation = props => (
   <div>
     <Nav>
-      <LinkContainer to="/documents">
-        <NavItem eventKey={2}>Documents</NavItem>
+      <LinkContainer to="/quotes">
+        <NavItem eventKey={2}>Devis</NavItem>
       </LinkContainer>
       <NavDropdown eventKey={3} title="Administration" id="basic-nav-dropdown">
         <LinkContainer to="/users">

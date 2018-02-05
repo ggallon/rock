@@ -2,10 +2,10 @@
 /* eslint-disable func-names, prefer-arrow-callback */
 
 import { assert } from 'chai';
-import Documents from './documents.js';
+import Quotes from './quotes';
 
-describe('Documents collection', function () {
+describe('Quotes collection', function () {
   it('registers the collection with Mongo properly', function () {
-    assert.equal(typeof Documents, 'object');
+    assert.equal(typeof Quotes, 'object');
   });
 });

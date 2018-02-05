@@ -1,6 +1,6 @@
 // Core variables and mixins
 @import './font-awesome-4.7.0/font-awesome';
-@import './colors';
+@import './variables';
 @import './mixins';
 
 // Core CSS
@@ -12,6 +12,7 @@
 
 // Components
 @import "components/loading";
+@import "components/card";
 
 // Modules
 @import "modules/app/login";

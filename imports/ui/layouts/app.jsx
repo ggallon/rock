@@ -15,10 +15,10 @@ const RecoverPassword = LoadableWrapper({ loader: () => import('../../modules/ap
 const ResetPassword = LoadableWrapper({ loader: () => import('../../modules/app/components/resetPassword') });
 const Signup = LoadableWrapper({ loader: () => import('../../modules/app/components/signup') });
 
-const Documents = LoadableWrapper({ loader: () => import('../../modules/documents/components/documents') });
-const NewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/newDocument') });
-const ViewDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/viewDocument') });
-const EditDocument = LoadableWrapper({ loader: () => import('../../modules/documents/components/editDocument') });
+const Quotes = LoadableWrapper({ loader: () => import('../../modules/quotes/components/quotes') });
+const NewQuote = LoadableWrapper({ loader: () => import('../../modules/quotes/components/newQuote') });
+const ViewQuote = LoadableWrapper({ loader: () => import('../../modules/quotes/components/viewQuote') });
+const EditQuote = LoadableWrapper({ loader: () => import('../../modules/quotes/components/editQuote') });
 
 const Users = LoadableWrapper({ loader: () => import('../../modules/users/components/users') });
 const NewUser = LoadableWrapper({ loader: () => import('../../modules/users/components/newUser') });
@@ -33,10 +33,10 @@ const App = props => (
         <Grid>
           <Switch>
             <PrivateRoute exact path="/" component={Index} {...props} />
-            <PrivateRoute path="/documents/new" component={NewDocument} {...props} />
-            <PrivateRoute path="/documents/:_id/edit" component={EditDocument} {...props} />
-            <PrivateRoute path="/documents/:_id" component={ViewDocument} {...props} />
-            <PrivateRoute path="/documents" component={Documents} {...props} />
+            <PrivateRoute path="/quotes/new" component={NewQuote} {...props} />
+            <PrivateRoute path="/quotes/:_id/edit" component={EditQuote} {...props} />
+            <PrivateRoute path="/quotes/:_id" component={ViewQuote} {...props} />
+            <PrivateRoute path="/quotes" component={Quotes} {...props} />
             <PrivateRoute path="/users/new" component={NewUser} {...props} />
             <PrivateRoute path="/users/:_id/edit" component={EditUser} {...props} />
             <PrivateRoute path="/users/:_id" component={ViewUser} {...props} />

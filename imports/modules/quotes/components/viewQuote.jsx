@@ -5,12 +5,13 @@ import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
-import Documents from '../../../api/documents/documents';
+import Quotes from '../../../api/quotes/quotes';
 import container from '../../../lib/container';
+import { timeago, dayMonthYearAtTime } from '../../../lib/dates';
 import Loading from '../../../ui/components/loading';
 import NotFound from '../../../ui/components/notFound';
 
-class ViewDocument extends Component {
+class ViewQuote extends Component {
   constructor() {
     super();
 
@@ -21,55 +22,60 @@ class ViewDocument extends Component {
 
   handleRemove(_id, history) {
     if (confirm('Êtes-vous sûr ? Ceci est définitif !')) {
-      Meteor.call('documents.remove', { _id }, (error) => {
+      Meteor.call('quotes.remove', { _id }, (error) => {
         if (error) {
           this.setState({ handleRemoveError: error.reason });
         } else {
-          history.push('/documents');
+          history.push('/quotes');
         }
       });
     }
   }
 
   render() {
-    const { doc, history, match } = this.props;
+    const { quote, history, match, user } = this.props;
 
     return (
-      doc ? (
-        <div className="ViewDocument">
+      quote ? (
+        <div className="ViewQuote">
           {this.state.handleRemoveError ? (
             <Alert bsStyle="danger">
               {this.state.handleRemoveError}
             </Alert>
           ) : ''}
           <div className="page-header clearfix">
-            <h4 className="pull-left">{ doc && doc.title }</h4>
+            <h4 className="pull-left">{ quote.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(doc._id, history)} className="text-danger">Supprimer</Button>
+                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={quote.ownerId !== user._id}>Modifier</Button>
+                <Button onClick={() => this.handleRemove(quote._id, history)} disabled={quote.ownerId !== user._id} className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
-          { doc && doc.body }
+          <div>
+            <p>{ quote.body }</p>
+            <p><b>{ quote.updatedAt && `Modifié ${timeago(quote.updatedAt, 'Europe/Paris')}` }</b></p>
+            <p><i>Créé le { dayMonthYearAtTime(quote.createdAt, 'Europe/Paris') }</i></p>
+          </div>
         </div>
       ) : <NotFound />
     );
   }
 }
 
-ViewDocument.propTypes = {
-  doc: PropTypes.object.isRequired,
+ViewQuote.propTypes = {
+  quote: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default container(({ match }, onData) => {
-  const docId = match.params._id;
-  const subscription = Meteor.subscribe('documents.view', docId);
+  const quoteId = match.params._id;
+  const subscription = Meteor.subscribe('quotes.view', quoteId);
 
   if (subscription.ready()) {
-    const doc = Documents.findOne(docId);
-    onData(null, { doc });
+    const quote = Quotes.findOne(quoteId);
+    onData(null, { quote });
   }
-}, ViewDocument, { loadingHandler: () => <Loading /> });
+}, ViewQuote, { loadingHandler: () => <Loading /> });
