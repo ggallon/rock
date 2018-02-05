@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 import '/imports/lib/simple_schema_message_box_fr';
 
-const documentSchema = new SimpleSchema({
+const quoteSchema = new SimpleSchema({
   title: {
     label: 'Titre',
     type: String,
@@ -18,4 +18,4 @@ const documentSchema = new SimpleSchema({
   },
 });
 
-export default documentSchema;
+export default quoteSchema;

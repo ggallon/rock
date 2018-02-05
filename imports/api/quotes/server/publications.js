@@ -1,13 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Documents from '../documents';
+import Quotes from '../quotes';
 
-Meteor.publish('documents.list', function documentsListPublish() {
+Meteor.publish('quotes.list', function quotesListPublish() {
   if (!this.userId) {
     return this.ready();
   }
 
-  return Documents.find({}, {
+  return Quotes.find({}, {
     fields: {
       title: 1,
       body: 1,
@@ -16,14 +16,14 @@ Meteor.publish('documents.list', function documentsListPublish() {
   });
 });
 
-Meteor.publish('documents.view', function documentsViewPublish(documentId) {
+Meteor.publish('quotes.view', function quotesViewPublish(quoteId) {
   if (!this.userId) {
     return this.ready();
   }
 
-  check(documentId, String);
+  check(quoteId, String);
 
-  return Documents.find({ _id: documentId }, {
+  return Quotes.find({ _id: quoteId }, {
     fields: {
       title: 1,
       body: 1,

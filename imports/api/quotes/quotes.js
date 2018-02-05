@@ -4,33 +4,33 @@ import SimpleSchema from 'simpl-schema';
 import { Factory } from 'meteor/dburles:factory';
 import '/imports/lib/simple_schema_message_box_fr';
 
-const Documents = new Mongo.Collection('Documents');
-export default Documents;
+const Quotes = new Mongo.Collection('Quotes');
+export default Quotes;
 
-Documents.allow({
+Quotes.allow({
   insert: () => false,
   update: () => false,
   remove: () => false,
 });
 
-Documents.deny({
+Quotes.deny({
   insert: () => true,
   update: () => true,
   remove: () => true,
 });
 
-Documents.schema = new SimpleSchema({
+Quotes.schema = new SimpleSchema({
   _id: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
   },
   title: {
     type: String,
-    label: 'The title of the document.',
+    label: 'The title of the quote.',
   },
   body: {
     type: String,
-    label: 'The body of the document.',
+    label: 'The body of the quote.',
   },
   ownerId: {
     type: String,
@@ -66,17 +66,17 @@ Documents.schema = new SimpleSchema({
   },
 });
 
-Documents.attachSchema(Documents.schema);
+Quotes.attachSchema(Quotes.schema);
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
-    Documents._ensureIndex({ ownerId: 1 });
-    Documents._ensureIndex({ createdAt: -1 });
-    Documents._ensureIndex({ updatedAt: -1 });
+    Quotes._ensureIndex({ ownerId: 1 });
+    Quotes._ensureIndex({ createdAt: -1 });
+    Quotes._ensureIndex({ updatedAt: -1 });
   }
 });
 
-Factory.define('document', Documents, {
+Factory.define('quote', Quotes, {
   title: () => 'Factory Title',
   body: () => 'Factory Body',
 });

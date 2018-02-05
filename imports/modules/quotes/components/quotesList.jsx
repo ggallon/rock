@@ -5,32 +5,32 @@ import { Meteor } from 'meteor/meteor';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
-import Documents from '../../../api/documents/documents';
+import Quotes from '../../../api/quotes/quotes';
 import container from '../../../lib/container';
 import Loading from '../../../ui/components/loading';
 
-const DocumentsList = ({ documents, history }) => (
-  documents.length > 0 ? (
-    <ListGroup className="DocumentsList">
-      {documents.map(({ _id, title }) => (
-        <ListGroupItem key={_id} onClick={() => history.push(`/documents/${_id}`)}>
+const QuotesList = ({ quotes, history }) => (
+  quotes.length > 0 ? (
+    <ListGroup className="QuotesList">
+      {quotes.map(({ _id, title }) => (
+        <ListGroupItem key={_id} onClick={() => history.push(`/quotes/${_id}`)}>
           { title }
         </ListGroupItem>
       ))}
     </ListGroup>
-  ) : <Alert bsStyle="warning">Aucun document</Alert>
+  ) : <Alert bsStyle="warning">Aucun devis</Alert>
 );
 
-DocumentsList.propTypes = {
-  documents: PropTypes.array.isRequired,
+QuotesList.propTypes = {
+  quotes: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
 };
 
 export default withRouter(container((props, onData) => {
-  const subscription = Meteor.subscribe('documents.list');
+  const subscription = Meteor.subscribe('quotes.list');
 
   if (subscription.ready()) {
-    const documents = Documents.find().fetch();
-    onData(null, { documents });
+    const quotes = Quotes.find().fetch();
+    onData(null, { quotes });
   }
-}, DocumentsList, { loadingHandler: () => <Loading /> }));
+}, QuotesList, { loadingHandler: () => <Loading /> }));
