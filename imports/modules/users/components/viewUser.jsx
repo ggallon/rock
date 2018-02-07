@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
@@ -53,7 +53,7 @@ class ViewUser extends Component {
           </div>
           <div>
             <p>{user._id}</p>
-            <p>{user.emails[0].address}</p>
+            <p>{user.emails && user.emails[0].address}</p>
           </div>
         </div>
       ) : <NotFound />
@@ -61,8 +61,12 @@ class ViewUser extends Component {
   }
 }
 
+ViewUser.defaultProps = {
+  user: null,
+};
+
 ViewUser.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 };
