@@ -77,6 +77,7 @@ class Login extends Component {
 
   render() {
     const { error } = this.props.appState;
+    const googleError = error && !!error.loginGoogleError;
     const CustomSubmitField = () => <SubmitField value="Continuer" className="pull-right" />;
 
     return (
@@ -91,9 +92,9 @@ class Login extends Component {
             >
               <i className="fa fa-google" aria-hidden="true" /> Se connecter avec Google
             </button>
-            {error && error.loginGoogleError
-              ? <Alert bsStyle="warning">{error.loginGoogleError.reason}</Alert>
-              : null}
+            {googleError && (
+              <Alert bsStyle="warning">{error.loginGoogleError.reason}</Alert>
+            )}
             <div className="or-box">
               <span className="or">OU</span>
             </div>

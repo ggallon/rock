@@ -34,21 +34,22 @@ class ViewQuote extends Component {
 
   render() {
     const { quote, history, match, user } = this.props;
+    const quoteOwnerIsUser = quote.ownerId !== user._id;
 
     return (
       quote ? (
         <div className="ViewQuote">
-          {this.state.handleRemoveError ? (
+          {this.state.handleRemoveError && (
             <Alert bsStyle="danger">
               {this.state.handleRemoveError}
             </Alert>
-          ) : ''}
+          )}
           <div className="page-header clearfix">
             <h4 className="pull-left">{ quote.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={quote.ownerId !== user._id}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(quote._id, history)} disabled={quote.ownerId !== user._id} className="text-danger">Supprimer</Button>
+                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={quoteOwnerIsUser}>Modifier</Button>
+                <Button onClick={() => this.handleRemove(quote._id, history)} disabled={quoteOwnerIsUser} className="text-danger">Supprimer</Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>

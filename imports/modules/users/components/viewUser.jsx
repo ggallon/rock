@@ -37,11 +37,11 @@ class ViewUser extends Component {
     return (
       user ? (
         <div className="ViewUser">
-          {this.state.handleRemoveError ? (
+          {this.state.handleRemoveError && (
             <Alert bsStyle="danger">
               {this.state.handleRemoveError}
             </Alert>
-          ) : ''}
+          )}
           <div className="page-header clearfix">
             <h4 className="pull-left">{ user && user.profile && getUserName(user.profile) }</h4>
             <ButtonToolbar className="pull-right">

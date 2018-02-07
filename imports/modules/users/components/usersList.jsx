@@ -68,8 +68,8 @@ class UsersList extends Component {
             return (
               <tr key={_id}>
                 <td className="vertical-align" width="40%">
-                  {isCurrentUser ? <Label bsStyle="success">You!</Label> : ''}
-                  {emails[0].address}
+                  {isCurrentUser && (<Label bsStyle="success">You!</Label>)}
+                  {` ${emails[0].address}`}
                 </td>
                 <td>
                   <select
