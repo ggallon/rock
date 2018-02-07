@@ -103,7 +103,7 @@ class UsersList extends Component {
 }
 
 UsersList.defaultProps = {
-  user: {},
+  user: Object.create(null),
   users: [],
   applicationRoles: [],
 };

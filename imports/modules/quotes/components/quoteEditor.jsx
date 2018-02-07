@@ -12,7 +12,7 @@ class QuoteEditor extends Component {
 
     this.state = {
       quoteEditorError: null,
-      model: this.props.quote || {},
+      model: this.props.quote || Object.create(null),
     };
 
     this.onChange = this.onChange.bind(this);

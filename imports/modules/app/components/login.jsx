@@ -24,12 +24,12 @@ class Login extends Component {
   }
 
   componentWillUnmount() {
-    this.props.setAppState({ error: {} });
+    this.props.setAppState({ error: Object.create(null) });
   }
 
   onChange() {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, {
+      error: Object.assign(Object.create(null), this.props.error, {
         loginError: null,
         loginGoogleError: null,
       }),
@@ -44,7 +44,7 @@ class Login extends Component {
 
   onSubmitFailure(error) {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, { loginError: error }),
+      error: Object.assign(Object.create(null), this.props.error, { loginError: error }),
     });
   }
 
@@ -62,7 +62,7 @@ class Login extends Component {
 
   onSubmitGoogleFailure(error) {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, { loginGoogleError: error }),
+      error: Object.assign(Object.create(null), this.props.error, { loginGoogleError: error }),
     });
   }
 
@@ -117,7 +117,7 @@ class Login extends Component {
 }
 
 Login.defaultProps = {
-  error: {},
+  error: Object.create(null),
 };
 
 Login.propTypes = {

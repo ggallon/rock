@@ -26,7 +26,7 @@ class UserEditor extends Component {
     this.state = {
       userEditorError: null,
       userUpdate: !!this.props.user && !!this.props.user._id,
-      model: this.props.user ? userTransform(this.props.user) : {},
+      model: this.props.user ? userTransform(this.props.user) : Object.create(null),
     };
 
     this.onChange = this.onChange.bind(this);
