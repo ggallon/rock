@@ -32,7 +32,6 @@ class QuoteEditor extends Component {
   }
 
   onSubmit(formData) {
-    console.log(formData);
     const { quote } = this.props;
     const methodToCall = quote && quote._id ? 'quotes.update' : 'quotes.insert';
     return new Promise((resolve, reject) =>
