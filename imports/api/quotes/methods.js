@@ -73,9 +73,9 @@ export const removeQuote = new ValidatedMethod({
 
 rateLimit({
   methods: [
-    insertQuote,
-    updateQuote,
-    removeQuote,
+    'quotes.insert',
+    'quotes.update',
+    'quotes.remove',
   ],
   limit: 5,
   timeRange: 1000,
