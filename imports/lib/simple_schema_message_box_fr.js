@@ -5,6 +5,13 @@ import { _ } from 'meteor/underscore';
 global.Buffer = global.Buffer || require('buffer').Buffer;
 
 /**
+ * Extending the Schema Options
+ */
+SimpleSchema.extendOptions([
+  'uniforms',
+]);
+
+/**
  * French translation of the Default Messages of SimpeSchema
  */
 const regExpMessages = [
