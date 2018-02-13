@@ -25,12 +25,20 @@ Quotes.schema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Id,
   },
   title: {
+    label: 'Titre',
     type: String,
-    label: 'The title of the quote.',
+    uniforms: {
+      type: 'text',
+      placeholder: 'Titre',
+    }
   },
   body: {
+    label: 'Contenu',
     type: String,
-    label: 'The body of the quote.',
+    uniforms: {
+      type: 'text',
+      placeholder: 'Contenu',
+    }
   },
   ownerId: {
     type: String,
@@ -78,5 +86,5 @@ Meteor.startup(() => {
 
 Factory.define('quote', Quotes, {
   title: () => 'Factory Title',
-  body: () => 'Factory Body',
+  body: () => 'Factory Contenu',
 });

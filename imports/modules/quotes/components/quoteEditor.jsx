@@ -4,7 +4,10 @@ import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import QuoteSchema from '../lib/quoteSchema';
+import Quotes from '../../../api/quotes/quotes';
+//import QuoteSchema from '../lib/quoteSchema';
+
+const QuoteSchema = Quotes.schema.pick('title', 'body');
 
 class QuoteEditor extends Component {
   constructor(props) {
