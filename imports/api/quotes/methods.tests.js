@@ -5,8 +5,8 @@ import { Meteor } from 'meteor/meteor';
 import { assert } from 'chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Factory } from 'meteor/dburles:factory';
-import Quotes from './quotes.js';
-import { upsertQuote, removeQuote } from './methods.js';
+import Quotes from './quotes';
+import { upsertQuote, removeQuote } from './methods';
 
 describe('Quotes methods', function () {
   beforeEach(function () {
