@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Factory } from 'meteor/dburles:factory';
-import '/imports/lib/simple_schema_message_box_fr';
+import '../../lib/simple_schema_message_box_fr';
 
 const Quotes = new Mongo.Collection('Quotes');
 export default Quotes;
