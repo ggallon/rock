@@ -43,7 +43,6 @@ Quotes.schema = new SimpleSchema({
   ownerId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    optional: true,
   },
   createdAt: {
     type: String,
@@ -85,6 +84,6 @@ Meteor.startup(() => {
 });
 
 Factory.define('quote', Quotes, {
-  title: () => 'Factory Title',
-  body: () => 'Factory Contenu',
+  title: () => 'Title',
+  body: () => 'Contenu',
 });
