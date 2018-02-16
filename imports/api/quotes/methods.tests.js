@@ -50,7 +50,10 @@ describe('API Quotes methods', () => {
     assert.equal(getQuote.title, 'Title');
     assert.equal(getQuote.body, 'Contenu');
     assert.equal(getQuote.ownerId, context.userId);
-    assert.typeOf(getQuote.createdAt, 'string');
+    // autoValues are added only on the server 
+    if (Meteor.isServer) {
+      assert.typeOf(getQuote.createdAt, 'string');
+    }
   });
 
   it('update a quote in the Quotes collection', () => {
@@ -69,7 +72,10 @@ describe('API Quotes methods', () => {
     const getQuote = Quotes.findOne(resultId);
     
     assert.equal(getQuote.title, 'Title update');
-    assert.typeOf(getQuote.updatedAt, 'string');
+    // autoValues are added only on the server 
+    if (Meteor.isServer) {
+      assert.typeOf(getQuote.updatedAt, 'string');
+    }
   });
 
   it('remove a quote from the Quotes collection', () => {

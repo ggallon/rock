@@ -25,6 +25,9 @@ describe('API Quotes collection', function () {
     assert.equal(quote.title, 'Title');
     assert.equal(quote.body, 'Contenu');
     assert.typeOf(quote.ownerId, 'string');
-    assert.typeOf(quote.createdAt, 'string');
+    // autoValues are added only on the server 
+    if (Meteor.isServer) {
+      assert.typeOf(quote.createdAt, 'string');
+    }
   });
 });
