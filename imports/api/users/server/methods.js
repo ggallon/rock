@@ -60,8 +60,8 @@ export const updateUser = new ValidatedMethod({
 
 rateLimit({
   methods: [
-    insertUser,
-    updateUser,
+    'users.insert',
+    'users.update',
   ],
   limit: 5,
   timeRange: 1000,
