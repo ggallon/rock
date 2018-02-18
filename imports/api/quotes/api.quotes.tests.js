@@ -9,23 +9,23 @@ import { Factory } from 'meteor/dburles:factory';
 import Quotes from './quotes';
 import { insertQuote, updateQuote, removeQuote } from './methods';
 
-if (Meteor.isServer) {
-  describe('API Quotes', function () {
-    before(function () {
-      Factory.define('quote', Quotes, {
-        title: () => 'Title',
-        body: () => 'Contenu',
-      });
+describe('API Quotes', function () {
+  before(function () {
+    Factory.define('quote', Quotes, {
+      title: () => 'Title',
+      body: () => 'Contenu',
     });
-    beforeEach(function () {
-      resetDatabase();
+  });
+  beforeEach(function () {
+    resetDatabase();
+  });
+
+  describe('Collection', function () {
+    it('registers the collection with Mongo properly', function () {
+      assert.equal(typeof Quotes, 'object');
     });
 
-    describe('Collection', function () {
-      it('registers the collection with Mongo properly', function () {
-        assert.equal(typeof Quotes, 'object');
-      });
-
+    if (Meteor.isServer) {
       it('builds correctly from factory', function () {
         const quote = Factory.create('quote', {
           ownerId: Random.id()
@@ -37,8 +37,10 @@ if (Meteor.isServer) {
         assert.typeOf(quote.ownerId, 'string');
         assert.typeOf(quote.createdAt, 'string');
       });
-    });
+    }
+  });
 
+  if (Meteor.isServer) {
     describe('Methods', function () {
       it('Insert, Update and Remove only works if you are logged in', function () {
         // Set up method context and arguments
@@ -137,5 +139,6 @@ if (Meteor.isServer) {
         assert.equal(getQuote, undefined);
       });
     });
-  });
-}
+  }
+});
+
