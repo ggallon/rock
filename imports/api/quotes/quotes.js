@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Factory } from 'meteor/dburles:factory';
 import '../../lib/simple_schema_message_box_fr';
 
 const Quotes = new Mongo.Collection('Quotes');
@@ -81,9 +80,4 @@ Meteor.startup(() => {
     Quotes._ensureIndex({ createdAt: -1 });
     Quotes._ensureIndex({ updatedAt: -1 });
   }
-});
-
-Factory.define('quote', Quotes, {
-  title: () => 'Title',
-  body: () => 'Contenu',
 });
