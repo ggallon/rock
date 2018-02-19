@@ -37,8 +37,8 @@ react-meteor-data@0.2.12       # React higher-order component for reactively tra
 fourseven:scss@4.5.4           # Style with attitude. Sass and SCSS support for Meteor.js
 
 # Development tools
-meteortesting:mocha@0.5.0      # Run Meteor package or app tests with Mocha
-dburles:factory@1.1.0          # Factories for Meteor
-xolvio:cleaner@0.3.1           # Runs arbitrary code on server
-xolvio:backdoor@0.2.1          # Gives you methods to clear your Mongo database and collections for testing purposes
-
+meteortesting:mocha@0.5.0              # Run Meteor package or app tests with Mocha
+johanbrook:publication-collector@1.1.0 # Test a Meteor publication by collecting its output.
+dburles:factory@1.1.0                  # Factories for Meteor
+xolvio:cleaner@0.3.1                   # Runs arbitrary code on server
+xolvio:backdoor@0.2.1                  # Gives you methods to clear your Mongo database and collections for testing purposes
