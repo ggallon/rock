@@ -12,12 +12,17 @@ import { insertQuote, updateQuote, removeQuote } from '../methods';
 import './publications';
 
 describe('API Quotes', function () {
+  let context;
+
   before(function () {
+    context = { userId: Random.id() };
+
     Factory.define('quote', Quotes, {
       title: () => 'Title',
       body: () => 'Contenu',
     });
   });
+
   beforeEach(function () {
     resetDatabase();
   });
@@ -39,61 +44,94 @@ describe('API Quotes', function () {
       assert.typeOf(quote.createdAt, 'string');
     });
   });
+  
+  describe('Publication', function () {
+    beforeEach(function () {
+      Factory.create('quote', { ownerId: Random.id() });
+      Factory.create('quote', { ownerId: Random.id() });
+      Factory.create('quote', { ownerId: Random.id() });
+    });
+
+    it('should pass the correct context to the publication', function(done) {
+      // Insert quote before
+      const quote = Factory.create('quote', {
+        ownerId: Random.id()
+      })
+
+      const collectorList = new PublicationCollector(context);
+      const collectortView = new PublicationCollector(context);
+
+      collectorList.collect('quotes.list', collections => {
+        try {
+          assert.ok(collections.Quotes);
+          assert.typeOf(collections.Quotes, 'array');
+          assert.equal(collections.Quotes.length, 4, 'collects 4 Quotes');
+        } catch (err) {
+          done(err);
+        }
+      });
+
+      collectortView.collect('quotes.view', quote._id, collections => {
+        try {
+          assert.ok(collections.Quotes);
+          assert.typeOf(collections.Quotes, 'array');
+          assert.equal(collections.Quotes.length, 1, 'collects 1 Quote');
+          done();
+        } catch (err) {
+          done(err);
+        }
+      });
+    });
+  });
 
   describe('Methods', function () {
-    it('Insert, Update and Remove only works if you are logged in', function () {
-      // Set up method context and arguments
-      const context = { };
-      const insertArgs = Factory.tree('quote');
-      const updateAgrs = Factory.build('quote', {
-        ownerId: Random.id(),
-        createdAt: (new Date()).toISOString(),
-      });
-      const removeArgs = { _id: updateAgrs._id };
+    let newTreeQuote;
+    let newInsertQuote;
 
+    before(function () {
+      newTreeQuote = Factory.tree('quote')
+    });
+
+    beforeEach(function () {
+      newInsertQuote = Factory.create('quote', {
+        ownerId: Random.id()
+      });
+    });
+
+    it('Insert, Update and Remove only works if you are logged in', function () {
       assert.throws(function () {
-        insertQuote._execute(context, insertArgs);
+        insertQuote._execute({}, newTreeQuote);
       }, Meteor.Error, /quotes.insert.notLoggedIn/);
 
       assert.throws(function () {
-        updateQuote._execute(context, updateAgrs);
+        updateQuote._execute({}, newInsertQuote);
       }, Meteor.Error, /quotes.update.notLoggedIn/);
       
        assert.throws(function () {
-        removeQuote._execute(context, removeArgs);
+        removeQuote._execute({}, { _id: newInsertQuote._id });
       }, Meteor.Error, /quotes.remove.notLoggedIn/);
     });
 
     it('Update and Remove only works if you are logged in and the owner', function () {
-      // Insert quote before
-      const quote = Factory.create('quote', {
-        ownerId: Random.id()
-      });
-      // Set up method context and arguments
-      const context = { userId: Random.id() };
+      // Set up method arguments
       const updateAgrs = Factory.build('quote', {
-        _id: quote._id,
+        _id: newInsertQuote._id,
         title: 'Title update',
         ownerId: Random.id(),
-        createdAt: quote.createdAt,
+        createdAt: newInsertQuote.createdAt,
       });
-      const removeArgs = { _id: quote._id };
 
       assert.throws(function () {
         updateQuote._execute(context, updateAgrs);
       }, Meteor.Error, /quotes.update.accessDenied/);
       
        assert.throws(function () {
-        removeQuote._execute(context, removeArgs);
+        removeQuote._execute(context, { _id: newInsertQuote._id });
       }, Meteor.Error, /quotes.remove.accessDenied/);
     });
 
     it('insert a quote', function () {
-      // Set up method context and arguments
-      const context = { userId: Random.id() };
-      const args = Factory.tree('quote');
-
-      const quoteId = insertQuote._execute(context, args);
+      const quoteId = insertQuote._execute(context, newTreeQuote);
       const getQuote = Quotes.findOne(quoteId);
       
       assert.equal(getQuote.title, 'Title');
@@ -108,15 +146,15 @@ describe('API Quotes', function () {
         ownerId: Random.id()
       });
       // Set up method context and arguments
-      const context = { userId: quote.ownerId };
+      const contextUpdate = { userId: newInsertQuote.ownerId };
       const args = Factory.build('quote', {
-        _id: quote._id,
+        _id: newInsertQuote._id,
         title: 'Title update',
-        ownerId: quote.ownerId,
-        createdAt: quote.createdAt
+        ownerId: newInsertQuote.ownerId,
+        createdAt: newInsertQuote.createdAt
       });
 
-      const resultId = updateQuote._execute(context, args);
+      const resultId = updateQuote._execute(contextUpdate, args);
       const getQuote = Quotes.findOne(resultId);
       
       assert.equal(getQuote.title, 'Title update');
@@ -129,10 +167,10 @@ describe('API Quotes', function () {
         ownerId: Random.id()
       });
       // Set up method context and arguments
-      const context = { userId: quote.ownerId };
+      const contextRemove = { userId: quote.ownerId };
       const args = { _id: quote._id };
 
-      const result = removeQuote._execute(context, args);
+      const result = removeQuote._execute(contextRemove, args);
       const getQuote = Quotes.findOne(quote._id);
 
       assert.equal(getQuote, undefined);
