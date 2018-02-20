@@ -25,7 +25,7 @@ describe('API Quotes', function () {
 
   const createQuote = (props = {}) => {
     return Factory.create('quote', props);
-   };
+  };
 
   beforeEach(function () {
     resetDatabase();
@@ -113,20 +113,19 @@ describe('API Quotes', function () {
     it('update and remove only works if you are logged in and the owner', function () {
       // Set up method context and arguments
       const contextDiffUser = { userId: Random.id() };
-      const updateAgrs = Factory.build('quote', {
+      const args = Factory.build('quote', {
         _id: newInsertQuote._id,
         title: 'Title update',
         ownerId: userIdGlobal,
         createdAt: newInsertQuote.createdAt,
       });
-      const removeAgrs = { _id: newInsertQuote._id };
 
       assert.throws(function () {
-        updateQuote._execute(contextDiffUser, updateAgrs);
+        updateQuote._execute(contextDiffUser, args);
       }, Meteor.Error, /quotes.update.accessDenied/);
       
        assert.throws(function () {
-        removeQuote._execute(contextDiffUser, removeAgrs);
+        removeQuote._execute(contextDiffUser, { _id: args._id });
       }, Meteor.Error, /quotes.remove.accessDenied/);
     });
 
