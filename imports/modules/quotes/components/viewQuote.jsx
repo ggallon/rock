@@ -5,6 +5,7 @@ import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Button from 'react-bootstrap/lib/Button';
+import swal from 'sweetalert';
 import Quotes from '../../../api/quotes/quotes';
 import container from '../../../lib/container';
 import { timeago, dayMonthYearAtTime } from '../../../lib/dates';
@@ -21,15 +22,30 @@ class ViewQuote extends Component {
   }
 
   handleRemove(_id, history) {
-    if (confirm('Êtes-vous sûr ? Ceci est définitif !')) {
-      Meteor.call('quotes.remove', { _id }, (error) => {
-        if (error) {
-          this.setState({ handleRemoveError: error.reason });
-        } else {
-          history.push('/quotes');
-        }
-      });
-    }
+    swal({
+      title: "Delete important stuff?",
+      text: "That doesn't seem like a good idea. Are you sure you want to do that?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: 'Yes delete it!',
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+    }).then((willDelete) => {
+      if (willDelete) {
+        Meteor.call('quotes.remove', { _id }, (error) => {
+          if (error) {
+            this.setState({ handleRemoveError: error.reason });
+          } else {
+            swal("Poof! Your imaginary file has been deleted!", {
+              icon: "success",
+              buttons: false,
+              timer: 3000,
+            });
+            history.push('/quotes');
+          }
+        });
+      }
+    });
   }
 
   render() {
