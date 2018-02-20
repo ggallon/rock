@@ -98,7 +98,7 @@ describe('API Quotes', function () {
       });
     });
 
-    it('Insert, Update and Remove only works if you are logged in', function () {
+    it('insert, update and remove only works if you are logged in', function () {
       assert.throws(function () {
         insertQuote._execute({}, newTreeQuote);
       }, Meteor.Error, /quotes.insert.notLoggedIn/);
@@ -112,7 +112,7 @@ describe('API Quotes', function () {
       }, Meteor.Error, /quotes.remove.notLoggedIn/);
     });
 
-    it('Update and Remove only works if you are logged in and the owner', function () {
+    it('update and remove only works if you are logged in and the owner', function () {
       // Set up method arguments
       const updateAgrs = Factory.build('quote', {
         _id: newInsertQuote._id,
