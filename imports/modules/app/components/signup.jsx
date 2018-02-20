@@ -12,6 +12,8 @@ import ErrorsField from 'uniforms-bootstrap3/ErrorsField';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import UserSchema from '../../../api/users/userSchema';
 
+const SignupSchema = UserSchema.omit('_id');
+
 class Signup extends Component {
   constructor() {
     super();
@@ -63,7 +65,7 @@ class Signup extends Component {
               onSubmitSuccess={this.onSubmitSuccess}
               onSubmit={this.onSubmit}
               placeholder
-              schema={UserSchema}
+              schema={SignupSchema}
             >
               <Row>
                 <Col xs={12} sm={6} md={6} lg={6}>
