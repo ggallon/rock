@@ -5,7 +5,6 @@ import { Meteor } from 'meteor/meteor';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
 import Quotes from '../../../api/quotes/quotes';
-//import QuoteSchema from '../lib/quoteSchema';
 
 const QuoteSchema = Quotes.schema.pick('title', 'body');
 
