@@ -47,7 +47,12 @@ class ViewUser extends Component {
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
                 <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(user._id, history)} className="text-danger">Supprimer</Button>
+                <Button
+                  onClick={() => this.handleRemove(user._id, history)}
+                  className="text-danger"
+                >
+                  Supprimer
+                </Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>

@@ -10,8 +10,10 @@ export const insertUser = new ValidatedMethod({
   validate: userSchema.pick('givenName', 'familyName', 'identifiant', 'password').validator(),
   run(user) {
     if (!this.userId) {
-      throw new Meteor.Error('users.insert.notLoggedIn',
-        'Must be logged in to insert an user');
+      throw new Meteor.Error(
+        'users.insert.notLoggedIn',
+        'Must be logged in to insert an user',
+      );
     }
 
     const userData = {
@@ -29,16 +31,20 @@ export const insertUser = new ValidatedMethod({
 
 export const updateUser = new ValidatedMethod({
   name: 'users.update',
-  validate: userSchema.pick('_id','givenName', 'familyName', 'identifiant').validator(),
+  validate: userSchema.pick('_id', 'givenName', 'familyName', 'identifiant').validator(),
   run(user) {
     if (!this.userId) {
-      throw new Meteor.Error('users.update.notLoggedIn',
-        'Must be logged in to insert update an user');
+      throw new Meteor.Error(
+        'users.update.notLoggedIn',
+        'Must be logged in to insert update an user',
+      );
     }
 
     if (user._id !== this.userId) {
-      throw new Meteor.Error('users.update.accessDenied',
-        'You don\'t have permission to update this user.');
+      throw new Meteor.Error(
+        'users.update.accessDenied',
+        'You don\'t have permission to update this user.',
+      );
     }
 
     try {

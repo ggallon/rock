@@ -13,7 +13,9 @@ if (!Meteor.isProduction) {
     roles: ['super-admin'],
   }];
 
-  users.forEach(({ email, password, profile, roles }) => {
+  users.forEach(({
+    email, password, profile, roles,
+  }) => {
     const userExists = Meteor.users.findOne({ 'emails.address': email });
 
     if (!userExists) {

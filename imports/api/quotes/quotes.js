@@ -29,7 +29,7 @@ Quotes.schema = new SimpleSchema({
     uniforms: {
       type: 'text',
       placeholder: 'Titre',
-    }
+    },
   },
   body: {
     label: 'Contenu',
@@ -37,7 +37,7 @@ Quotes.schema = new SimpleSchema({
     uniforms: {
       type: 'text',
       placeholder: 'Contenu',
-    }
+    },
   },
   ownerId: {
     type: String,

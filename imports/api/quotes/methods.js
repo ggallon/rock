@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import SimpleSchema from 'simpl-schema';
 import rateLimit from '../../lib/rate-limit';
 import Quotes from './quotes';
 
@@ -9,8 +8,10 @@ export const insertQuote = new ValidatedMethod({
   validate: Quotes.schema.pick('title', 'body').validator(),
   run(quote) {
     if (!this.userId) {
-      throw new Meteor.Error('quotes.insert.notLoggedIn',
-        'Must be logged in to inser a quote');
+      throw new Meteor.Error(
+        'quotes.insert.notLoggedIn',
+        'Must be logged in to inser a quote',
+      );
     }
 
     return Quotes.insert({
@@ -25,13 +26,17 @@ export const updateQuote = new ValidatedMethod({
   validate: Quotes.schema.pick('_id', 'title', 'body', 'ownerId', 'createdAt', 'updatedAt').validator(),
   run(quote) {
     if (!this.userId) {
-      throw new Meteor.Error('quotes.update.notLoggedIn',
-        'Must be logged in to update a quote');
+      throw new Meteor.Error(
+        'quotes.update.notLoggedIn',
+        'Must be logged in to update a quote',
+      );
     }
 
     if (quote._id && quote.ownerId !== this.userId) {
-      throw new Meteor.Error('quotes.update.accessDenied',
-        'You don\'t have permission to update this quote.');
+      throw new Meteor.Error(
+        'quotes.update.accessDenied',
+        'You don\'t have permission to update this quote.',
+      );
     }
 
     try {
@@ -52,15 +57,19 @@ export const removeQuote = new ValidatedMethod({
   validate: Quotes.schema.pick('_id').validator(),
   run({ _id }) {
     if (!this.userId) {
-      throw new Meteor.Error('quotes.remove.notLoggedIn',
-        'Must be logged in to remove a quote.');
+      throw new Meteor.Error(
+        'quotes.remove.notLoggedIn',
+        'Must be logged in to remove a quote.',
+      );
     }
 
     const quote = Quotes.findOne(_id);
 
     if (quote.ownerId !== this.userId) {
-      throw new Meteor.Error('quotes.remove.accessDenied',
-        'You don\'t have permission to remove this quote.');
+      throw new Meteor.Error(
+        'quotes.remove.accessDenied',
+        'You don\'t have permission to remove this quote.',
+      );
     }
 
     try {

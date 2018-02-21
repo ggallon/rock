@@ -23,9 +23,8 @@ describe('API Quotes', function () {
     body: () => 'Contenu',
   });
 
-  const createQuote = (props = {}) => {
-    return Factory.create('quote', props);
-  };
+  const createQuote = (props = {}) =>
+    Factory.create('quote', props);
 
   beforeEach(function () {
     resetDatabase();
@@ -46,7 +45,7 @@ describe('API Quotes', function () {
       assert.typeOf(quote.createdAt, 'string');
     });
   });
-  
+
   describe('Publication', function () {
     beforeEach(function () {
       createQuote({ ownerId: Random.id() });
@@ -54,14 +53,14 @@ describe('API Quotes', function () {
       createQuote({ ownerId: Random.id() });
     });
 
-    it('should pass the correct context to the publication', function(done) {
+    it('should pass the correct context to the publication', function (done) {
       // Insert quote before
       const quote = createQuote({ ownerId: Random.id() });
 
       const collectorList = new PublicationCollector(context);
       const collectortView = new PublicationCollector(context);
 
-      collectorList.collect('quotes.list', collections => {
+      collectorList.collect('quotes.list', (collections) => {
         try {
           assert.ok(collections.Quotes);
           assert.typeOf(collections.Quotes, 'array');
@@ -71,7 +70,7 @@ describe('API Quotes', function () {
         }
       });
 
-      collectortView.collect('quotes.view', quote._id, collections => {
+      collectortView.collect('quotes.view', quote._id, (collections) => {
         try {
           assert.ok(collections.Quotes);
           assert.typeOf(collections.Quotes, 'array');
@@ -89,7 +88,7 @@ describe('API Quotes', function () {
     let newInsertQuote;
 
     before(function () {
-      newTreeQuote = Factory.tree('quote')
+      newTreeQuote = Factory.tree('quote');
     });
 
     beforeEach(function () {
@@ -104,8 +103,8 @@ describe('API Quotes', function () {
       assert.throws(function () {
         updateQuote._execute({}, newInsertQuote);
       }, Meteor.Error, /quotes.update.notLoggedIn/);
-      
-       assert.throws(function () {
+
+      assert.throws(function () {
         removeQuote._execute({}, { _id: newInsertQuote._id });
       }, Meteor.Error, /quotes.remove.notLoggedIn/);
     });
@@ -123,8 +122,8 @@ describe('API Quotes', function () {
       assert.throws(function () {
         updateQuote._execute(contextDiffUser, args);
       }, Meteor.Error, /quotes.update.accessDenied/);
-      
-       assert.throws(function () {
+
+      assert.throws(function () {
         removeQuote._execute(contextDiffUser, { _id: args._id });
       }, Meteor.Error, /quotes.remove.accessDenied/);
     });
@@ -135,7 +134,7 @@ describe('API Quotes', function () {
 
       const quoteId = insertQuote._execute(context, args);
       const getQuote = Quotes.findOne(quoteId);
-      
+
       assert.equal(getQuote.title, 'Title');
       assert.equal(getQuote.body, 'Contenu');
       assert.equal(getQuote.ownerId, userIdGlobal);
@@ -148,12 +147,12 @@ describe('API Quotes', function () {
         _id: newInsertQuote._id,
         title: 'Title update',
         ownerId: userIdGlobal,
-        createdAt: newInsertQuote.createdAt
+        createdAt: newInsertQuote.createdAt,
       });
 
       const resultId = updateQuote._execute(context, args);
       const getQuote = Quotes.findOne(resultId);
-      
+
       assert.equal(getQuote.title, 'Title update');
       assert.typeOf(getQuote.updatedAt, 'string');
     });
@@ -162,7 +161,7 @@ describe('API Quotes', function () {
       // Set up method arguments
       const args = { _id: newInsertQuote._id };
 
-      const result = removeQuote._execute(context, args);
+      removeQuote._execute(context, args);
       const getQuote = Quotes.findOne(newInsertQuote._id);
 
       assert.equal(getQuote, undefined);

@@ -22,7 +22,7 @@ describe('API Users', function () {
     });
 
     Factory.define('userWithPassword', Users, Factory.extend('user', {
-       password: 'password'
+      password: 'password',
     }));
   });
 
@@ -51,7 +51,7 @@ describe('API Users', function () {
     let userWithoutPassword;
 
     before(function () {
-      userWithPassword = Factory.tree('userWithPassword')
+      userWithPassword = Factory.tree('userWithPassword');
       userWithoutPassword = Factory.build('user');
     });
 
@@ -74,7 +74,7 @@ describe('API Users', function () {
     it('insert an user', function () {
       const userId = insertUser._execute(context, userWithPassword);
       const getUser = Meteor.users.findOne(userId);
-      
+
       assert.equal(getUser.emails[0].address, 'user@user.com');
       assert.equal(getUser.emails[0].verified, false);
       assert.equal(getUser.profile.givenName, 'Given name');
@@ -88,11 +88,11 @@ describe('API Users', function () {
 
       const userUpdate = Factory.build('user', {
         _id: userInsertId,
-        givenName: 'Given name update'
+        givenName: 'Given name update',
       });
 
-      const result = updateUser._execute({ userId: userInsertId }, userUpdate);
-      const getUserUpdated = Meteor.users.findOne(userInsertId);
+      const resultId = updateUser._execute({ userId: userInsertId }, userUpdate);
+      const getUserUpdated = Meteor.users.findOne(resultId);
 
       assert.equal(getUserUpdated.profile.givenName, 'Given name update');
     });

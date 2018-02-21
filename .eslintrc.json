@@ -24,7 +24,7 @@
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
-		"no-underscore-dangle": ["error", { "allow": ["_id", "_ensureIndex"] }]
+		"no-underscore-dangle": ["error", { "allow": ["_id", "_ensureIndex", "_execute"] }]
 	},
 	"settings": {
 		"import/resolver": "meteor"

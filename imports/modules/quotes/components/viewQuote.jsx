@@ -23,9 +23,9 @@ class ViewQuote extends Component {
 
   handleRemove(_id, history) {
     swal({
-      title: "Delete important stuff?",
-      text: "That doesn't seem like a good idea. Are you sure you want to do that?",
-      icon: "warning",
+      title: 'Delete important stuff?',
+      text: 'That doesn\'t seem like a good idea. Are you sure you want to do that?',
+      icon: 'warning',
       buttons: true,
       dangerMode: 'Yes delete it!',
       closeOnClickOutside: false,
@@ -36,8 +36,8 @@ class ViewQuote extends Component {
           if (error) {
             this.setState({ handleRemoveError: error.reason });
           } else {
-            swal("Poof! Your imaginary file has been deleted!", {
-              icon: "success",
+            swal('Poof! Your imaginary file has been deleted!', {
+              icon: 'success',
               buttons: false,
               timer: 3000,
             });
@@ -49,7 +49,9 @@ class ViewQuote extends Component {
   }
 
   render() {
-    const { quote, history, match, user } = this.props;
+    const {
+      quote, history, match, user,
+    } = this.props;
     const quoteOwnerIsUser = quote.ownerId !== user._id;
 
     return (
@@ -64,8 +66,19 @@ class ViewQuote extends Component {
             <h4 className="pull-left">{ quote.title }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
-                <Button onClick={() => history.push(`${match.url}/edit`)} disabled={quoteOwnerIsUser}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(quote._id, history)} disabled={quoteOwnerIsUser} className="text-danger">Supprimer</Button>
+                <Button
+                  onClick={() => history.push(`${match.url}/edit`)}
+                  disabled={quoteOwnerIsUser}
+                >
+                  Modifier
+                </Button>
+                <Button
+                  onClick={() => this.handleRemove(quote._id, history)}
+                  disabled={quoteOwnerIsUser}
+                  className="text-danger"
+                >
+                  Supprimer
+                </Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
