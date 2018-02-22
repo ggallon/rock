@@ -16,8 +16,12 @@ const EditQuote = ({ quote }) => (
   ) : <NotFound />
 );
 
+EditQuote.defaultProps = {
+  quote: null,
+};
+
 EditQuote.propTypes = {
-  quote: PropTypes.object.isRequired,
+  quote: PropTypes.object,
 };
 
 export default container(({ match }, onData) => {
