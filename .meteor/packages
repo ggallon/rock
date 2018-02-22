@@ -4,23 +4,23 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base@1.2.0              # Packages every Meteor app needs to have
+meteor-base@1.3.0              # Packages every Meteor app needs to have
 mobile-experience@1.0.5        # Packages for a great mobile UX
-mongo@1.3.1                    # The database Meteor supports right now
+mongo@1.4.2                    # The database Meteor supports right now
 static-html@1.2.2              # Define static page content in .html files
 reactive-var@1.0.11            # Reactive variable for tracker
 tracker@1.1.3                  # Meteor's client-side reactive programming library
-standard-minifier-css@1.3.5    # CSS minifier run for production mode
-standard-minifier-js@2.2.0     # JS minifier run for production mode
-es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers
-ecmascript@0.9.0               # Enable ECMAScript2015+ syntax in app code
-shell-server@0.3.0             # Server-side component of the `meteor shell` command
+standard-minifier-css@1.4.0    # CSS minifier run for production mode
+standard-minifier-js@2.3.1     # JS minifier run for production mode
+es5-shim@4.7.0                 # ECMAScript 5 compatibility for older browsers
+ecmascript@0.10.4              # Enable ECMAScript2015+ syntax in app code
+shell-server@0.3.1             # Server-side component of the `meteor shell` command
 session@1.1.7                  # Session variable
-dynamic-import@0.2.0           # Runtime support for Meteor 1.5 dynamic import(...) syntax
+dynamic-import@0.3.0           # Runtime support for Meteor 1.5 dynamic import(...) syntax
 
 # Security
-accounts-base@1.4.0            # A user account system
-accounts-google@1.3.0          # Login service for Google accounts
+accounts-base@1.4.2            # A user account system
+accounts-google@1.3.1          # Login service for Google accounts
 accounts-password@1.5.0        # Password support for accounts
 service-configuration@1.0.11   # Manage the configuration for third-party services
 alanning:roles@1.2.16          # Authorization package for Meteor
@@ -28,17 +28,17 @@ browser-policy@1.1.0           # Configure security policies enforced by the bro
 ddp-rate-limiter@1.0.7         # The DDPRateLimiter allows users to add rate limits to DDP methods and subscriptions
 
 # Data
-check@1.2.5                    # Check whether a value matches a pattern
+check@1.3.0                    # Check whether a value matches a pattern
 mdg:validated-method@1.1.0     # A simple wrapper for Meteor.methods
-aldeed:collection2-core@2.1.2  # Core package for aldeed:collection2
+aldeed:collection2@3.0.0       # Automatic validation of Meteor Mongo insert and update operations on the client and server
 react-meteor-data@0.2.12       # React higher-order component for reactively tracking Meteor data
 
 # UI
 fourseven:scss@4.5.4           # Style with attitude. Sass and SCSS support for Meteor.js
 
 # Development tools
-practicalmeteor:mocha@2.4.5_6  # Write package tests with mocha and run them in the browser or from the command line with spacejam
-dburles:factory@1.1.0          # Factories for Meteor
-xolvio:cleaner@0.3.1           # Runs arbitrary code on server
-xolvio:backdoor@0.2.1          # Gives you methods to clear your Mongo database and collections for testing purposes
-msavin:mongol                  # In-App MongoDB Editor.. now with improved third party package compatibility.
+meteortesting:mocha@0.5.0              # Run Meteor package or app tests with Mocha
+johanbrook:publication-collector@1.1.0 # Test a Meteor publication by collecting its output.
+dburles:factory@1.1.0                  # Factories for Meteor
+xolvio:cleaner@0.3.3                   # Gives you methods to clear your Mongo database and collections for testing purposes
+xolvio:backdoor@0.2.1                  # Runs arbitrary code on server

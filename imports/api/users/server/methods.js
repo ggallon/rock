@@ -3,19 +3,17 @@ import { Accounts } from 'meteor/accounts-base';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import SimpleSchema from 'simpl-schema';
 import rateLimit from '../../../lib/rate-limit';
+import userSchema from '../userSchema';
 
 export const insertUser = new ValidatedMethod({
   name: 'users.insert',
-  validate: new SimpleSchema({
-    givenName: { type: String },
-    familyName: { type: String },
-    identifiant: { type: String, regEx: SimpleSchema.RegEx.EmailWithTLD, optional: true },
-    password: { type: String },
-  }).validator(),
+  validate: userSchema.pick('givenName', 'familyName', 'identifiant', 'password').validator(),
   run(user) {
     if (!this.userId) {
-      throw new Meteor.Error('users.insert.notLoggedIn',
-        'Must be logged in to insert an user');
+      throw new Meteor.Error(
+        'users.insert.notLoggedIn',
+        'Must be logged in to insert an user',
+      );
     }
 
     const userData = {
@@ -33,16 +31,20 @@ export const insertUser = new ValidatedMethod({
 
 export const updateUser = new ValidatedMethod({
   name: 'users.update',
-  validate: new SimpleSchema({
-    _id: { type: String, regEx: SimpleSchema.RegEx.Id },
-    givenName: { type: String, optional: true },
-    familyName: { type: String, optional: true },
-    identifiant: { type: String, regEx: SimpleSchema.RegEx.EmailWithTLD, optional: true },
-  }).validator(),
+  validate: userSchema.pick('_id', 'givenName', 'familyName', 'identifiant').validator(),
   run(user) {
     if (!this.userId) {
-      throw new Meteor.Error('users.update.notLoggedIn',
-        'Must be logged in to insert update an user');
+      throw new Meteor.Error(
+        'users.update.notLoggedIn',
+        'Must be logged in to insert update an user',
+      );
+    }
+
+    if (user._id !== this.userId) {
+      throw new Meteor.Error(
+        'users.update.accessDenied',
+        'You don\'t have permission to update this user.',
+      );
     }
 
     try {
@@ -64,8 +66,8 @@ export const updateUser = new ValidatedMethod({
 
 rateLimit({
   methods: [
-    insertUser,
-    updateUser,
+    'users.insert',
+    'users.update',
   ],
   limit: 5,
   timeRange: 1000,

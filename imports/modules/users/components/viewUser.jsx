@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import Alert from 'react-bootstrap/lib/Alert';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
@@ -37,23 +37,28 @@ class ViewUser extends Component {
     return (
       user ? (
         <div className="ViewUser">
-          {this.state.handleRemoveError ? (
+          {this.state.handleRemoveError && (
             <Alert bsStyle="danger">
               {this.state.handleRemoveError}
             </Alert>
-          ) : ''}
+          )}
           <div className="page-header clearfix">
             <h4 className="pull-left">{ user && user.profile && getUserName(user.profile) }</h4>
             <ButtonToolbar className="pull-right">
               <ButtonGroup bsSize="small">
                 <Button onClick={() => history.push(`${match.url}/edit`)}>Modifier</Button>
-                <Button onClick={() => this.handleRemove(user._id, history)} className="text-danger">Supprimer</Button>
+                <Button
+                  onClick={() => this.handleRemove(user._id, history)}
+                  className="text-danger"
+                >
+                  Supprimer
+                </Button>
               </ButtonGroup>
             </ButtonToolbar>
           </div>
           <div>
             <p>{user._id}</p>
-            <p>{user.emails[0].address}</p>
+            <p>{user.emails && user.emails[0].address}</p>
           </div>
         </div>
       ) : <NotFound />
@@ -61,8 +66,12 @@ class ViewUser extends Component {
   }
 }
 
+ViewUser.defaultProps = {
+  user: null,
+};
+
 ViewUser.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 };

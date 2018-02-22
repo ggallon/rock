@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/lib/Row';
@@ -24,12 +24,12 @@ class Login extends Component {
   }
 
   componentWillUnmount() {
-    this.props.setAppState({ error: {} });
+    this.props.setAppState({ error: Object.create(null) });
   }
 
   onChange() {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, {
+      error: Object.assign(Object.create(null), this.props.error, {
         loginError: null,
         loginGoogleError: null,
       }),
@@ -44,7 +44,7 @@ class Login extends Component {
 
   onSubmitFailure(error) {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, { loginError: error }),
+      error: Object.assign(Object.create(null), this.props.error, { loginError: error }),
     });
   }
 
@@ -62,7 +62,7 @@ class Login extends Component {
 
   onSubmitGoogleFailure(error) {
     this.props.setAppState({
-      error: Object.assign({}, this.props.error, { loginGoogleError: error }),
+      error: Object.assign(Object.create(null), this.props.error, { loginGoogleError: error }),
     });
   }
 
@@ -91,9 +91,9 @@ class Login extends Component {
             >
               <i className="fa fa-google" aria-hidden="true" /> Se connecter avec Google
             </button>
-            {error && error.loginGoogleError
-              ? <Alert bsStyle="warning">{error.loginGoogleError.reason}</Alert>
-              : null}
+            {error.loginGoogleError && (
+              <Alert bsStyle="warning">{error.loginGoogleError.message}</Alert>
+            )}
             <div className="or-box">
               <span className="or">OU</span>
             </div>
@@ -117,7 +117,7 @@ class Login extends Component {
 }
 
 Login.defaultProps = {
-  error: {},
+  error: null,
 };
 
 Login.propTypes = {

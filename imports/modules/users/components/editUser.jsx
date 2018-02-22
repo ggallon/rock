@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import container from '../../../lib/container';
 import getUserName from '../../../lib/getUserName';
@@ -10,7 +10,9 @@ import UserEditor from './userEditor';
 const EditUser = ({ user }) => (
   user ? (
     <div className="EditUser">
-      <h4 className="page-header">Modifier &quot;{ user && user.profile && getUserName(user.profile) }&quot;</h4>
+      <h4 className="page-header">
+        Modifier &quot;{ user && user.profile && getUserName(user.profile) }&quot;
+      </h4>
       <UserEditor user={user} />
     </div>
   ) : <NotFound />

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AppState extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: {},
+      error: Object.create(null),
     };
     this.setAppState = this.setAppState.bind(this);
   }

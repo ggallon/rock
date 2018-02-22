@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-const externalServices = Meteor.settings.private.externalServices;
+const { externalServices } = Meteor.settings.private;
 
 if (externalServices) {
   Object.keys(externalServices).forEach((service) => {

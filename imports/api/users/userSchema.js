@@ -2,6 +2,10 @@ import SimpleSchema from 'simpl-schema';
 import '../../lib/simple_schema_message_box_fr';
 
 const userSchema = new SimpleSchema({
+  _id: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+  },
   givenName: {
     label: 'Prénom',
     type: String,

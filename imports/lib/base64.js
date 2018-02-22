@@ -190,9 +190,9 @@ const ENCODED_VALS_WEBSAFE = ENCODED_VALS_BASE + '-_.';
  */
 function init() {
   if (!byteToCharMap_) {
-    byteToCharMap_ = {};
-    charToByteMap_ = {};
-    byteToCharMapWebSafe_ = {};
+    byteToCharMap_ = Object.create(null);
+    charToByteMap_ = Object.create(null);
+    byteToCharMapWebSafe_ = Object.create(null);
 
     // We want quick mappings back and forth, so we precompute two maps.
     for (let i = 0; i < ENCODED_VALS.length; i++) {

@@ -71,7 +71,7 @@ class RecoverPassword extends Component {
                   submitField={CustomSubmitField}
                 />
               </div>
-            :
+              :
               <Alert bsStyle="success">
                 <h5><Glyphicon glyph="send" /> Un e-mail vient de vous être envoyé.</h5>
                 Vérifiez votre boîte de réception et cliquez sur le lien du mail

@@ -2,7 +2,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 Accounts.onCreateUser((options, user) => {
   const userDoc = user;
-  const additionals = { profile: {} };
+  const additionals = { profile: Object.create(null) };
 
   if (!user.emails) {
     userDoc.emails = [];
@@ -26,13 +26,13 @@ Accounts.onCreateUser((options, user) => {
       }
     }
     // clone before adding roles
-    const account = Object.assign({}, userDoc, additionals);
+    const account = Object.assign(Object.create(null), userDoc, additionals);
     return account;
   }
 
   userDoc.emails[0].verified = true;
-  additionals.profile = Object.assign({}, options && options.profile);
+  additionals.profile = Object.assign(Object.create(null), options && options.profile);
   // clone before adding roles
-  const account = Object.assign({}, userDoc, additionals);
+  const account = Object.assign(Object.create(null), userDoc, additionals);
   return account;
 });

@@ -5,6 +5,13 @@ import { _ } from 'meteor/underscore';
 global.Buffer = global.Buffer || require('buffer').Buffer;
 
 /**
+ * Extending the Schema Options
+ */
+SimpleSchema.extendOptions([
+  'uniforms',
+]);
+
+/**
  * French translation of the Default Messages of SimpeSchema
  */
 const regExpMessages = [
@@ -22,9 +29,7 @@ const regExpMessages = [
 ];
 
 SimpleSchema.setDefaultMessages({
-  initialLanguage: 'fr',
   messages: {
-    en: { passwordMismatch: 'Passwords do not match' },
     fr: {
       required: '{{label}} est requis',
       minString: '{{label}} doit contenir au minimun {{min}} caractère(s)',
@@ -41,7 +46,6 @@ SimpleSchema.setDefaultMessages({
       noDecimal: '{{label}} doit être un entier',
       notAllowed: '{{value}} n\'est pas une valeur acceptée',
       expectedType: '{{label}} doit être de type {{dataType}}',
-      passwordMismatch: 'Les mots de passe ne correspondents pas',
       regEx({
         label,
         regExp,
@@ -59,4 +63,21 @@ SimpleSchema.setDefaultMessages({
       keyNotInSchema: 'Le champ {{name}} n\'est pas permis par le schéma',
     },
   },
+});
+
+/**
+ * Extend messages
+ */
+SimpleSchema.setDefaultMessages({
+  messages: {
+    en: { passwordMismatch: 'Passwords do not match' },
+    fr: { passwordMismatch: 'Les mots de passe ne correspondents pas' },
+  },
+});
+
+/**
+ * Config initial language to French
+ */
+SimpleSchema.setDefaultMessages({
+  initialLanguage: 'fr',
 });

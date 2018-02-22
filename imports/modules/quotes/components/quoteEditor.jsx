@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AutoForm from 'uniforms-bootstrap3/AutoForm';
 import SubmitField from 'uniforms-bootstrap3/SubmitField';
-import QuoteSchema from '../lib/quoteSchema';
+import Quotes from '../../../api/quotes/quotes';
+
+const QuoteSchema = Quotes.schema.pick('title', 'body');
 
 class QuoteEditor extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class QuoteEditor extends Component {
 
     this.state = {
       quoteEditorError: null,
-      model: this.props.quote || {},
+      model: this.props.quote || Object.create(null),
     };
 
     this.onChange = this.onChange.bind(this);
@@ -32,7 +34,6 @@ class QuoteEditor extends Component {
   }
 
   onSubmit(formData) {
-    console.log(formData);
     const { quote } = this.props;
     const methodToCall = quote && quote._id ? 'quotes.update' : 'quotes.insert';
     return new Promise((resolve, reject) =>
