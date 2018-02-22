@@ -24,6 +24,10 @@ export const add = (timestamp, amount, range, timezone) => (
     moment(timestamp).tz(timezone).add(amount, range).format()
 );
 
+export const today = (timezone) => (
+  !timezone ? moment() : moment().tz(timezone)
+);
+
 export const year = (timestamp, timezone) => (
   !timezone ? moment(timestamp).format('YYYY') :
     moment(timestamp).tz(timezone).format('YYYY')
