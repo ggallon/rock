@@ -3614,7 +3614,7 @@ moment-timezone@0.5.14:
   dependencies:
     moment ">= 2.9.0"
 
-moment@2.20.1, moment@2.x.x, "moment@>= 2.9.0":
+moment@2.20.1, moment@2.x.x, "moment@>= 2.9.0", moment@>=1.6.0, moment@^2.13.0:
   version "2.20.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
 
@@ -4221,6 +4221,12 @@ react-loadable@5.3.1:
   dependencies:
     prop-types "^15.5.0"
 
+react-moment-proptypes@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-moment-proptypes/-/react-moment-proptypes-1.5.0.tgz#4a448cd6479efc5dd509283f361f3753c3abe60e"
+  dependencies:
+    moment ">=1.6.0"
+
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"
@@ -4278,6 +4284,15 @@ react-transition-group@^2.0.0, react-transition-group@^2.2.0:
     prop-types "^15.5.8"
     warning "^3.0.0"
 
+react-yearly-calendar@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-yearly-calendar/-/react-yearly-calendar-1.2.1.tgz#2341e5ed2187c1ddda9933d30da7cec99bfd4889"
+  dependencies:
+    moment "^2.13.0"
+    prop-types "^15.6.0"
+    react "^16.0.0"
+    react-moment-proptypes "^1.5.0"
+
 react@15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
@@ -4287,6 +4302,15 @@ react@15.6.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
+
+react@^16.0.0:
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
