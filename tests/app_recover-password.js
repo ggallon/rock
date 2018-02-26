@@ -5,7 +5,6 @@ import { createUser, removeUser } from './helpers.js'
 
 describe('APP - Recover password', () => {
   beforeEach(() => removeUser());
-  beforeEach(() => removeUser());
 
   it('go to recover password @watch', () => {
     browser.url('http://localhost:3000/recover-password')

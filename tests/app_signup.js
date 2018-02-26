@@ -5,7 +5,6 @@ import { removeUser } from './helpers.js'
 
 describe('APP - Sign Up', function () {
   beforeEach(() => removeUser());
-  beforeEach(() => removeUser());
 
   it('go to sign Up @watch', function () {
     browser.url('http://localhost:3000/signup')
