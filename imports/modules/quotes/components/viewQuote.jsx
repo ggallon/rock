@@ -52,7 +52,7 @@ class ViewQuote extends Component {
     const {
       quote, history, match, user,
     } = this.props;
-    const quoteOwnerIsUser = quote.ownerId !== user._id;
+    const quoteOwnerIsUser = quote && quote.ownerId !== user._id;
 
     return (
       quote ? (
@@ -93,8 +93,12 @@ class ViewQuote extends Component {
   }
 }
 
+ViewQuote.defaultProps = {
+  quote: null,
+};
+
 ViewQuote.propTypes = {
-  quote: PropTypes.object.isRequired,
+  quote: PropTypes.object,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,

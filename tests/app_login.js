@@ -5,7 +5,6 @@ import { createUser, removeUser } from './helpers.js'
 
 describe('APP - Log In', () => {
   beforeEach(() => removeUser());
-  beforeEach(() => removeUser());
 
   it('redirect to login @watch', () => {
     browser.url('http://localhost:3000')
