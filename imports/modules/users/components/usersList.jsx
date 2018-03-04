@@ -16,8 +16,9 @@ class UsersList extends Component {
   constructor(props) {
     super(props);
 
-    this.authorizeAccess = this.authorizeAccess.bind(this);
     this.checkIfCurrentUser = this.checkIfCurrentUser.bind(this);
+    this.handleChangeRole = this.handleChangeRole.bind(this);
+    this.authorizeAccess = this.authorizeAccess.bind(this);
   }
 
   componentWillMount() {
