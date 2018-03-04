@@ -15,6 +15,7 @@ bootstrapCSS.setAttribute('crossorigin', 'anonymous');
 const headFirstChild = document.querySelector('head').firstChild;
 document.querySelector('head').insertBefore(bootstrapCSS, headFirstChild);
 
+/** Startup the application by rendering the App layout component. */
 Meteor.startup(() => {
   render(
     <AppState>

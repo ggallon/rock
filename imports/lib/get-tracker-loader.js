@@ -7,8 +7,7 @@ const getTrackerLoader = reactiveMapper => (
     const handler = Tracker.nonreactive(() =>
       Tracker.autorun(() => {
         trackerCleanup = reactiveMapper(props, onData, env);
-      })
-    );
+      }));
 
     return () => {
       if (typeof trackerCleanup === 'function') trackerCleanup();
