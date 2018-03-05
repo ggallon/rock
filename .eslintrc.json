@@ -21,7 +21,14 @@
     "plugin:react/recommended"
   ],
   "settings": {
-    "import/resolver": "meteor"
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
   },
   "rules": {
     "indent": ["error", 2],

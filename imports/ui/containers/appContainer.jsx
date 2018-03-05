@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import getUserName from '../../lib/getUserName';
-import App from '../layouts/app.jsx';
+import App from '../layouts/app';
 
 export default withTracker(() => {
   const loggingIn = Meteor.loggingIn();

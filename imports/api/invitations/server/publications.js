@@ -10,7 +10,6 @@ Meteor.publish('invitations.list', function invitationsListPublish() {
   return Invitations.find();
 });
 
-
 Meteor.publish('invitations.accept', function invitationsAcceptPublish(invitationId) {
   check(invitationId, String);
   return Invitations.find(invitationId);

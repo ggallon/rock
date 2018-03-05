@@ -63,6 +63,13 @@ class QuoteEditor extends Component {
         schema={QuoteSchema}
         placeholder
         error={this.state.quoteEditorError}
+        modelTransform={(mode, model) => {
+          if (mode === 'submit') {
+            const { _id, title, body, ownerId } = model;
+            return Object.assign({}, { _id, title, body, ownerId });
+          }
+          return model;
+        }}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
         onSubmitFailure={this.onSubmitFailure}
