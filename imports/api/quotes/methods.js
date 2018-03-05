@@ -23,7 +23,7 @@ export const insertQuote = new ValidatedMethod({
 
 export const updateQuote = new ValidatedMethod({
   name: 'quotes.update',
-  validate: Quotes.schema.pick('_id', 'title', 'body', 'ownerId', 'createdAt', 'updatedAt').validator(),
+  validate: Quotes.schema.pick('_id', 'title', 'body', 'ownerId').validator(),
   run(quote) {
     if (!this.userId) {
       throw new Meteor.Error(
@@ -40,11 +40,9 @@ export const updateQuote = new ValidatedMethod({
     }
 
     try {
-      const quoteId = quote._id;
-      delete quote._id;
-      delete quote.ownerId;
-      delete quote.createdAt;
-      Quotes.update({ _id: quoteId }, { $set: quote });
+      const { _id, title, body } = quote;
+      const quoteId = _id;
+      Quotes.update({ _id: quoteId }, { $set: { title, body } });
       return quoteId; // Return _id so we can redirect to quote after update.
     } catch (exception) {
       throw new Meteor.Error('500', exception);
