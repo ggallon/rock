@@ -86,6 +86,7 @@ describe('API Quotes', function () {
   describe('Methods', function () {
     let newTreeQuote;
     let newInsertQuote;
+    let newUpdateQuote;
 
     before(function () {
       newTreeQuote = Factory.tree('quote');
@@ -93,6 +94,8 @@ describe('API Quotes', function () {
 
     beforeEach(function () {
       newInsertQuote = createQuote({ ownerId: userIdGlobal });
+      newUpdateQuote = { ...newInsertQuote };
+      delete newUpdateQuote.createdAt;
     });
 
     it('insert, update and remove only works if you are logged in', function () {
@@ -101,7 +104,7 @@ describe('API Quotes', function () {
       }, Meteor.Error, /quotes.insert.notLoggedIn/);
 
       assert.throws(function () {
-        updateQuote._execute({}, newInsertQuote);
+        updateQuote._execute({}, { ...newUpdateQuote });
       }, Meteor.Error, /quotes.update.notLoggedIn/);
 
       assert.throws(function () {
@@ -116,7 +119,6 @@ describe('API Quotes', function () {
         _id: newInsertQuote._id,
         title: 'Title update',
         ownerId: userIdGlobal,
-        createdAt: newInsertQuote.createdAt,
       });
 
       assert.throws(function () {
@@ -147,7 +149,6 @@ describe('API Quotes', function () {
         _id: newInsertQuote._id,
         title: 'Title update',
         ownerId: userIdGlobal,
-        createdAt: newInsertQuote.createdAt,
       });
 
       const resultId = updateQuote._execute(context, args);
