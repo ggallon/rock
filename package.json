@@ -20,13 +20,13 @@
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.40",
+    "@babel/runtime": "7.0.0-beta.42",
     "@ggallon/react-komposer": "2.0.6",
     "bcrypt": "1.0.3",
-    "meteor-node-stubs": "0.3.2",
-    "moment": "2.20.1",
+    "meteor-node-stubs": "0.3.3",
+    "moment": "2.21.0",
     "moment-timezone": "0.5.14",
-    "prop-types": "15.6.0",
+    "prop-types": "15.6.1",
     "react": "15.6.2",
     "react-bootstrap": "0.32.1",
     "react-dom": "15.6.2",
