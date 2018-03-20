@@ -8,7 +8,7 @@
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "visualizer": "meteor --settings settings-development.json --extra-packages bundle-visualizer --production",
-    "test": "TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package meteortesting:mocha --settings settings-development.json",
+    "test": "TEST_BROWSER_DRIVER=phantomjs meteor test --once --driver-package meteortesting:mocha --settings settings-development.json",
     "test-app": "TEST_BROWSER_DRIVER=nightmare meteor test --full-app --once --driver-package meteortesting:mocha --settings settings-development.json",
     "test-watch": "TEST_BROWSER_DRIVER=nightmare meteor test --driver-package meteortesting:mocha --settings settings-development.json",
     "test-app-watch": "TEST_BROWSER_DRIVER=nightmare meteor test --full-app --driver-package meteortesting:mocha --settings settings-development.json",
@@ -49,6 +49,6 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-meteor": "4.2.0",
     "eslint-plugin-react": "7.7.0",
-    "nightmare": "3.0.0"
+    "phantomjs-prebuilt": "^2.1.16"
   }
 }
