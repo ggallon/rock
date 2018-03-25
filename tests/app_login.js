@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* eslint-disable func-names, prefer-arrow-callback */
 
-import { createUser, removeUser } from './helpers.js'
+import { createUser, removeUser } from './helpers';
 
 describe('APP - Log In', () => {
   beforeEach(() => removeUser());
