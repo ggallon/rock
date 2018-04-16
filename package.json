@@ -35,8 +35,8 @@
     "react-router-dom": "4.2.2",
     "simpl-schema": "1.5.0",
     "sweetalert": "2.1.0",
-    "uniforms": "1.23.2",
-    "uniforms-bootstrap3": "1.23.2"
+    "uniforms": "1.24.1",
+    "uniforms-bootstrap3": "1.24.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.2",
