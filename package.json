@@ -24,7 +24,7 @@
     "@ggallon/react-komposer": "2.0.6",
     "bcrypt": "1.0.3",
     "meteor-node-stubs": "0.3.3",
-    "moment": "2.22.0",
+    "moment": "2.22.1",
     "moment-timezone": "0.5.14",
     "prop-types": "15.6.1",
     "react": "15.6.2",
