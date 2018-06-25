@@ -1,0 +1,159 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:call:20160705':
+    - chimp > hapi > call:
+        patched: '2018-06-25T06:18:03.856Z'
+  'npm:hawk:20160119':
+    - chimp > xolvio-ddp > request > hawk:
+        patched: '2018-06-25T06:18:03.856Z'
+  'npm:hoek:20180212':
+    - chimp > phantomjs-prebuilt > request > hawk > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > phantomjs-prebuilt > request > hawk > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > phantomjs-prebuilt > request > hawk > sntp > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > phantomjs-prebuilt > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > catbox-memory > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > accept > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > accept > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > ammo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > ammo > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > call > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > call > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > catbox > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > catbox > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > catbox > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > catbox > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > wreck > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > h2o2 > wreck > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > heavy > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > heavy > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > heavy > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > heavy > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > kilt > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > mimos > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > ammo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > ammo > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > inert > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > iron > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > iron > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > iron > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > shot > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > vision > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > vision > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > vision > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > vision > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > joi > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > joi > topo > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > iron > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > iron > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > statehood > iron > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > wreck > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > wreck > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > content > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > content > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > b64 > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > content > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > content > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > nigel > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > hapi > subtext > pez > nigel > vise > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > xolvio-ddp > request > hawk > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > xolvio-ddp > request > hawk > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > xolvio-ddp > request > hawk > sntp > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+    - chimp > xolvio-ddp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-25T06:18:03.856Z'
+  'npm:request:20160119':
+    - chimp > xolvio-ddp > request:
+        patched: '2018-06-25T06:18:03.856Z'
